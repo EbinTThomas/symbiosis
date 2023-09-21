@@ -215,7 +215,7 @@
                 <p class="desc">
                     Design Club is a digital agency specialized in ecommerce. We build scalable, high-end web shops.
                 </p>
-            </article>     
+            </article>
         </div>
         <h2 class="title">BLOGS</h2>
     </section>
@@ -226,43 +226,63 @@
                 <div class="footer-col">
                     <img src="assets/logo.png" alt="">
                     <ul>
-                        <li><a href="#">about us</a></li>
+                        <li style="color: #fff;">Trading caption</li>
                         <li><a href="#">our services</a></li>
-                        <li><a href="#">privacy policy</a></li>
-                        <li><a href="#">affiliate program</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>get help</h4>
+                    <h4>Pages</h4>
                     <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">shipping</a></li>
-                        <li><a href="#">returns</a></li>
-                        <li><a href="#">order status</a></li>
-                        <li><a href="#">payment options</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Order now</a></li>
+                        <li><a href="#">About me</a></li>
+                        <li><a href="#">Blogs</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>online shop</h4>
+                    <h4>Services</h4>
+                </div>
+                <div class="footer-col">
+                    <h4>Country/Region</h4>
                     <ul>
-                        <li><a href="#">watch</a></li>
-                        <li><a href="#">bag</a></li>
-                        <li><a href="#">shoes</a></li>
-                        <li><a href="#">dress</a></li>
+                        <li>
+                            <div class="dropdown-container">
+                                <div class="dropdown-content" id="myDropdown_1">
+                                    <a href="#">Option 1</a>
+                                    <a href="#">Option 2</a>
+                                    <a href="#">Option 3</a>
+                                </div>
+                                <button class="dropdown-button" onclick="toggleDropdown(1)">
+                                    International Version
+                                    <svg width="11" height="7" viewBox="0 0 11 7" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 1L5.5 6L1 1" stroke="#0D0D0D" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown-container">
+                                <button class="dropdown-button" onclick="toggleDropdown(2)">
+                                    English
+                                    <svg width="11" height="7" viewBox="0 0 11 7" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 1L5.5 6L1 1" stroke="#0D0D0D" />
+                                    </svg>
+                                </button>
+                                <div class="dropdown-content" id="myDropdown_2">
+                                    <a href="#">Option 1</a>
+                                    <a href="#">Option 2</a>
+                                    <a href="#">Option 3</a>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>follow us</h4>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
                 </div>
             </div>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 
 </html>

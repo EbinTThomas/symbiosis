@@ -389,7 +389,7 @@ body {
     background-color: #101113;
 }
 
-#section_blogs > .title {
+#section_blogs>.title {
     color: #A6A001;
     font-size: 28px;
     padding: 40px;
@@ -462,15 +462,19 @@ ul {
 }
 
 .footer-col h4 {
-    font-size: 18px;
+    font-size: 20px;
     color: #ffffff;
     text-transform: capitalize;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
     font-weight: 500;
     position: relative;
 }
 
-.footer-col h4::before {
+.footer-col img {
+    height: 60px;
+}
+
+/* .footer-col h4::before {
     content: '';
     position: absolute;
     left: 0;
@@ -479,13 +483,13 @@ ul {
     height: 2px;
     box-sizing: border-box;
     width: 50px;
-}
+} */
 
 .footer-col ul li:not(:last-child) {
     margin-bottom: 10px;
 }
 
-.footer-col ul li a {
+.footer-col ul li > a {
     font-size: 16px;
     text-transform: capitalize;
     color: #ffffff;
@@ -496,27 +500,64 @@ ul {
     transition: all 0.3s ease;
 }
 
-.footer-col ul li a:hover {
+.footer-col ul li > a:hover {
     color: #ffffff;
     padding-left: 8px;
 }
 
-.footer-col .social-links a {
+.dropdown-container {
+    position: relative;
     display: inline-block;
-    height: 40px;
-    width: 40px;
-    background-color: rgba(255, 255, 255, 0.2);
-    margin: 0 10px 10px 0;
-    text-align: center;
-    line-height: 40px;
-    border-radius: 50%;
-    color: #ffffff;
-    transition: all 0.5s ease;
 }
 
-.footer-col .social-links a:hover {
-    color: #24262b;
-    background-color: #ffffff;
+.dropdown-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    border-bottom: 1px solid #3E3E3E;
+    padding: 8px 8px;
+    cursor: pointer;
+    background-color: transparent;
+    color: #fff;
+    font-size: 16px;
+    width: 250px;
+    text-align: start;
+    margin-bottom: 10px;
+}
+
+.dropdown-button svg path {
+    stroke: #fff;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute; 
+    top: -150px;
+    background-color: #222222;
+    border: 1px solid #2e2e2e;
+    z-index: 1;
+    width: 250px;
+    max-height: 150px;
+    overflow-y: auto;
+    border-radius: 8px;
+    padding: 10px 0;
+}
+
+.dropdown-content::-webkit-scrollbar {
+    display: none;
+}
+
+.dropdown-content a {
+    font-size: 14px;
+    display: block;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #bbbbbb;
+}
+
+.dropdown-content a:hover {
+    background-color: #262626;
 }
 
 /*responsive*/
