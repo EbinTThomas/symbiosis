@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from './components/Header'
 import SectionMain from './components/SectionMain'
 import SectionWelcome from './components/SectionWelcome'
 import SectionProducts from './components/SectionProducts'
@@ -8,6 +7,7 @@ import SectionReviews from './components/SectionReviews'
 import SectionBlogs from './components/SectionBlogs'
 import Footer from './components/Footer'
 import '../../static/styles/HomePage.css'
+import Header from '../Common/Header'
 
 function HomePage() {
   return (

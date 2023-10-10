@@ -2,6 +2,15 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import axios from '../../api/axios';
 import '../../static/styles/LoginPage.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Box from '@mui/material/Box';
+
+import IconButton from '@mui/material/IconButton';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import FormControl from '@mui/material/FormControl';
+import TextField from '@mui/material/TextField';
+import CustomCssTextField from '../Common/CustomCssTextField';
 
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[\x20-\x7E]{8,100}$/;
@@ -24,14 +33,15 @@ function LoginPage() {
   const [emailTouched, setEmailTouched] = useState(false);
 
   const [errMsg, setErrMsg] = useState('');
+  const [pageName, setPageName] = useState('signin');
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const isAuthenticated = localStorage.getItem('isAuthenticated');
-  console.log('hlo')
   useEffect(() => {
     if (isAuthenticated) {
       navigate(from, { replace: true });
     }
-    usernameRef.current.focus();
   }, [isAuthenticated]);
 
   const handleEmailBlur = (event) => {
@@ -83,19 +93,12 @@ function LoginPage() {
   }, [navigate]);
 
   // Event handler for "Sign Up" button click
-  const handleSignUpClick = () => {
-    const container = document.getElementById('container');
-    container.classList.add('right-panel-active');
-  };
-
-  // Event handler for "Sign In" button click
-  const handleSignInClick = () => {
-    const container = document.getElementById('container');
-    container.classList.remove('right-panel-active');
+  const handlePageChange = () => {
+    setPageName(pageName === 'signin' ? 'signup' : 'signin');
   };
 
   return (
-    <main className="container" id="container">
+    <main className="login_container" id="login_container">
       <button href="index.html" className="back_btn" onClick={handleCloseTab}>
         <svg
           viewBox="0 0 24 24"
@@ -108,107 +111,52 @@ function LoginPage() {
           />
         </svg>
       </button>
-      <div className="form-container sign-up-container">
-        <form action="#">
-          <h1>Register</h1>
-          <span>Enter your information to continue</span>
-          {errMsg ? (
-            <div className="alert alert-danger">{errMsg}</div>
-          ) : (
-            ''
-          )}
-          <input type="text" placeholder="Name" />
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
-          <button>Sign Up</button>
-        </form>
-      </div>
-      <div className="form-container sign-in-container">
-        <form action="#">
-          <h1>Sign in</h1>
-          <span>Enter your login details</span>
-          <input
-            type="email"
-            id="email"
-            ref={usernameRef}
-            autoComplete="off"
-            className="text-field"
-            onChange={(e) => setEmail(e.target.value)}
-            onBlur={(e) => handleEmailBlur(e)}
-            placeholder='Email'
-            required
-          />
-          <input
-            type={showPassword ? 'text' : 'password'}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="text-field"
-            onBlur={(e) => handlePasswordBlur(e)}
-            placeholder='Password'
-            required
-          />
-          <button
-            type="button"
-            className="password-toggle-button"
-            onClick={handleShowPassword}
-          >
-            {password.length !== 0 ? (
-              showPassword ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="icon"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c-7 0-11 8-11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
-                  <line x1="1" y1="1" x2="23" y2="23" />
-                </svg>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="icon"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                  <circle cx="12" cy="12" r="3" />
-                </svg>
-              )
+      <div className={`form_containers ${pageName}`}>
+        <div className={`form-container sign-up-container ${pageName}`}>
+          <form action="#">
+            <h1>Create New Account</h1>
+            <span>Enter your details to continue</span>
+            {errMsg ? (
+              <div className="alert alert-danger">{errMsg}</div>
             ) : (
               ''
             )}
-          </button>
-          <a href="#">Forgot your password?</a>
-          <button onClick={handleSubmit}>Sign In</button>
-        </form>
+            <div className="form_fields">
+              <CustomCssTextField label="Name" variant="outlined" type="text" className="form_field" />
+              <CustomCssTextField label="Email" variant="outlined" type="email" className="form_field" />
+              <CustomCssTextField label="Password" variant="outlined" type="password" className="form_field" />
+              <button className="submit_btn">Sign Up</button>
+            </div>
+          </form>
+        </div>
+        <div className={`form-container sign-in-container ${pageName}`}>
+          <form action="#">
+            <h1>Sign in</h1>
+            <span>Enter your login details</span>
+            <div className="form_fields">
+              <CustomCssTextField label="Email" variant="outlined" type="email" className="form_field" />
+              <CustomCssTextField label="Password" variant="outlined" type="password" className="form_field" />
+              <Link to="#" className="forgot_password">Forgot your password?</Link>
+              <button className="submit_btn" onClick={handleSubmit}>Sign In</button>
+            </div>
+          </form>
+        </div>
       </div>
-      <div className="overlay-container">
-        <div className="overlay">
+      <div className={`overlay-container ${pageName}`}>
+        <div className={`overlay ${pageName}`}>
           <div className="overlay-panel overlay-left">
-            <h1>Welcome Back!</h1>
-            <p>Sign in to continue your thing.</p>
-            <button className="ghost" id="signIn" onClick={handleSignInClick}>
-              Sign In
-            </button>
-          </div>
-          <div className="overlay-panel overlay-right">
-            <h1>Not registered Yet!</h1>
-            <p>Enter your details to join us</p>
-            <button className="ghost" id="signUp" onClick={handleSignUpClick}>
+            <button className="shift_btn" id="signIn" onClick={handlePageChange}>
               Sign Up
             </button>
+            <h1>Don't have account!</h1>
+            <p>Join here</p>
+          </div>
+          <div className="overlay-panel overlay-right">
+            <button className="shift_btn" id="signUp" onClick={handlePageChange}>
+              Sign In
+            </button>
+            <h1>Already have an account!</h1>
+            <p>Login here</p>
           </div>
         </div>
       </div>

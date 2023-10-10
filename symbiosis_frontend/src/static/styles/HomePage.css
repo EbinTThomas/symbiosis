@@ -1,115 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap');
-
-body {
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    background-color: #101113;
-}
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Syne', sans-serif;
-}
-
-
-#header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background-color: transparent;
-    transition: top 0.3s ease, background-color 0.3s ease;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 160px;
-    padding-right: 60px;
-    overflow-x: auto;
-}
-#header.scrolled {
-    background-color: #1e1e1e59;
-}
-
-#header .logo_thumbnail {
-    height: 60px;
-}
-
-#header nav {
-    display: flex;
-    gap: 40px;
-    align-items: center;
-    justify-content: center;
-}
-
-#header nav a {
-    color: #fff;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 6px;
-}
-
-#header nav a.active {
-    color: #A6A001;
-    text-decoration: none;
-}
-
-#header nav a svg path {
-    fill: #fff;
-}
-
-#header nav a.login {
-    font-weight: 600;
-}
-
-.a_highlighted {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    color: #fff;
-}
-
-.a_highlighted span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    font-weight: 500;
-    z-index: 2;
-    position: relative;
-    left: -24px;
-    z-index: 1;
-}
-
-.a_highlighted .back_light {
-    display: block;
-    width: 36px;
-    height: 36px;
-    min-width: 36px;
-    min-height: 36px;
-    border-radius: 18px;
-    background-color: #A6A001;
-}
-
-.a_highlighted svg path {
-    fill: #fff;
-}
-
 #section_main {
-    
-    height: 100vh;
-    padding: 0 200px;
+    padding: 0;
+    margin-top: 100px;
 }
 
 #section_main img {
     width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
 }
 
 .section_divider {
