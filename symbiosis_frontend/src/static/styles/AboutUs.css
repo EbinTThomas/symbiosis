@@ -1,0 +1,19 @@
+.section_about_us p {
+    color: #8C8C8C;
+    padding-bottom: 40px;
+}
+
+.section_about_us img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.section_about_us :where(h1, h2, h3, h4, h5, h6) {
+    color: #fff;
+    font-weight: 600;
+    padding-bottom: 32px;
+}
+
+.section_about_us a {
+    color: #F8EE3E;
+}

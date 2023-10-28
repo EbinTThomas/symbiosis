@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SectionProductDetail from './components/SectionProductDetail'
 import '../../static/styles/ProductDetail.css'
 import '../../static/styles/Layout.css'

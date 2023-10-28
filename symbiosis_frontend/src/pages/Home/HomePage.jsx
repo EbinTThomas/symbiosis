@@ -15,11 +15,13 @@ function HomePage() {
       <Header />
       <SectionMain />
       <div className="section_divider" />
-      <SectionWelcome />
-      <SectionProducts />
-      <SectionGallery />
-      <SectionReviews />
-      <SectionBlogs />
+      <section className="section_content">
+        <SectionWelcome />
+        <SectionProducts />
+        <SectionGallery />
+        <SectionReviews />
+        <SectionBlogs />
+      </section>
       <Footer />
     </>
   )

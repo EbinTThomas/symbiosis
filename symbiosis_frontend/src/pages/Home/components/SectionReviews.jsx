@@ -3,7 +3,7 @@ import React from 'react';
 function SectionReviews() {
     return (
         <section id="section_reviews">
-            <h2 className="title">Reviews</h2>
+            <h2 className="section_title">Reviews</h2>
             <div className="review_wrap">
                 <article className="review_card">
                     <div className="review_card_inset">

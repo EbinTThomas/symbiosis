@@ -1,0 +1,546 @@
+/* Stepper */
+.MuiStepLabel-label {
+    color: #8C8C8C;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+}
+
+.MuiStepLabel-label.Mui-completed {
+    color: #D9D9D9 !important;
+}
+
+.MuiStepLabel-label.Mui-active {
+    color: #D9D9D9 !important;
+    font-weight: 600;
+}
+
+.MuiStepLabel-iconContainer svg {
+    fill: #8C8C8C;
+}
+
+.MuiStepLabel-iconContainer.Mui-completed svg {
+    fill: #D9D9D9;
+
+}
+
+.MuiStepLabel-iconContainer.Mui-active svg {
+    fill: #D9D9D9;
+}
+
+.MuiStepLabel-iconContainer .MuiStepIcon-text {
+    fill: #000;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+}
+
+.MuiStepConnector-line {
+    border-color: #8C8C8C;
+}
+
+.Mui-active .MuiStepConnector-line {
+    border-color: #D9D9D9;
+}
+
+.Mui-completed .MuiStepConnector-line {
+    border-color: #D9D9D9;
+}
+
+/* Shopping Cart */
+.section_cart_container {
+    display: flex;
+    gap: 30px;
+}
+
+.cart_list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 500px;
+}
+
+.shopping_cart_item {
+    padding: 16px;
+    color: #D9D9D9;
+    background-color: #252526;
+    border-radius: 8px;
+    display: flex;
+    gap: 16px;
+    max-width: 600px;
+    width: 100%;
+}
+
+.shopping_cart_item .sc_item_thumb {
+    width: 120px;
+    height: 120px;
+    border-radius: 4px;
+}
+
+.shopping_cart_item .sc_item_details {
+    width: calc(100% - 120px);
+}
+
+.shopping_cart_item .sc_item_details .sc_item_title {
+    font-size: 16px;
+    color: #D9D9D9;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+}
+
+.shopping_cart_item .sc_item_details .sc_item_desc {
+    font-size: 12px;
+    color: #8C8C8C;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+}
+
+.shopping_cart_item .sc_item_details .sc_item_price {
+    font-size: 14px;
+    color: #D9D9D9;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    margin: 10px 0;
+}
+
+.shopping_cart_item .sc_item_details .sc_item_rm_btn {
+    font-size: 14px;
+    color: #F8EE3E;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    margin: 10px 0;
+    float: right;
+}
+
+.order_details_container {
+    width: calc(100% - 500px);
+    min-width: 500px;
+}
+
+.order_details_container .order_details_card {
+    background-color: #252526;
+    border-radius: 8px;
+    padding: 32px;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.order_details_container .order_details_title {
+    color: #D9D9D9;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.order_details_container .order_sum {
+    color: #D9D9D9;
+    font-size: 14px;
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+}
+
+.order_details_container .convenience_fee_label {
+    color: #D9D9D9;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.order_details_container .convenience_fee li {
+    padding-left: 12px;
+    color: #8C8C8C;
+    font-size: 14px;
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+}
+
+.order_details_container .order_total {
+    color: #D9D9D9;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+}
+
+.order_details_container .place_order_btn_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+}
+
+.order_details_container .place_order_btn_container .amount {
+    font-size: 18px;
+    color: #D9D9D9;
+    font-weight: 600;
+}
+
+.order_details_container .place_order_btn_container .btn_place_order {
+    font-size: 16px;
+    color: #1E1E1E;
+    font-weight: 600;
+    background-color: #fff;
+    font-family: 'Inter', sans-serif;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 4px;
+    display: flex;
+    gap: 18px;
+    text-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.order_details_container .place_order_btn_container .btn_place_order svg {
+    width: 28px;
+    height: 28px;
+}
+
+/* Delivery Address Form */
+.delivery_address_form_container {
+    width: 100%;
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+.delivery_address_form_container .back_btn {
+    min-width: 36px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0 20px 0;
+}
+
+.delivery_address_form_container .back_btn svg {
+    width: 36px;
+    height: 36px;
+}
+
+.delivery_address_form_container .back_btn svg path {
+    fill: #D9D9D9;
+}
+
+.delivery_address_form_container .overlay {
+    background-color: #0000002b;
+    width: calc(100% - 400px);
+}
+
+.delivery_address_form h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.delivery_address_form h2 p {
+    font-size: 14px;
+    color: #8C8C8C;
+    font-weight: 400;
+}
+
+.delivery_address_form h2 svg {
+    width: 40px;
+    height: 40px;
+}
+
+.delivery_address_form h2 svg path {
+    fill: #8C8C8C;
+}
+
+.delivery_address_form {
+    background-color: #252526;
+    color: #fff;
+    padding: 24px;
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    max-width: 500px;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.delivery_address_form :where(.contact_info, .address_info) {
+    display: flex;
+    flex-direction: column;
+}
+
+.delivery_address_form .address_info {
+    margin-top: 32px;
+}
+
+.delivery_address_form .address_type {
+    margin-top: 40px;
+}
+
+.delivery_address_form .address_type .address_field_title {
+    margin-bottom: 20px;
+}
+
+.delivery_address_form .address_type .radio_container {
+    display: block;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.delivery_address_form .address_type .radio_container label {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    margin-left: 10px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 400;
+}
+
+.delivery_address_form .address_type .radio_container input {
+    cursor: pointer;
+}
+
+.delivery_address_form .address_type .checkbox_container {
+    display: block;
+    padding-top: 14px;
+}
+
+.delivery_address_form .address_type .checkbox_container label {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    margin-left: 10px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 400;
+}
+
+.delivery_address_form .address_type .checkbox_container input {
+    cursor: pointer;
+}
+
+.delivery_address_form .address_field_title {
+    margin-top: 12px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.delivery_address_form label {
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    margin-top: 18px;
+    color: #8C8C8C;
+}
+
+.delivery_address_form input {
+    padding: 16px 12px;
+    background-color: transparent;
+    border: 1px solid #8c8c8c47;
+    border-radius: 4px;
+    outline: none;
+    color: #D9D9D9;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.delivery_address_form input[type=number]::-webkit-inner-spin-button,
+.delivery_address_form input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.delivery_address_form input:focus {
+    border: 1px solid #D9D9D9;
+    box-shadow: 0 0 2px #D9D9D9;
+}
+
+.delivery_address_form .button_container {
+    display: flex;
+    justify-content: stretch;
+    width: 100%;
+    height: auto;
+    gap: 8px;
+    padding: 30px 0 18px 0;
+}
+
+.delivery_address_form .button_container button {
+    flex: 1;
+    min-height: 50px;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.delivery_address_form .button_container .reset_btn {
+    border: 1px solid #8C8C8C;
+    background-color: transparent;
+    color: #8C8C8C;
+}
+
+.delivery_address_form .button_container .save_btn {
+    border: none;
+    background-color: #fff;
+    font-weight: 600;
+    color: #1E1E1E;
+}
+
+/* Delivery Address */
+.section_delivery_details {
+    display: flex;
+    gap: 32px;
+}
+
+.delivery_address_wrap {
+    background-color: #252526;
+    color: #D9D9D9;
+    font-family: 'Inter', sans-serif;
+    width: 500px;
+}
+
+.delivery_address_wrap .delivery_address_top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+}
+
+.delivery_address_wrap .delivery_address_top svg {
+    width: 40px;
+    height: 40px;
+}
+
+.delivery_address_wrap .delivery_address_top svg path {
+    fill: #8C8C8C;
+}
+
+.delivery_address_wrap .delivery_address_top .delivery_address_title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.delivery_address_wrap .delivery_address_top .delivery_address_title p {
+    font-size: 14px;
+    font-weight: 400;
+    color: #8C8C8C;
+}
+
+.delivery_address_wrap .delivery_address_content {
+    padding: 30px;
+    font-family: 'Inter', sans-serif;
+}
+
+.delivery_address_wrap .delivery_address_content .empty_class {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #8C8C8C;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.delivery_address_wrap .delivery_address_content .toggle_address_btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+    border: none;
+    color: #F8EE3E;
+    gap: 10px;
+    padding: 0;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.delivery_address_wrap .delivery_address_content .toggle_address_btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+.delivery_address_wrap .delivery_address_content .toggle_address_btn svg path {
+    fill: #F8EE3E;
+}
+
+.delivery_address_wrap .delivery_address_content .username {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.delivery_address_wrap .delivery_address_content .address {
+    font-weight: 400;
+    font-size: 14px;
+    margin: 10px 0;
+    margin-bottom: 24px;
+    color: #8C8C8C;
+}
+
+.back_btn {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin: 24px 0;
+}
+
+.back_btn svg path {
+    fill: #D9D9D9;
+}
+
+@media only screen and (max-width: 1080px) {
+    .section_cart_container {
+        flex-direction: column;
+        align-items: center;
+    }
+	.section_delivery_details {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .delivery_address_wrap {
+        min-width: 100%;
+        width: 100%;
+    }
+
+    .order_details_container {
+        min-width: 100%;
+    }
+    .MuiStepLabel-label {
+        display: none !important;
+    }
+
+    .cart_list {
+        min-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .order_details_container .amount {
+        display: none;
+    }
+
+    .order_details_container .btn_place_order {
+        width: 100%;
+    }
+
+    .delivery_address_form .button_container {
+        flex-direction: column;
+
+    }
+}

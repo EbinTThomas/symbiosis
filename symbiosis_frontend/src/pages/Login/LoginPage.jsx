@@ -15,7 +15,7 @@ import CustomCssTextField from '../Common/CustomCssTextField';
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[\x20-\x7E]{8,100}$/;
 
-const LOGIN_URL = '/users/api/login/';
+const LOGIN_URL = '/accounts/api/login/';
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -24,16 +24,16 @@ function LoginPage() {
 
   const usernameRef = useRef();
 
-  const [password, setPassword] = useState('');
+  const [loginPassword, setLoginPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [validPassword, setValidPassword] = useState(true);
 
-  const [email, setEmail] = useState('');
+  const [loginEmail, setLoginEmail] = useState('');
   const [validEmail, setValidEmail] = useState(true);
   const [emailTouched, setEmailTouched] = useState(false);
 
   const [errMsg, setErrMsg] = useState('');
-  const [pageName, setPageName] = useState('signin');
+  const [pageName, setPageName] = useState('signup');
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -62,8 +62,8 @@ function LoginPage() {
     e.preventDefault();
     try {
       const response = await axios.post(LOGIN_URL, {
-        email: email,
-        password: password,
+        email: loginEmail,
+        password: loginPassword,
       });
       const token = response?.data?.token;
       const role = response?.data?.user.user.role;
@@ -85,6 +85,7 @@ function LoginPage() {
       } else {
         setErrMsg('Login Failed');
       }
+      console.log(err.message)
     }
   };
 
@@ -134,8 +135,8 @@ function LoginPage() {
             <h1>Sign in</h1>
             <span>Enter your login details</span>
             <div className="form_fields">
-              <CustomCssTextField label="Email" variant="outlined" type="email" className="form_field" />
-              <CustomCssTextField label="Password" variant="outlined" type="password" className="form_field" />
+              <CustomCssTextField label="Email" variant="outlined" type="email" className="form_field" onChange={(e) => setLoginEmail(e.target.value)} />
+              <CustomCssTextField label="Password" variant="outlined" type="password" className="form_field" onChange={(e) => setLoginPassword(e.target.value)} />
               <Link to="#" className="forgot_password">Forgot your password?</Link>
               <button className="submit_btn" onClick={handleSubmit}>Sign In</button>
             </div>
