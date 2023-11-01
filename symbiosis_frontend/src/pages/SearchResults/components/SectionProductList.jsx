@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import axios from '../../../api/axios';
 import { Link } from 'react-router-dom';
+import axios from '../../../api/axios';
 
 function SectionProductList({ products }) {
   const token = localStorage.getItem('token');
@@ -59,6 +59,7 @@ function SectionProductList({ products }) {
       // Store the wishlisted products and their IDs in state
       setWishList(response.data.products);
       setWishListProductIds(response.data.products.map(product => product.id));
+      console.log(response.data);
     } catch (error) {
       console.log(error);
     }

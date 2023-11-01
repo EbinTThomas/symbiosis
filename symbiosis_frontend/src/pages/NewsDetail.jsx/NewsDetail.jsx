@@ -40,7 +40,8 @@ function NewsDetail() {
                         : <>
                             <h1 className="news_detail_title">{newsDetail.title}</h1>
                             <p className="news_timestamp">Published On: 27 Jan, 2023 | 03:56 PM</p>
-                            <ReactMarkdown>{newsDetail.text}</ReactMarkdown>
+                            <img src={newsDetail.get_thumbnail} alt="" />
+                            <ReactMarkdown>{newsDetail.content}</ReactMarkdown>
                         </>
                 }
             </section>

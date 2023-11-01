@@ -315,6 +315,16 @@ body {
     font-size: 14px;
     color: #D9D9D9;
     font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+#header .right_nav .search_bar_container .search_suggestions .search_suggestion .flex_pair span .brandname {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    color: #8c8c8c;
+    font-weight: 500;
 }
 
 #header nav a.open_cart_btn {
@@ -440,6 +450,20 @@ body {
     background-color: #1E1E1E;
     min-height: 100vh;
     overflow: hidden;
+}
+
+.section_content .center_text {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    justify-content: center;
+    align-items: center;
+}
+
+.section_content .center_text span {
+    color: #D9D9D9;
+    font-weight: 500;
+    font-size: 18px;
 }
 
 .section_content.loading {

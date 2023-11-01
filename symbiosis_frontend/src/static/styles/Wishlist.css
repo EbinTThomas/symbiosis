@@ -1,0 +1,128 @@
+.section_content.wishlist .center_text .shop_more_btn {
+    color: #d4d4d4;
+    font-weight: 500;
+    font-size: 14px;
+    border: 1px solid #414141;
+    border-radius: 4px;
+    padding: 12px;
+}
+
+.section_content.wishlist #section_product_list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    row-gap: 32px;
+}
+
+.section_content.wishlist #section_product_list .product_card {
+    border-radius: 0;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    display: block;
+    background-color: transparent;
+}
+
+.section_content.wishlist #section_product_list .product_card .product_thumbnail {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.section_content.wishlist #section_product_list .product_card .product_details {
+    padding: 12px 8px;
+}
+
+.section_content.wishlist #section_product_list .product_card .product_title {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    font-family: 'Syne', sans-serif;
+}
+
+.section_content.wishlist #section_product_list .product_card .product_desc {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: #898989;
+    font-size: 12px;
+    line-height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    height: 40px;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.section_content.wishlist #section_product_list .product_card .product_nav {
+    display: flex;
+    gap: 10px;
+    padding: 0;
+    justify-content: stretch;
+}
+
+.section_content.wishlist #section_product_list .product_card .product_nav .product_nav_btn {
+    padding: 10px;
+    color: #000;
+    background-color: #fff;
+    font-weight: 500;
+    border-radius: 4px;
+    display: block;
+    flex: 1;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.section_content.wishlist #section_product_list .product_card .product_nav .product_nav_btn_outline {
+    padding: 8px;
+    color: #d1d1d1;
+    border: 1px solid #5c5c5c;
+    background-color: transparent;
+    border-radius: 4px;
+    flex: 1;
+    display: block;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.section_content.wishlist #section_product_list .product_wrap .btn_class {
+    display: flex;
+    gap: 8px;
+}
+
+.section_content.wishlist #section_product_list .product_wrap .btn_class .rm_wishlist_btn {
+    padding: 4px 6px;
+    border-radius: 8px;
+    border: 1px solid #3f3f3f;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.section_content.wishlist #section_product_list .product_wrap .btn_class .rm_wishlist_btn svg path {
+    fill: #d4d4d4;
+}
+
+.section_content.wishlist #section_product_list .product_wrap .btn_class .add_to_cart_btn {
+    width: 100%;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background-color: #fff;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+}

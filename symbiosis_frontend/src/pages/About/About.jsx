@@ -10,13 +10,13 @@ function About() {
     const [isLoading, setIsLoading] = useState(true);
     const fetchAboutUs = async () => {
         try {
-            const response = await axios.get(`/api/about_us/`, {
+            const response = await axios.get(`/api/about/`, {
                 headers: {
                     'Content-Type': 'application/json',
-                    Authorization: `Token ${localStorage.getItem('token')}`,
                 },
             });
             setAboutUs(response.data);
+            console.log(response.data)
         } catch (error) {
             console.log(error);
         }
@@ -34,7 +34,7 @@ function About() {
                 {
                     isLoading
                         ? <CircularProgress color="warning" />
-                        : <ReactMarkdown>{aboutUs.text}</ReactMarkdown>
+                        : <ReactMarkdown>{aboutUs.content}</ReactMarkdown>
                 }
             </section>
         </>

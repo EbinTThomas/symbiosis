@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import axios from '../../api/axios';
 import '../../static/styles/LoginPage.css';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, resolvePath, useLocation, useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 
 import IconButton from '@mui/material/IconButton';
@@ -15,7 +15,7 @@ import CustomCssTextField from '../Common/CustomCssTextField';
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[\x20-\x7E]{8,100}$/;
 
-const LOGIN_URL = '/accounts/api/login/';
+const LOGIN_URL = '/api/account/login/';
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -66,14 +66,10 @@ function LoginPage() {
         password: loginPassword,
       });
       const token = response?.data?.token;
-      const role = response?.data?.user.user.role;
-      const userDetail = response?.data?.user;
       localStorage.setItem('token', token);
-      localStorage.setItem('role', role);
-      localStorage.setItem('userDetail', JSON.stringify(userDetail));
       localStorage.setItem('isAuthenticated', true);
-      setEmail('');
-      setPassword('');
+      setLoginEmail('');
+      setLoginPassword('');
       navigate(from, { replace: true });
     } catch (err) {
       if (!err?.response) {

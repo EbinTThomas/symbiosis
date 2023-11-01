@@ -1,41 +1,36 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ShoppingCartItem from './CartList/ShoppingCartItem';
 import OrderDetails from './OrderDetails';
+import axios from '../../../api/axios';
 
 function CartList({ handleNext, handleBack }) {
-    const [cartList, setCartList] = useState([
-        {
-            "id": 1,
-            "name": "Protein Powder",
-            "desc": "This is protein powder to boost your strength",
-            "price": 234,
-            "quantity": 1,
-        },
-        {
-            "id": 2,
-            "name": "Vitamin C Tablets",
-            "desc": "Boost your immune system with these vitamin C tablets",
-            "price": 176,
-            "quantity": 3,
-        },
-        {
-            "id": 3,
-            "name": "Running Shoes",
-            "desc": "High-quality running shoes for your daily workouts",
-            "price": 352,
-            "quantity": 5,
-        },
-        {
-            "id": 4,
-            "name": "Yoga Mat",
-            "desc": "A comfortable and non-slip yoga mat for your practice",
-            "price": 12,
-            "quantity": 10,
+    const token = localStorage.getItem('token');
+    const [isLoading, setIsLoading] = useState(true);
+
+    const [cartList, setCartList] = useState([]);
+
+    const fetchCartList = async () => {
+        try {
+            const response = await axios.get(`/api/shopping-carts/`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Token ${token}`,
+                },
+            });
+            setCartList(response.data);
         }
-    ]);
+        catch (error) {
+            console.log(error);
+        }
+
+    }
+
+    useEffect(()=>{
+        fetchCartList();
+    }, [])
 
     // Calculate the sum of prices and convenience fees
-    const totalCartPrice = cartList.reduce((total, item) => total + item.price * item.quantity, 0);
+    const totalCartPrice = cartList.reduce((total, item) => total + item.product.price * item.quantity, 0);
     const convenienceFee = 27 + 19; // Example values, adjust as needed
     const totalAmount = totalCartPrice + convenienceFee;
 

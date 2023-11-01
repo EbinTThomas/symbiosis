@@ -5,13 +5,13 @@ import Header from '../Common/Header'
 import { useParams } from 'react-router-dom'
 import axios from '../../api/axios'
 
-function ShopPage() {
+function SearchResults() {
     const { search_key } = useParams();
     const [products, setProducts] = useState([]);
 
     const fetchProducts = async () => {
         try {
-            const response = await axios.get(`/api/product/`, {
+            const response = await axios.get(`/api/product/search/?query=${search_key}`, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -24,12 +24,15 @@ function ShopPage() {
 
     useEffect(() => {
         fetchProducts();
-    }, [])
+    }, [search_key])
 
 return (
     <section className="section_content">
         <Header />
         <div className="tag_flex_box">
+            <div className="search_result_tag">
+                Search Results for<br /><span>"{search_key}"</span>
+            </div>
             <a href="" className="product_filter_btn">
                 Filter
                 <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -44,4 +47,4 @@ return (
 )
 }
 
-export default ShopPage
+export default SearchResults
