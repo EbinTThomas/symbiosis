@@ -16,6 +16,7 @@ const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[\x20-\x7E]{8,100}$/;
 
 const LOGIN_URL = '/api/account/login/';
+const SIGNUP_URL = '/api/account/register/';
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -37,31 +38,17 @@ function LoginPage() {
   const [validEmail, setValidEmail] = useState(true);
   const [emailTouched, setEmailTouched] = useState(false);
 
-  const [errMsg, setErrMsg] = useState('');
+  const [loginErrMsg, setLoginErrMsg] = useState('');
+  const [signupErrMsg, setSignupErrMsg] = useState('');
   const [pageName, setPageName] = useState('signup');
 
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
-
   const isAuthenticated = localStorage.getItem('isAuthenticated');
+
   useEffect(() => {
     if (isAuthenticated) {
       navigate(from, { replace: true });
     }
   }, [isAuthenticated]);
-
-  const handleEmailBlur = (event) => {
-    setEmailTouched(true);
-    setValidEmail(EMAIL_REGEX.test(email));
-  };
-
-  const handlePasswordBlur = (event) => {
-    setEmailTouched(true);
-    setValidPassword(PWD_REGEX.test(password));
-  };
-
-  const handleShowPassword = () => {
-    setShowPassword(!showPassword);
-  };
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -72,20 +59,21 @@ function LoginPage() {
         email: signupEmail,
         password: signupPassword,
       });
+      setSignupFirstName('');
+      setSignupLastName('');
       setSignupEmail('');
       setLoginPassword('');
-      navigate(from, { replace: true });
+      navigate('/verify_email', { replace: true });
     } catch (err) {
       if (!err?.response) {
-        setErrMsg('No server response');
+        setSignupErrMsg('No server response');
       } else if (err?.response?.status === 400) {
-        setErrMsg('Missing Username or Password');
+        setSignupErrMsg('Missing Username or Password');
       } else if (err?.response?.status === 401) {
-        setErrMsg('Invalid Username or Password');
+        setSignupErrMsg('Invalid Username or Password');
       } else {
-        setErrMsg('Login Failed');
+        setSignupErrMsg('Login Failed');
       }
-      console.log(err.message)
     }
   };
 
@@ -104,15 +92,14 @@ function LoginPage() {
       navigate(from, { replace: true });
     } catch (err) {
       if (!err?.response) {
-        setErrMsg('No server response');
+        setLoginErrMsg('No server response');
       } else if (err?.response?.status === 400) {
-        setErrMsg('Missing Username or Password');
+        setLoginErrMsg('Missing Username or Password');
       } else if (err?.response?.status === 401) {
-        setErrMsg('Invalid Username or Password');
+        setLoginErrMsg('Invalid Username or Password');
       } else {
-        setErrMsg('Login Failed');
+        setLoginErrMsg('Login Failed');
       }
-      console.log(err.message)
     }
   };
 
@@ -144,14 +131,14 @@ function LoginPage() {
           <form action="#">
             <h1>Create New Account</h1>
             <span>Enter your details to continue</span>
-            {errMsg ? (
-              <div className="alert alert-danger">{errMsg}</div>
+            {signupErrMsg ? (
+              <div className="alert alert-danger">{signupErrMsg}</div>
             ) : (
               ''
             )}
             <div className="form_fields">
-              <CustomCssTextField label="First Name" variant="outlined" type="text" className="form_field" onChange={(e) => setSigupFirstName(e.target.value)}/>
-              <CustomCssTextField label="Last Name" variant="outlined" type="text" className="form_field" onChange={(e) => setSigupLastName(e.target.value)}/>
+              <CustomCssTextField label="First Name" variant="outlined" type="text" className="form_field" onChange={(e) => setSigupFirstName(e.target.value)} />
+              <CustomCssTextField label="Last Name" variant="outlined" type="text" className="form_field" onChange={(e) => setSigupLastName(e.target.value)} />
               <CustomCssTextField label="Email" variant="outlined" type="email" className="form_field" onChange={(e) => setSigupEmail(e.target.value)} />
               <CustomCssTextField label="Password" variant="outlined" type="password" className="form_field" onChange={(e) => setSigupPassword(e.target.value)} />
               <button className="submit_btn" onClick={handleSignUp}>Sign Up</button>
@@ -162,6 +149,11 @@ function LoginPage() {
           <form action="#">
             <h1>Sign in</h1>
             <span>Enter your login details</span>
+            {loginErrMsg ? (
+              <div className="alert alert-danger">{loginErrMsg}</div>
+            ) : (
+              ''
+            )}
             <div className="form_fields">
               <CustomCssTextField label="Email" variant="outlined" type="email" className="form_field" onChange={(e) => setLoginEmail(e.target.value)} />
               <CustomCssTextField label="Password" variant="outlined" type="password" className="form_field" onChange={(e) => setLoginPassword(e.target.value)} />

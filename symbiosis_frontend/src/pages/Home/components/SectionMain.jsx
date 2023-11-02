@@ -3,7 +3,6 @@ import Carousel from 'react-material-ui-carousel';
 import { Link } from 'react-router-dom';
 
 function SectionMain({ slides }) {
-    console.log(slides)
     return (
         <>
             <section id="section_main">
