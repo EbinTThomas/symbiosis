@@ -41,6 +41,21 @@ function CartList({ handleNext, handleBack }) {
         });
     };
 
+    const removeCartItem = async(product) => {
+        try {
+          const response = await axios.delete(`/api/cart-products/${product.id}/`, {
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Token ${token}`,
+            }
+          });
+          // Remove the product from the wishList and update wishListProductIds
+          setCartList(cartList.filter((item) => item.product.id !== product.id));
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
     return (
         <>
             <button className="back_btn" onClick={handleBack}>
@@ -52,7 +67,7 @@ function CartList({ handleNext, handleBack }) {
                 <div className="cart_list">
                     {
                         cartList.map(cartItem => (
-                            <ShoppingCartItem cartItem={cartItem} key={cartItem.id} />
+                            <ShoppingCartItem cartItem={cartItem} removeCartItem={removeCartItem} key={cartItem.id} />
                         ))
                     }
                 </div>

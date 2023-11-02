@@ -44,8 +44,7 @@ function News() {
       const response = await axios.get('/api/news_list/', {
         params: { last_id: lastId }, // Pass last news ID as a query parameter
         headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Token ${localStorage.getItem('token')}`,
+          'Content-Type': 'application/json'
         },
       });
       console.log(response.data)

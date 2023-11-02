@@ -3,12 +3,13 @@
 #section_main {
     padding: 0;
     margin-top: 100px;
+    height: fit-content;
 }
 
 #section_main .image_carousel img {
     width: 100%;
     height: auto;
-    aspect-ratio: 16/9;
+    /* aspect-ratio: 16/9; */
     object-fit: cover;
 }
 

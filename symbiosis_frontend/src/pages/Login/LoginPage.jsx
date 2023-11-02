@@ -24,6 +24,11 @@ function LoginPage() {
 
   const usernameRef = useRef();
 
+  const [signupFirstName, setSigupFirstName] = useState('');
+  const [signupLastName, setSigupLastName] = useState('');
+  const [signupEmail, setSigupEmail] = useState('');
+  const [signupPassword, setSigupPassword] = useState('');
+
   const [loginPassword, setLoginPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [validPassword, setValidPassword] = useState(true);
@@ -58,7 +63,33 @@ function LoginPage() {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(SIGNUP_URL, {
+        first_name: signupFirstName,
+        last_name: signupLastName,
+        email: signupEmail,
+        password: signupPassword,
+      });
+      setSignupEmail('');
+      setLoginPassword('');
+      navigate(from, { replace: true });
+    } catch (err) {
+      if (!err?.response) {
+        setErrMsg('No server response');
+      } else if (err?.response?.status === 400) {
+        setErrMsg('Missing Username or Password');
+      } else if (err?.response?.status === 401) {
+        setErrMsg('Invalid Username or Password');
+      } else {
+        setErrMsg('Login Failed');
+      }
+      console.log(err.message)
+    }
+  };
+
+  const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(LOGIN_URL, {
@@ -119,10 +150,11 @@ function LoginPage() {
               ''
             )}
             <div className="form_fields">
-              <CustomCssTextField label="Name" variant="outlined" type="text" className="form_field" />
-              <CustomCssTextField label="Email" variant="outlined" type="email" className="form_field" />
-              <CustomCssTextField label="Password" variant="outlined" type="password" className="form_field" />
-              <button className="submit_btn">Sign Up</button>
+              <CustomCssTextField label="First Name" variant="outlined" type="text" className="form_field" onChange={(e) => setSigupFirstName(e.target.value)}/>
+              <CustomCssTextField label="Last Name" variant="outlined" type="text" className="form_field" onChange={(e) => setSigupLastName(e.target.value)}/>
+              <CustomCssTextField label="Email" variant="outlined" type="email" className="form_field" onChange={(e) => setSigupEmail(e.target.value)} />
+              <CustomCssTextField label="Password" variant="outlined" type="password" className="form_field" onChange={(e) => setSigupPassword(e.target.value)} />
+              <button className="submit_btn" onClick={handleSignUp}>Sign Up</button>
             </div>
           </form>
         </div>
@@ -133,8 +165,8 @@ function LoginPage() {
             <div className="form_fields">
               <CustomCssTextField label="Email" variant="outlined" type="email" className="form_field" onChange={(e) => setLoginEmail(e.target.value)} />
               <CustomCssTextField label="Password" variant="outlined" type="password" className="form_field" onChange={(e) => setLoginPassword(e.target.value)} />
-              <Link to="#" className="forgot_password">Forgot your password?</Link>
-              <button className="submit_btn" onClick={handleSubmit}>Sign In</button>
+              <Link to="/password_reset/request" className="forgot_password">Forgot your password?</Link>
+              <button className="submit_btn" onClick={handleLogin}>Sign In</button>
             </div>
           </form>
         </div>

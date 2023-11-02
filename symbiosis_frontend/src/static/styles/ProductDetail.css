@@ -36,6 +36,7 @@
     transition: .2s ease-in;
     z-index: 999;
     background-color: #25252527;
+    border: none;
 }
 
 .product_details_container .img_slider_container .add_to_wishlist_btn:hover {

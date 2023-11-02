@@ -288,6 +288,10 @@ body {
     top: 70px;
 }
 
+#header .right_nav .search_bar_container .search_suggestions::-webkit-scrollbar {
+    display: none;
+}
+
 #header .right_nav .search_bar_container .search_suggestions .search_suggestion {
     display: flex;
     justify-content: space-between;

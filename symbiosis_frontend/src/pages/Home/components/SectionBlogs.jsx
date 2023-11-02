@@ -35,10 +35,9 @@ function SectionBlogs() {
 
     const fetchNewsList = async (count) => {
         try {
-            const response = await axios.get(`/api/news_list/`, {
+            const response = await axios.get(`/api/news_list/?num_items=3`, {
                 headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Token ${localStorage.getItem('token')}`,
+                    'Content-Type': 'application/json'
                 },
             });
             setNewsList(response.data);
