@@ -3,7 +3,7 @@ import ShoppingCartItem from './CartList/ShoppingCartItem';
 import OrderDetails from './OrderDetails';
 import axios from '../../../api/axios';
 
-function CartList({ handleNext, handleBack }) {
+function CartList({handleBack}) {
     const token = localStorage.getItem('token');
     const [isLoading, setIsLoading] = useState(true);
 
@@ -71,7 +71,7 @@ function CartList({ handleNext, handleBack }) {
                         ))
                     }
                 </div>
-                <OrderDetails cartList={cartList} handleNext={handleNext} btn_label={"Place Order"} />
+                <OrderDetails cartList={cartList} btn_label={"Place Order"} />
             </section>
         </>
     );

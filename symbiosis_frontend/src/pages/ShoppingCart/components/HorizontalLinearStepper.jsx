@@ -26,7 +26,7 @@ export default function HorizontalLinearStepper() {
 };
 
 const cartComponents = [
-    <CartList handleNext={handleNext} handleBack={handleBack} />,
+    <CartList />,
     <DeliveryDetails handleNext={handleNext} handleBack={handleBack} />
 ];
 

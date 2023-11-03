@@ -42,7 +42,7 @@ function AddressForm({ handleToggleForm }) {
                     <label htmlFor="">Landmark (Optional)</label>
                     <input type="text" />
                 </div>
-                <div className="address_type">
+                {/* <div className="address_type">
                     <div className="address_field_title">Type Of Address</div>
                     <label htmlFor="home">Select Address Type *</label>
                     <div className="radio_container">
@@ -57,7 +57,7 @@ function AddressForm({ handleToggleForm }) {
                         <input type="checkbox" name="default" id="default" />
                         <label htmlFor="default">Make default address</label>
                     </div>
-                </div>
+                </div> */}
                 <div className="button_container">
                     <button className="reset_btn">Reset</button>
                     <button className="save_btn">Save Address</button>

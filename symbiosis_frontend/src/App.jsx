@@ -28,7 +28,8 @@ function App() {
         <Route path="/shop/:search_key" element={<SearchResults />} />
         <Route path="/product_detail/:product_id" element={<ProductDetail />} />
         <Route element={<RequireAuth />}>
-          <Route path="/shopping-cart" element={<ShoppingCart />} />
+          <Route path="/shopping_cart" element={<ShoppingCart />} />
+          <Route path="/shopping_cart/delivery_details" element={<ShoppingCart />} />
           <Route path="/wishlist" element={<Wishlist />} />
         </Route>
         <Route path="/about" element={<About />} />
