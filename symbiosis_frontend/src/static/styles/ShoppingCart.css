@@ -467,6 +467,7 @@
     color: #fff;
     font-family: 'Inter', sans-serif;
     width: 500px;
+    border-radius: 8px;
 }
 
 .delivery_address_wrap .delivery_address_top {
@@ -523,7 +524,7 @@
     justify-content: space-between;
     background-color: transparent;
     border: none;
-    color: #F8EE3E;
+    color: #fff;
     gap: 10px;
     padding: 0;
     border-radius: 4px;
@@ -555,7 +556,7 @@
 }
 
 .delivery_address_wrap .delivery_address_content .toggle_address_btn svg path {
-    fill: #F8EE3E;
+    fill: #fff;
 }
 
 .delivery_address_wrap .delivery_address_content .toggle_address_btn.add svg path {
