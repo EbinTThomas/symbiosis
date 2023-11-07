@@ -337,7 +337,7 @@ summary {
     
     #section_product_list .product_card .product_title {
         color: #fff;
-        font-size: 10px;
+        font-size: 12px;
         font-weight: 600;
         font-family: 'Syne', sans-serif;
         overflow: hidden;
@@ -352,8 +352,8 @@ summary {
         font-family: 'Inter', sans-serif;
         font-weight: 400;
         color: #898989;
-        font-size: 8px;
-        line-height: 10px;
+        font-size: 10px;
+        line-height: 12px;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
