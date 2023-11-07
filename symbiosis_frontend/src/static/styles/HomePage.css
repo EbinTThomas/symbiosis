@@ -360,8 +360,7 @@
     border-radius: 8px;
     font-family: 'Inter', sans-serif;
     min-width: 240px;
-    border: 1px solid #2f2f2f;
-    padding: 12px;
+    max-width: 280px;
 }
 
 #section_blogs .news_card img {
