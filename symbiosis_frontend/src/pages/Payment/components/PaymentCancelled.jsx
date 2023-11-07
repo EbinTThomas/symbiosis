@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function PaymentCancelled() {
     return (
@@ -15,7 +16,7 @@ function PaymentCancelled() {
                         </svg>
                     </div>
                 </div>
-                <a class="view-booking-button" href="{% url 'bookings' %}">Go back</a>
+                <Link to="/shopping_cart" class="view-booking-button">Go back to Cart</Link>
             </div>
         </section>
     )

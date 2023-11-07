@@ -98,7 +98,7 @@ function News() {
             )
           )
         }
-        {newsList.length === 0 && <div className="center_text"><span>No News Yet!</span></div>}
+        {!isLoading && newsList.length === 0 && <div className="center_text"><span>No News Yet!</span></div>}
       </section>
     </>
   );

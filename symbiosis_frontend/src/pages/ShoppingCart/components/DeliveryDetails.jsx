@@ -8,6 +8,7 @@ import { Elements } from '@stripe/react-stripe-js';
 function DeliveryDetails({ handleBack }) {
     const [addressForm, setAddressForm] = useState(false);
     const [addressFilled, setAddressFilled] = useState(false);
+    const [deliveryAddress, setDeliveryAddress] = useState({});
     const token = localStorage.getItem('token');
     const [sessionID, setSessionID] = useState('');
 
@@ -27,12 +28,30 @@ function DeliveryDetails({ handleBack }) {
         }
     }
 
+    const fetchDeliveryAddress = async () => {
+        try {
+            const response = await axios.get(`/api/address/`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Token ${token}`,
+                },
+            });
+            setDeliveryAddress(response.data);
+            console.log(response.data)
+            setAddressFilled(true);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     useEffect(() => {
         fetchCartList();
+        fetchDeliveryAddress();
     }, [])
 
     const handleToggleForm = () => {
         setAddressForm(addressForm ? false : true);
+        fetchDeliveryAddress();
     }
 
     const totalCartPrice = cartList.reduce((total, item) => total + item.product.price * item.quantity, 0);
@@ -108,13 +127,13 @@ function DeliveryDetails({ handleBack }) {
                     </div>
                     <div className="delivery_address_content">
                         {addressFilled ? <>
-                            <div className="username">Ebin T Thomas</div>
+                            <div className="username">{deliveryAddress.full_name}</div>
                             <p className="address">
-                                kailath house, vadakkekara, changanassery,<br />
-                                near govt hss vadakkekara,<br />
-                                kottayam, kerala<br />
-                                india - 686104<br />
-                                Phone : 9778213753
+                                {deliveryAddress.building}, {deliveryAddress.locality}<br />
+                                {deliveryAddress.landmark},<br />
+                                {deliveryAddress.city}, {deliveryAddress.state}<br />
+                                {deliveryAddress.pincode}<br />
+                                Phone : {deliveryAddress.phone}
                             </p>
                         </>
                             : <>

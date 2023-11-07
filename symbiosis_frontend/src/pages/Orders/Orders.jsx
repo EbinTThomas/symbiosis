@@ -8,7 +8,9 @@ const ORDERS_URL = '/api/order/orders/'
 
 function Orders() {
     const [orders, setOrders] = useState([]);
+    const [orderProducts, setOrderProducts] = useState([]);
     const token = localStorage.getItem('token');
+    const [isLoading, setIsLoading] = useState(true);
 
     const fetchOrders = async () => {
         try {
@@ -21,12 +23,15 @@ function Orders() {
                     }
                 }
             )
-            setOrders(response.data);
-            console.log(response.data)
+            setOrders(response.data.orders);
+            setOrderProducts(response.data.order_products);
+            console.log(response.data.orders)
+            console.log(response.data.order_products)
         }
         catch (error) {
             console.log(error)
         }
+        setIsLoading(false)
     }
 
     useEffect(() => {
@@ -36,90 +41,40 @@ function Orders() {
         <>
             <Header />
             <section className="section_content orders_page">
-                <div className="order_container">
-                    <Link to="/product_detail/2" className="order_product">
-                        <img src="https://img2.hkrtcdn.com/28400/prd_2839991-MuscleBlaze-Beginners-Protein-Powder-4.4-lb-Chocolate_o.jpg" className="order_product_thumb" alt="" />
-                        <div className="order_product_details">
-                            <div className="order_product_title">Protein Powder</div>
-                            <p className="order_product_description">This is the description for the protein powder.</p>
-                            <div className="bottom_container">
-                                <div className="order_product_price">Rs 380.00</div>
-                                <div className="order_product_quantity">x 3</div>
+                {
+                    !isLoading
+                        ?
+                        orders.map(order => (
+                            <div className="order_container">
+                                {
+                                    orderProducts
+                                        .filter(order_product => order_product.order === order.id)
+                                        .map(order_product => (
+                                            <Link to={`/product_detail/${order_product.product.id}`} className="order_product" key={order_product.id}>
+                                                <img src={order_product.product.image} className="order_product_thumb" alt="" />
+                                                <div className="order_product_details">
+                                                    <div className="order_product_title">{order_product.product.name}</div>
+                                                    <p className="order_product_description">{order_product.product.description}</p>
+                                                    <div className="bottom_container">
+                                                        <div className="order_product_price">Rs {order_product.product.price}</div>
+                                                        <div className="order_product_quantity">x {order_product.quantity}</div>
+                                                    </div>
+                                                </div>
+                                            </Link>
+
+                                        ))
+                                }
+                                <div className="order_details_container">
+                                    <div className="order_status">
+                                        <div className="order_status_date">Delivered on: 22 November, 2023</div>
+                                        <div className="order_ref_id">Ref ID: 10239289df213dsa2</div>
+                                    </div>
+                                    <button className="order_query_btn">Having Queries?</button>
+                                </div>
                             </div>
-                        </div>
-                    </Link>
-                    <Link to="/product_detail/2" className="order_product">
-                        <img src="https://img2.hkrtcdn.com/28400/prd_2839991-MuscleBlaze-Beginners-Protein-Powder-4.4-lb-Chocolate_o.jpg" className="order_product_thumb" alt="" />
-                        <div className="order_product_details">
-                            <div className="order_product_title">Protein Powder</div>
-                            <p className="order_product_description">This is the description for the protein powder.</p>
-                            <div className="bottom_container">
-                                <div className="order_product_price">Rs 380.00</div>
-                                <div className="order_product_quantity">x 3</div>
-                            </div>
-                        </div>
-                    </Link>
-                    <Link to="/product_detail/2" className="order_product">
-                        <img src="https://img2.hkrtcdn.com/28400/prd_2839991-MuscleBlaze-Beginners-Protein-Powder-4.4-lb-Chocolate_o.jpg" className="order_product_thumb" alt="" />
-                        <div className="order_product_details">
-                            <div className="order_product_title">Protein Powder</div>
-                            <p className="order_product_description">This is the description for the protein powder.</p>
-                            <div className="bottom_container">
-                                <div className="order_product_price">Rs 380.00</div>
-                                <div className="order_product_quantity">x 3</div>
-                            </div>
-                        </div>
-                    </Link>
-                    <div className="order_details_container">
-                        <div className="order_status">
-                            <div className="order_status_date">Delivered on: 22 November, 2023</div>
-                            <div className="order_ref_id">Ref ID: 10239289df213dsa2</div>
-                        </div>
-                        <button className="order_query_btn">Having Queries?</button>
-                    </div>
-                </div>
-                <div className="order_container">
-                    <Link to="/product_detail/2" className="order_product">
-                        <img src="https://img2.hkrtcdn.com/28400/prd_2839991-MuscleBlaze-Beginners-Protein-Powder-4.4-lb-Chocolate_o.jpg" className="order_product_thumb" alt="" />
-                        <div className="order_product_details">
-                            <div className="order_product_title">Protein Powder</div>
-                            <p className="order_product_description">This is the description for the protein powder.</p>
-                            <div className="bottom_container">
-                                <div className="order_product_price">Rs 380.00</div>
-                                <div className="order_product_quantity">x 3</div>
-                            </div>
-                        </div>
-                    </Link>
-                    <Link to="/product_detail/2" className="order_product">
-                        <img src="https://img2.hkrtcdn.com/28400/prd_2839991-MuscleBlaze-Beginners-Protein-Powder-4.4-lb-Chocolate_o.jpg" className="order_product_thumb" alt="" />
-                        <div className="order_product_details">
-                            <div className="order_product_title">Protein Powder</div>
-                            <p className="order_product_description">This is the description for the protein powder.</p>
-                            <div className="bottom_container">
-                                <div className="order_product_price">Rs 380.00</div>
-                                <div className="order_product_quantity">x 3</div>
-                            </div>
-                        </div>
-                    </Link>
-                    <Link to="/product_detail/2" className="order_product">
-                        <img src="https://img2.hkrtcdn.com/28400/prd_2839991-MuscleBlaze-Beginners-Protein-Powder-4.4-lb-Chocolate_o.jpg" className="order_product_thumb" alt="" />
-                        <div className="order_product_details">
-                            <div className="order_product_title">Protein Powder</div>
-                            <p className="order_product_description">This is the description for the protein powder.</p>
-                            <div className="bottom_container">
-                                <div className="order_product_price">Rs 380.00</div>
-                                <div className="order_product_quantity">x 3</div>
-                            </div>
-                        </div>
-                    </Link>
-                    <div className="order_details_container">
-                        <div className="order_status">
-                            <div className="order_status_date">Delivered on: 22 November, 2023</div>
-                            <div className="order_ref_id">Ref ID: 10239289df213dsa2</div>
-                        </div>
-                        <button className="order_query_btn">Having Queries?</button>
-                    </div>
-                </div>
+                        ))
+                        : 'Loading'
+                }
             </section>
         </>
     )

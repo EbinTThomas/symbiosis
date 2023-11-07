@@ -1,6 +1,62 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from '../../../../api/axios';
+
+const ADD_ADDRESS_URL = '/api/address/'
 
 function AddressForm({ handleToggleForm }) {
+    const token = localStorage.getItem('token');
+    const [formData, setFormData] = useState({
+        fullName: '',
+        phoneNumber: '',
+        pincode: '',
+        city: '',
+        state: '',
+        locality: '',
+        flatOrBuilding: '',
+        landmark: '',
+    });
+
+    const addAddress = async () => {
+        try {
+            const response = await axios.post(
+                ADD_ADDRESS_URL,
+                formData,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Token ${token}`
+                    }
+                }
+            );
+            // Reset the form after successful submission
+            resetForm();
+            handleToggleForm();
+        } catch (error) {
+            // Handle errors here
+        }
+    }
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
+    }
+
+    const resetForm = () => {
+        setFormData({
+            full_name: '',
+            phoneNumber: '',
+            pincode: '',
+            city: '',
+            state: '',
+            locality: '',
+            flatOrBuilding: '',
+            landmark: '',
+        });
+    }
+    
     return (
         <div className="delivery_address_form_container">
             <div className="overlay" onClick={handleToggleForm}></div>
@@ -23,24 +79,32 @@ function AddressForm({ handleToggleForm }) {
                 <div className="contact_info">
                     <div className="address_field_title">Contact Info</div>
                     <label htmlFor="">Full Name *</label>
-                    <input type="text" name="" id="" required />
+                    <input type="text" name="fullName" id="" required value={formData.fullName}
+                onChange={handleInputChange} />
                     <label htmlFor="">Phone Number *</label>
-                    <input type="tel" name="" id="" required />
+                    <input type="tel" name="phoneNumber" id="" required value={formData.phoneNumber}
+                onChange={handleInputChange} />
                 </div>
                 <div className="address_info">
                     <div className="address_field_title">Address Info</div>
                     <label htmlFor="">Pincode *</label>
-                    <input type="number" inputMode="numeric" name="" id="" required />
+                    <input type="number" inputMode="numeric" name="pincode" id="" required value={formData.pincode}
+                onChange={handleInputChange} />
                     <label htmlFor="">City *</label>
-                    <input type="text" required />
+                    <input type="text" name="city" required value={formData.city}
+                onChange={handleInputChange} />
                     <label htmlFor="">State *</label>
-                    <input type="text" required />
+                    <input type="text" name="state" required value={formData.state}
+                onChange={handleInputChange} />
                     <label htmlFor="">Locality / Area / Street *</label>
-                    <input type="text" required />
+                    <input type="text" name="locality" required value={formData.locality}
+                onChange={handleInputChange} />
                     <label htmlFor="">Flat No. / Building Name *</label>
-                    <input type="text" required />
+                    <input type="text" name="flatOrBuilding" required value={formData.flatOrBuilding}
+                onChange={handleInputChange} />
                     <label htmlFor="">Landmark (Optional)</label>
-                    <input type="text" />
+                    <input type="text" name="landmark" value={formData.landmark}
+                onChange={handleInputChange} />
                 </div>
                 {/* <div className="address_type">
                     <div className="address_field_title">Type Of Address</div>
@@ -59,8 +123,8 @@ function AddressForm({ handleToggleForm }) {
                     </div>
                 </div> */}
                 <div className="button_container">
-                    <button className="reset_btn">Reset</button>
-                    <button className="save_btn">Save Address</button>
+                    <button className="reset_btn" onClick={resetForm}>Reset</button>
+                    <button className="save_btn" onClick={addAddress}>Save Address</button>
                 </div>
             </div>
         </div>
