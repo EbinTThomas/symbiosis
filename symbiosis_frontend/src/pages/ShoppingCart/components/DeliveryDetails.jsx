@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 import AddressForm from './DeliveryDetails/AddressForm';
 import OrderDetails from './OrderDetails';
 import axios from '../../../api/axios';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 
-function DeliveryDetails({handleBack}) {
+function DeliveryDetails({ handleBack }) {
     const [addressForm, setAddressForm] = useState(false);
     const [addressFilled, setAddressFilled] = useState(false);
     const token = localStorage.getItem('token');
+    const [sessionID, setSessionID] = useState('');
 
     const [cartList, setCartList] = useState([]);
 
@@ -19,20 +22,73 @@ function DeliveryDetails({handleBack}) {
                 },
             });
             setCartList(response.data);
-        }
-        catch (error) {
+        } catch (error) {
             console.log(error);
         }
-
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         fetchCartList();
     }, [])
 
     const handleToggleForm = () => {
         setAddressForm(addressForm ? false : true);
     }
+
+    const totalCartPrice = cartList.reduce((total, item) => total + item.product.price * item.quantity, 0);
+    const convenienceFee = 27 + 19; // Example values, adjust as needed
+    const totalAmount = totalCartPrice + convenienceFee;
+
+    const formatPrice = (price) => {
+        return price.toLocaleString('en-IN', {
+            style: 'currency',
+            currency: 'INR',
+        });
+    };
+
+    const handleProceedPayment = async () => {
+        try {
+            // Get Stripe configuration
+            const stripeConfigResponse = await axios.get('/api/payment/stripe/config/', {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Token ${token}`,
+                }
+            });
+
+            const stripePublicKey = stripeConfigResponse.data.publicKey;
+
+            // Initialize Stripe with the public key
+            const stripePromise = loadStripe(stripePublicKey);
+            const stripe = await stripePromise;
+
+            // Create a checkout session
+            const response = await axios.get('/api/payment/stripe/create-checkout-session/', {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Token ${token}`
+                }
+            });
+
+            const sessionId = response.data.sessionId;
+
+            if (sessionId) {
+                // Use Stripe to redirect to the Stripe payment portal
+                const { error } = await stripe.redirectToCheckout({
+                    sessionId: sessionId,
+                });
+
+                if (error) {
+                    console.log(`Error redirecting to checkout: ${error.message}`);
+                }
+            } else {
+                console.log('No session ID received from the server.');
+            }
+        } catch (error) {
+            console.log(`Error creating checkout session: ${error}`);
+        }
+    }
+
 
     return (
         <>
@@ -89,7 +145,27 @@ function DeliveryDetails({handleBack}) {
                         }
                     </div>
                 </div>
-                <OrderDetails cartList={cartList} btn_label={"Proceed To Payment"} />
+                <div className="order_details_container">
+                    <div className="order_details_card">
+                        <div className="order_details_title">Order Details</div>
+                        <div className="order_sum">Cart Total<span>{formatPrice(totalCartPrice)}</span></div>
+                        <span className="convenience_fee_label">Convenience Fee</span>
+                        <ul className="convenience_fee">
+                            <li>Delivery Fee<span>{formatPrice(27)}</span></li>
+                            <li>Fulfillment Fee<span>{formatPrice(19)}</span></li>
+                        </ul>
+                        <div className="order_total">Total Amount <span>{formatPrice(totalAmount)}</span></div>
+                        <div className="place_order_btn_container">
+                            <div className="amount">{formatPrice(totalAmount)}</div>
+                            <button onClick={handleProceedPayment} className="btn_place_order">
+                                Proceed To Payment
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13.4697 8.53033C13.1768 8.23744 13.1768 7.76256 13.4697 7.46967C13.7626 7.17678 14.2374 7.17678 14.5303 7.46967L18.5303 11.4697C18.8232 11.7626 18.8232 12.2374 18.5303 12.5303L14.5303 16.5303C14.2374 16.8232 13.7626 16.8232 13.4697 16.5303C13.1768 16.2374 13.1768 15.7626 13.4697 15.4697L16.1893 12.75H6.5C6.08579 12.75 5.75 12.4142 5.75 12C5.75 11.5858 6.08579 11.25 6.5 11.25H16.1893L13.4697 8.53033Z" fill="black" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
                 {addressForm && <AddressForm handleToggleForm={handleToggleForm} />}
             </section >

@@ -1,0 +1,162 @@
+.payment_status .container {
+    border: 1px solid #3c3c3c;
+    border-radius: 8px;
+    padding: 32px;
+    width: 100%;
+    max-width: 460px;
+}
+
+.payment_status .container .success-message h1 {
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+}
+
+.payment_status .container .success-message p.sub_title {
+    font-size: 12px;
+    padding-top: 20px;
+    color: #868686;
+    text-align: center;
+}
+
+.payment_status .container .success-message .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.payment_status .container .success-message .checkmark__circle.checkmark-circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: #08a454;
+    fill: none;
+    animation: stroke_check 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.payment_status .container .success-message .checkmark.checkmark-check {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+    margin: 10% auto;
+    box-shadow: inset 0px 0px 0px #7ac142;
+    animation: fill_check .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+}
+
+.payment_status .container .success-message .checkmark__check.checkmark-check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke_check 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke_check {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes scale {
+    0%, 100% {
+        transform: none;
+    }
+
+    50% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
+}
+
+@keyframes fill_check {
+    100% {
+        box-shadow: inset 0px 0px 0px 50px #08a454;
+    }
+}
+
+/* CROSS */
+
+.payment_status .container .success-message .checkmark.checkmark-cross {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+    box-shadow: inset 0px 0px 0px #FF0000;
+    margin: 10% auto;
+    animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+}
+
+.payment_status .container .success-message .checkmark__circle.checkmark-circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: #08a454;
+    fill: none;
+    animation: stroke_cross 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.payment_status .container .success-message .checkmark__circle.crossmark-circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: #FF0000;
+    fill: none;
+    animation: stroke_cross 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.payment_status .container .success-message .checkmark__check.checkmark-cross {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke_cross 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke_cross {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes scale {
+    0%, 100% {
+        transform: none;
+    }
+    50% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
+}
+
+@keyframes fill {
+    100% {
+        box-shadow: inset 0px 0px 0px 50px #FF0000;
+    }
+}
+
+.payment_status .container .view-booking-button {
+    padding: 16px 0;
+    background-color: #fff;
+    color: #1e1e1e;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.payment_status .container .view-booking-button:hover {
+    background-color: #d4d4d4;
+}

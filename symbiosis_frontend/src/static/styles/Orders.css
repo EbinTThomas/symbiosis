@@ -1,0 +1,96 @@
+.orders_page {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.orders_page .order_container {
+    border: 1px solid #3c3c3c;
+    border-radius: 8px;
+    max-width: 500px;
+}
+
+.orders_page .order_container .order_product {
+    border-bottom: 1px solid #242424;
+    width: 100%;
+    display: flex;
+    padding: 10px;
+    font-family: 'Inter', sans-serif;
+}
+
+.orders_page .order_container .order_product .order_product_thumb {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+}
+
+.orders_page .order_container .order_product .order_product_details {
+    padding-left: 12px;
+}
+
+.orders_page .order_container .order_product .order_product_details .order_product_title {
+    color: #fff;
+    font-weight: 500;
+}
+
+.orders_page .order_container .order_product .order_product_details .order_product_description {
+    color: #868686;
+    font-weight: 400;
+    font-size: 12px;
+    padding: 10px 0;
+}
+
+.orders_page .order_container .order_product .order_product_details .bottom_container {
+    display: flex;
+    gap: 12px;
+}
+
+.orders_page .order_container .order_product .order_product_details .bottom_container .order_product_price {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.orders_page .order_container .order_product .order_product_details .bottom_container .order_product_quantity {
+    color: #868686;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.orders_page .order_container .order_details_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 10px;
+    padding-top: 12px;
+    font-family: 'Inter', sans-serif;
+}
+
+.orders_page .order_container .order_details_container .order_status {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.orders_page .order_container .order_details_container .order_status .order_status_date {
+    color: #868686;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.orders_page .order_container .order_details_container .order_status .order_ref_id {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.orders_page .order_container .order_details_container .order_query_btn {
+    padding: 8px 16px;
+    border-radius: 16px;
+    border: 1px solid #3c3c3c;
+    color: #868686;
+    font-size: 12px;
+    font-weight: 500;
+    background-color: transparent;
+    font-family: 'Inter', sans-serif;
+}
