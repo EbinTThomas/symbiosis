@@ -359,7 +359,7 @@ summary {
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
-        height: 20px;
+        height: 24px;
         padding: 0;
         margin-top: 10px;
     }

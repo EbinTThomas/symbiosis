@@ -37,8 +37,9 @@ function DeliveryDetails({ handleBack }) {
                 },
             });
             setDeliveryAddress(response.data);
-            console.log(response.data)
-            setAddressFilled(true);
+            if (response.data.user !== null) {
+                setAddressFilled(true);
+            }
         } catch (error) {
             console.log(error);
         }

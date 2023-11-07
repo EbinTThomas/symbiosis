@@ -58,7 +58,7 @@ function SectionBlogs() {
                 <div className="news_scrollbar">
                     {newsList.map((news) => (
                         <Link to={`/news/${news.id}`} key={news.id} className="news_card">
-                            <img src={news.get_thumbnail} alt="" className="news_card_thumb" />
+                            <img src={news.get_thumbnail || '/assets/img/temp.jpg'} alt="" className="news_card_thumb" />
                             <h3 className="news_card_title">{news.title}</h3>
                             <p className="news_card_desc">
                                 {news.content}

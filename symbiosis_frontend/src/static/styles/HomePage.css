@@ -9,7 +9,7 @@
 #section_main .image_carousel img {
     width: 100%;
     height: auto;
-    /* aspect-ratio: 16/9; */
+    aspect-ratio: 32/12;
     object-fit: cover;
 }
 
@@ -293,15 +293,24 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
+    z-index: 1;
 }
 
 #section_reviews .review_card .svg_wrap {
     position: absolute;
     width: 100%;
+    bottom: 0;
+    text-align: center;
 }
 
 #section_reviews .review_card .svg_wrap svg {
     width: 80px;
+    z-index: 0;
+}
+
+#section_reviews .review_card .svg_wrap svg path {
+    fill: #F8EE3E;
+    opacity: .08;
 }
 
 #section_reviews .review_card .review_image {
@@ -365,6 +374,8 @@
 
 #section_blogs .news_card img {
     width: 100%;
+    height: auto;
+    object-fit: cover;
     aspect-ratio: 4/3;
     border-radius: 8px;
 }
