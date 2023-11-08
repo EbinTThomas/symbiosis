@@ -60,7 +60,7 @@ function Wishlist() {
               ? <SectionProductList products={products} removeFromWishlist={removeFromWishlist} />
               : <div className="center_text">
                 <span>Nothing in WishList</span>
-                <Link to="/shop/best_seller" className="shop_more_btn">
+                <Link to="/shop" className="shop_more_btn">
                   Grab Some Products
                 </Link>
               </div>

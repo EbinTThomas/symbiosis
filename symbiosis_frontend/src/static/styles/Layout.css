@@ -1,9 +1,20 @@
+:root {
+    --background-color: #1E1E1E;
+    --nav-background-color: #262626;
+    --card-background-color: #262626;
+    --text-primary-color: #fff;
+    --text-secondary-color: #868686;
+    --btn-primary-color: #F8EE3E;
+    --btn-secondary-color: #fff;
+    --btn-border-color: #787878;
+    --link-primary-color: #F8EE3E;
+}
 
 body {
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
-    background-color: #1E1E1E;
+    background-color: var(--background-color);
 }
 
 * {
@@ -11,6 +22,7 @@ body {
     margin: 0;
     padding: 0;
     text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 #header {
@@ -19,7 +31,7 @@ body {
     left: 0;
     width: 100%;
     height: 100px;
-    background-color: #252526;
+    background-color: var(--nav-background-color);
     transition: top 0.3s ease;
     z-index: 1000;
     display: flex;
@@ -56,7 +68,7 @@ body {
 
 #header .logo_container .open_sidenav_btn:hover,
 #side_nav .logo_container .open_sidenav_btn:hover {
-    background-color: #393939;
+    background-color: var(--background-color);
 }
 
 #header .logo_container .open_sidenav_btn svg,
@@ -67,7 +79,7 @@ body {
 
 #header .logo_container .open_sidenav_btn svg rect,
 #side_nav .logo_container .open_sidenav_btn svg rect {
-    fill: #D9D9D9;
+    fill: var(--text-primary-color);
 }
 
 #header .logo_container .logo_thumbnail {
@@ -93,8 +105,8 @@ body {
     justify-content: center;
 }
 
-#header nav > a {
-    color: #fff;
+#header nav>a {
+    color: var(--text-primary-color);
     text-decoration: none;
     display: flex;
     justify-content: center;
@@ -105,16 +117,16 @@ body {
     position: relative;
 }
 
-#header nav > a.active {
+#header nav>a.active {
     color: #F8EE3E;
     text-decoration: none;
 }
 
-#header nav > a svg path {
+#header nav>a svg path {
     fill: #fff;
 }
 
-#header nav > a.login_btn {
+#header nav>a.login_btn {
     font-weight: 500;
     display: block;
     border: 1px solid #787878;
@@ -122,18 +134,18 @@ body {
     padding: 12px 20px;
 }
 
-#header nav > a.auth_cred {
+#header nav>a.auth_cred {
     position: relative;
 }
 
-#header nav > a.auth_cred .auth_username {
+#header nav>a.auth_cred .auth_username {
     font-family: 'Syne', sans-serif;
     font-weight: 500;
     cursor: pointer;
     text-wrap: nowrap;
 }
 
-#header nav > a.auth_cred .auth_nav_dropdown {
+#header nav>a.auth_cred .auth_nav_dropdown {
     position: absolute;
     top: 36px;
     right: 0;
@@ -144,7 +156,7 @@ body {
     width: 240px;
 }
 
-#header nav > a.auth_cred .auth_nav_dropdown li .auth_nav_link {
+#header nav>a.auth_cred .auth_nav_dropdown li .auth_nav_link {
     padding: 8px 16px;
     font-size: 16px;
     font-weight: 400;
@@ -157,11 +169,11 @@ body {
     border-radius: 4px;
 }
 
-#header nav > a.auth_cred .auth_nav_dropdown li .auth_nav_link:hover {
+#header nav>a.auth_cred .auth_nav_dropdown li .auth_nav_link:hover {
     background-color: #1E1E1E;
 }
 
-#header nav > a.auth_cred .auth_nav_dropdown li .auth_nav_link> svg path {
+#header nav>a.auth_cred .auth_nav_dropdown li .auth_nav_link>svg path {
     fill: #8E8E8E;
 }
 
@@ -206,7 +218,7 @@ body {
     position: relative;
     display: flex;
     gap: 30px;
-} 
+}
 
 #header .right_nav .open_search_btn {
     background-color: transparent;
@@ -480,6 +492,7 @@ body {
     #header {
         padding: 0 5vw;
     }
+
     .section_content {
         padding: 30px 5vw;
         padding-top: 130px;
@@ -490,6 +503,7 @@ body {
     #header .header_main_nav {
         display: none;
     }
+
     #header .logo_container .open_sidenav_btn {
         display: flex;
     }
@@ -508,6 +522,7 @@ body {
     #header .right_nav .auth_cred {
         display: none;
     }
+
     #header .right_nav .search_bar_container {
         position: fixed;
         right: 0;
@@ -516,9 +531,11 @@ body {
         background-color: #252526;
         padding: 10px 5vw;
     }
+
     #header .right_nav .search_bar_container .close_search_btn {
         left: 5vw;
     }
+
     #header .right_nav .search_bar_container .search_suggestions {
         width: calc(100% - 10vw);
     }

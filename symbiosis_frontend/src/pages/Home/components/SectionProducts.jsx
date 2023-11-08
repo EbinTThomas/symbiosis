@@ -8,7 +8,7 @@ function SectionProducts({products}) {
             <div className="products_scrollbar">
                 <div className="products_container">
                     {products.map(product => (
-                        <Link to={`/shop/${product.id}`} className="product_card" key={product.id}>
+                        <Link to={`/product_detail/${product.id}`} className="product_card" key={product.id}>
                             <img src={product.get_image} alt="" className="product_thumbnail" />
                             <div className="product_details">
                                 <h4 className="product_title">{product.name}</h4>
