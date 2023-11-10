@@ -10,7 +10,7 @@ function SectionProductDetail({ productDetail }) {
     const [isInCart, setIsInCart] = useState(false)
     const isAuthenticated = useState(localStorage.getItem('isAuthenticated'));
     const token = localStorage.getItem('token');
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const handleAddToCart = async () => {
         try {
@@ -106,8 +106,40 @@ function SectionProductDetail({ productDetail }) {
         }
     }
 
+    const checkCart = async () => {
+        try {
+            const response = await axios.get(`/api/shopping-carts/`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Token ${token}`,
+                },
+            });
+    
+            console.log(response.data);
+    
+            if (Array.isArray(response.data)) {
+                const productIdsInCart = response.data.map(cartItem => cartItem.product.id);
+    
+                if (productIdsInCart.includes(productDetail.id)) {
+                    setIsInCart(true);
+                } else {
+                    setIsInCart(false);
+                }
+            } else {
+                // Handle the case where response.data is not an array
+                setIsInCart(false);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    
+    
+    
+
     useEffect(() => {
         checkWishlist();
+        checkCart();
     }, [productDetail]);
 
     return (
