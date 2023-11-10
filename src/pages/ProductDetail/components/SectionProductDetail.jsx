@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useLayoutContext } from '../../Common/LayoutContext';
 import axios from '../../../api/axios';
 
@@ -10,6 +10,7 @@ function SectionProductDetail({ productDetail }) {
     const [isInCart, setIsInCart] = useState(false)
     const isAuthenticated = useState(localStorage.getItem('isAuthenticated'));
     const token = localStorage.getItem('token');
+    const navigate = useNavigate()
 
     const handleAddToCart = async () => {
         try {
@@ -36,21 +37,23 @@ function SectionProductDetail({ productDetail }) {
     }
 
     const checkWishlist = async () => {
-        try {
-            const response = await axios.get('/api/wishlist/', {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Token ${token}`,
+        if (isAuthenticated === true) {
+            try {
+                const response = await axios.get('/api/wishlist/', {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Token ${token}`,
+                    }
+                });
+                let wishlist_products = response.data.products;
+                if (wishlist_products.some(item => item.id === productDetail.id)) {
+                    setWishListed(true);
+                } else {
+                    setWishListed(false);
                 }
-            });
-            let wishlist_products = response.data.products;
-            if (wishlist_products.some(item => item.id === productDetail.id)) {
-                setWishListed(true);
-            } else {
-                setWishListed(false);
+            } catch (error) {
+                console.log(error);
             }
-        } catch (error) {
-            console.log(error);
         }
     }
 
@@ -69,39 +72,39 @@ function SectionProductDetail({ productDetail }) {
     const toggleWishlist = async () => {
         // Check if the product is already in the wishlist
         if (wishListed) {
-          // Remove the product from the wishlist
-          try {
-            const response = await axios.delete(`/api/wishlist-edit/${productDetail.id}/`, {
-              headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Token ${token}`,
-              }
-            });
-            // Remove the product from the wishList and update wishListProductIds
-            setWishListed(false);
-          } catch (error) {
-            console.log(error);
-          }
+            // Remove the product from the wishlist
+            try {
+                const response = await axios.delete(`/api/wishlist-edit/${productDetail.id}/`, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Token ${token}`,
+                    }
+                });
+                // Remove the product from the wishList and update wishListProductIds
+                setWishListed(false);
+            } catch (error) {
+                console.log(error);
+            }
         } else {
-          // Add the product to the wishlist
-          try {
-            const response = await axios.put(`/api/wishlist-edit/${productDetail.id}/`,
-              {
-                data: '1'
-              },
-              {
-                headers: {
-                  'Content-Type': 'application/json',
-                  'Authorization': `Token ${token}`,
-                }
-              });
-            // Add the product to the wishList and update wishListProductIds
-            setWishListed(true);
-          } catch (error) {
-            console.log(error);
-          }
+            // Add the product to the wishlist
+            try {
+                const response = await axios.put(`/api/wishlist-edit/${productDetail.id}/`,
+                    {
+                        data: '1'
+                    },
+                    {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Token ${token}`,
+                        }
+                    });
+                // Add the product to the wishList and update wishListProductIds
+                setWishListed(true);
+            } catch (error) {
+                console.log(error);
+            }
         }
-      }
+    }
 
     useEffect(() => {
         checkWishlist();
@@ -110,7 +113,7 @@ function SectionProductDetail({ productDetail }) {
     return (
         <div className="product_details_container">
             <div className="img_slider_container">
-                <button className={`add_to_wishlist_btn ${wishListed ? "active" : null}`} onClick={toggleWishlist}>
+                <button className={`add_to_wishlist_btn ${wishListed ? "active" : null}`} onClick={!isAuthenticated ? () => navigate('/login', { replace: true }) : toggleWishlist}>
                     {
                         wishListed
                             ? <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
