@@ -124,7 +124,7 @@ function SectionProductDetail({ productDetail }) {
                             </svg>
                     }
                 </button>
-                <img src={productDetail.image} alt="" className="product_thumbnail" />
+                <img src={productDetail.get_image ? productDetail.get_image : '/assets/img/temp.jpg'} alt="" className="product_thumbnail" />
             </div>
             <div className="product_details">
                 <h3 className="product_name">{productDetail.name}</h3>
@@ -133,9 +133,11 @@ function SectionProductDetail({ productDetail }) {
                     <h4 className="product_price">₹{productDetail.price} {productDetail.unit}</h4>
                     <div className="q_selector_container">
                         <div className="q_tag">Quantity</div>
-                        <button className="q_btn" id="q_dec_btn" onClick={handleDecrementQuantity}>-</button>
-                        <input type="number" className="q_input" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
-                        <button className="q_btn" id="q_inc_btn" onClick={handleIncrementQuantity}>+</button>
+                        <div className="q_selector">
+                            <button className="q_btn" id="q_dec_btn" onClick={handleDecrementQuantity}>-</button>
+                            <span className="q_input">{quantity}</span>
+                            <button className="q_btn" id="q_inc_btn" onClick={handleIncrementQuantity}>+</button>
+                        </div>
                     </div>
                 </div>
                 <div className="action_btn_container">

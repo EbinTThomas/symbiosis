@@ -85,8 +85,11 @@ function LoginPage() {
         password: loginPassword,
       });
       const token = response?.data?.token;
+      const user = response?.data?.user;
       localStorage.setItem('token', token);
       localStorage.setItem('isAuthenticated', true);
+      localStorage.setItem('user', JSON.stringify(user));
+      console.log(JSON.stringify(user))
       setLoginEmail('');
       setLoginPassword('');
       navigate(from, { replace: true });

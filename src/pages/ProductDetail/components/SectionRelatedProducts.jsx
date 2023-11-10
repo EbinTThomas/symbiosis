@@ -28,7 +28,7 @@ function SectionRelatedProducts({product}) {
       <div className="rp_products_container">
         {relatedProducts.map(product => (
           <Link to={`/product_detail/${product.id}/`} className="rp_product_card" key={product.id}>
-            <img src={product.get_image} alt="" className="rp_product_thumb" />
+            <img src={product.get_image ? product.get_image : '/assets/img/temp.jpg'} alt="" className="rp_product_thumb" />
             <div className="rp_product_card_details">
               <h4 className="rp_product_name">{product.name}</h4>
               <p className="rp_product_desc">{product.description}</p>

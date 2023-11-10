@@ -43,16 +43,41 @@ function ShopPage() {
         setIsFilterOpen(!isFilterOpen);
     };
 
-    const handleDocumentClick = (e) => {
-        if (filterContainerRef.current && !filterContainerRef.current.contains(e.target)) {
-            setIsFilterOpen(false);
+    const handleFilter = async () => {
+        const selectedBrands = brandList.filter(brand => brand.selected).map(brand => brand.name);
+
+        try {
+            const response = await axios.get(`/api/product/search/?brand_name=${selectedBrands.join(',')}`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            setProducts(response.data);
+        } catch (error) {
+            console.log(error);
         }
-    };
+        setIsFilterOpen(false);
+    }
 
     useEffect(() => {
         fetchProducts();
         fetchBrandList();
     }, []);
+
+    const toggleBrandSelection = (brandName) => {
+        setBrandList(prevBrandList => {
+            const updatedBrandList = prevBrandList.map(brand => {
+                if (brand.name === brandName) {
+                    return {
+                        ...brand,
+                        selected: !brand.selected,
+                    };
+                }
+                return brand;
+            });
+            return updatedBrandList;
+        });
+    };
 
     return (
         <section className="section_content">
@@ -80,15 +105,20 @@ function ShopPage() {
                                 <div className="filter_item_title">Brands</div>
                                 <ul className="filter_item_list">
                                     {brandList.map(brand => (
-                                        <li>
-                                            <input type="checkbox" name="" id="item" />
-                                            <label htmlFor="item">{brand.name}</label>
+                                        <li key={brand.name}>
+                                            <input
+                                                type="checkbox"
+                                                id={brand.name}
+                                                onChange={() => toggleBrandSelection(brand.name)}
+                                                checked={brand.selected}
+                                            />
+                                            <label htmlFor={brand.name}>{brand.name}</label>
                                         </li>
                                     ))}
                                 </ul>
                             </div>
                             <div className="filter_dropdown_bottom">
-                                <button className="filter_apply_btn">Apply</button>
+                                <button className="filter_apply_btn" onClick={handleFilter}>Apply</button>
                             </div>
                         </div>
                     )}

@@ -4,8 +4,10 @@ import Header from '../Common/Header'
 function Contact() {
   return (
     <>
-    <Header/>
-    <section className="section_content"></section>
+      <Header />
+      <section className="section_content">
+
+      </section>
     </>
   )
 }

@@ -84,7 +84,7 @@ function SectionProductList({ products }) {
             )}
           </button>
           <Link to={`/product_detail/${product.id}`}>
-            <img src={product.get_image} alt="" className="product_thumbnail" />
+            <img src={product.get_image ? product.get_image : '/assets/img/temp.jpg'} alt="" className="product_thumbnail" />
             <div className="product_details">
               <h4 className="product_title">{product.name}</h4>
               <p className="product_desc">{product.description}</p>

@@ -210,12 +210,6 @@ summary {
     gap: 8px;
     padding: 8px;
     padding-right: 0;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.tag_flex_box .filter_wrap .filter_dropdown_container .filter_item .filter_item_list li:hover {
-    background-color: #1e1e1e;
 }
 
 .tag_flex_box .filter_wrap .filter_dropdown_container .filter_dropdown_bottom {
