@@ -517,7 +517,7 @@ body {
 @media only screen and (max-width: 720px) {
     #header .logo_container .logo_thumbnail {
         width: 60px;
-        background: url('../assets/img/logo_m.png');
+        background: url('/assets/img/logo_m.png');
         background-repeat: no-repeat;
         background-size: contain;
     }

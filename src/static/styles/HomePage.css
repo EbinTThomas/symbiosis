@@ -17,7 +17,7 @@
     width: 100%;
     height: 80px;
     background-color: #1E1E1E;
-    background-image: url('assets/img/tagline.png');
+    background-image: url('/assets/img/tagline.png');
     background-blend-mode: screen;
     background-repeat: repeat-x;
     background-size: contain;
