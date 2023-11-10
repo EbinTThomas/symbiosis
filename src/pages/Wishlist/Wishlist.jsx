@@ -4,7 +4,7 @@ import SectionProductList from './components/SectionProductList'
 import axios from '../../api/axios';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Link } from 'react-router-dom';
-import '../../static/styles/WishList.css';
+import '../../static/styles/Wishlist.css';
 
 function Wishlist() {
   const token = localStorage.getItem('token');
