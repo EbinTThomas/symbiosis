@@ -40,7 +40,7 @@
 .news_container .news_card .news_card_desc {
     color: #8C8C8C;
     font-size: 12px;
-    height: 48px;
+    height: 46px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;

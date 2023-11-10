@@ -51,7 +51,7 @@ function Orders() {
                                         .filter(order_product => order_product.order === order.id)
                                         .map(order_product => (
                                             <Link to={`/product_detail/${order_product.product.id}`} className="order_product" key={order_product.id}>
-                                                <img src={order_product.product.get_image} className="order_product_thumb" alt="" />
+                                                <img src={order_product.product.get_image ? order_product.product.get_image : '/assets/img/temp.jpg'} className="order_product_thumb" alt="" />
                                                 <div className="order_product_details">
                                                     <div className="order_product_title">{order_product.product.name}</div>
                                                     <p className="order_product_description">{order_product.product.description}</p>

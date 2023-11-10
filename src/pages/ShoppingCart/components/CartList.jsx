@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import ShoppingCartItem from './CartList/ShoppingCartItem';
 import OrderDetails from './OrderDetails';
 import axios from '../../../api/axios';
+import { Link } from 'react-router-dom';
 
-function CartList({handleBack}) {
+function CartList({ handleBack }) {
     const token = localStorage.getItem('token');
     const [isLoading, setIsLoading] = useState(true);
 
@@ -22,10 +23,10 @@ function CartList({handleBack}) {
         catch (error) {
             console.log(error);
         }
-
+        setIsLoading(false);
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         fetchCartList();
     }, [])
 
@@ -41,20 +42,20 @@ function CartList({handleBack}) {
         });
     };
 
-    const removeCartItem = async(product) => {
+    const removeCartItem = async (product) => {
         try {
-          const response = await axios.delete(`/api/cart-products/${product.id}/`, {
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Token ${token}`,
-            }
-          });
-          // Remove the product from the wishList and update wishListProductIds
-          setCartList(cartList.filter((item) => item.product.id !== product.id));
+            const response = await axios.delete(`/api/cart-products/${product.id}/`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Token ${token}`,
+                }
+            });
+            // Remove the product from the wishList and update wishListProductIds
+            setCartList(cartList.filter((item) => item.product.id !== product.id));
         } catch (error) {
-          console.log(error);
+            console.log(error);
         }
-      }
+    }
 
     return (
         <>
@@ -65,10 +66,14 @@ function CartList({handleBack}) {
             </button>
             <section className="section_cart_container">
                 <div className="cart_list">
-                    {
-                        cartList.map(cartItem => (
-                            <ShoppingCartItem cartItem={cartItem} removeCartItem={removeCartItem} key={cartItem.id} />
+                    {cartList.length > 0
+                        ? cartList.map(cartItem => (
+                            <ShoppingCartItem fetchCartList={fetchCartList} cartItem={cartItem} removeCartItem={removeCartItem} key={cartItem.id} />
                         ))
+                        : <div className="empty_definition">
+                            <span>Nothing in Cart!</span><br/>
+                            <Link to="/shop" className="grab_some_btn">Grab Some</Link>
+                        </div>
                     }
                 </div>
                 <OrderDetails cartList={cartList} btn_label={"Place Order"} />
