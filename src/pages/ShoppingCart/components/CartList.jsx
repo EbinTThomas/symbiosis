@@ -5,10 +5,9 @@ import axios from '../../../api/axios';
 import { Link } from 'react-router-dom';
 import { useLayoutContext } from '../../Common/LayoutContext';
 
-function CartList({ handleBack, fetchCartList, cartList }) {
+function CartList({ handleBack, fetchCartList, cartList, setCartList, setCartCount, cartCount }) {
     const token = localStorage.getItem('token');
     const [isLoading, setIsLoading] = useState(true);
-    const {setCartCount} = useLayoutContext();
 
     useEffect(() => {
         fetchCartList();
@@ -36,6 +35,7 @@ function CartList({ handleBack, fetchCartList, cartList }) {
             });
             // Remove the product from the wishList and update wishListProductIds
             setCartList(cartList.filter((item) => item.product.id !== product.id));
+            setCartCount(cartCount - 1);
         } catch (error) {
             console.log(error);
         }

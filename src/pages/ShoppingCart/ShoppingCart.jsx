@@ -5,12 +5,14 @@ import CartList from './components/CartList';
 import { useLocation, useNavigate } from 'react-router-dom';
 import DeliveryDetails from './components/DeliveryDetails';
 import axios from '../../api/axios';
+import { useLayoutContext } from '../Common/LayoutContext';
 
 function ShoppingCart() {
     const navigate = useNavigate();
     const location = useLocation();
     const [cartList, setCartList] = useState([]);
     const token = localStorage.getItem('token');
+    const {cartCount, setCartCount} = useLayoutContext();
 
     const fetchCartList = async () => {
         try {
@@ -21,6 +23,7 @@ function ShoppingCart() {
                 },
             });
             setCartList(response.data);
+            setCartCount(response.data.length);
         } catch (error) {
             console.log(error);
         }
@@ -33,7 +36,7 @@ function ShoppingCart() {
         <section className="section_content">
             <Header />
             {location.pathname === '/shopping_cart'
-                ? <CartList handleBack={handleBack} fetchCartList={fetchCartList} cartList={cartList} />
+                ? <CartList handleBack={handleBack} fetchCartList={fetchCartList} cartList={cartList} setCartList={setCartList} setCartCount={setCartCount} cartCount={cartCount} />
                 : location.pathname === '/shopping_cart/delivery_details'
                     ? <DeliveryDetails handleBack={handleBack} fetchCartList={fetchCartList} cartList={cartList} />
                     : <></>

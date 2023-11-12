@@ -6,7 +6,7 @@ import axios from '../../../api/axios';
 function SectionProductDetail({ productDetail }) {
     const [wishListed, setWishListed] = useState(false);
     const [quantity, setQuantity] = useState(1);
-    const { setCartCount } = useLayoutContext();
+    const { cartCount, setCartCount } = useLayoutContext();
     const [isInCart, setIsInCart] = useState(false)
     const isAuthenticated = useState(localStorage.getItem('isAuthenticated'));
     const token = localStorage.getItem('token');

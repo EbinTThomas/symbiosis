@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 function SideNav({ sideNav, setSideNav }) {
     const location = useLocation();
     const isAuthenticated = localStorage.getItem('isAuthenticated');
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
 
     const handleLogout = () => {
         localStorage.removeItem('token');
@@ -95,7 +96,7 @@ function SideNav({ sideNav, setSideNav }) {
                         isAuthenticated &&
                         <>
                             <div className="block_title">
-                                <span>Login Details:</span><br />David Johnson
+                                <span>Login Details:</span><br />{user.first_name} {user.last_name}
                             </div>
                             <ul className="auth_nav">
                                 <li>
