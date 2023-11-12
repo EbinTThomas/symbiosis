@@ -1,50 +1,3 @@
-/* Stepper */
-.MuiStepLabel-label {
-    color: #8C8C8C;
-    font-size: 14px;
-    font-family: 'Inter', sans-serif;
-}
-
-.MuiStepLabel-label.Mui-completed {
-    color: #fff !important;
-}
-
-.MuiStepLabel-label.Mui-active {
-    color: #fff !important;
-    font-weight: 600;
-}
-
-.MuiStepLabel-iconContainer svg {
-    fill: #8C8C8C;
-}
-
-.MuiStepLabel-iconContainer.Mui-completed svg {
-    fill: #fff;
-
-}
-
-.MuiStepLabel-iconContainer.Mui-active svg {
-    fill: #fff;
-}
-
-.MuiStepLabel-iconContainer .MuiStepIcon-text {
-    fill: #000;
-    font-weight: 600;
-    font-family: 'Inter', sans-serif;
-}
-
-.MuiStepConnector-line {
-    border-color: #8C8C8C;
-}
-
-.Mui-active .MuiStepConnector-line {
-    border-color: #fff;
-}
-
-.Mui-completed .MuiStepConnector-line {
-    border-color: #fff;
-}
-
 /* Shopping Cart */
 .section_cart_container {
     display: flex;
@@ -64,14 +17,14 @@
     padding: 0;
     margin: 0;
     font-size: 18px;
-    color: #fff;
+    color: var(--text-primary-color);
     font-weight: 500;
 }
 
 .section_cart_container .cart_list .empty_definition .grab_some_btn {
-    border: 1px solid #3c3c3c;
+    border: 1px solid var(--btn-border-color);
     border-radius: 4px;
-    color: #8c8c8c;
+    color: var(--btn-outline-color);
     padding: 10px;
     margin: 0;
     font-size: 14px;
@@ -86,8 +39,8 @@
 
 .shopping_cart_item {
     padding: 16px;
-    color: #fff;
-    background-color: #252526;
+    color: var(--text-primary-color);
+    background-color: var(--body-background-color);
     border-radius: 8px;
     display: flex;
     gap: 16px;
@@ -101,6 +54,7 @@
     height: 150px;
     object-fit: cover;
     border-radius: 8px;
+    border: 1px solid #0000000f;
 }
 
 .shopping_cart_item .sc_item_details {
@@ -112,7 +66,7 @@
 
 .shopping_cart_item .sc_item_details .sc_item_title {
     font-size: 16px;
-    color: #fff;
+    color: var(--text-primary-color);
     font-weight: 600;
     font-family: 'Inter', sans-serif;
     overflow: hidden;
@@ -125,7 +79,7 @@
 
 .shopping_cart_item .sc_item_details .sc_item_desc {
     font-size: 12px;
-    color: #8C8C8C;
+    color: var(--text-secondary-color);
     font-weight: 400;
     font-family: 'Inter', sans-serif;
     overflow: hidden;
@@ -138,7 +92,7 @@
 
 .shopping_cart_item .sc_item_details .sc_item_price {
     font-size: 14px;
-    color: #fff;
+    color: var(--text-primary-color);
     font-weight: 600;
     font-family: 'Inter', sans-serif;
     margin: 10px 0;
@@ -157,22 +111,25 @@
 }
 
 .shopping_cart_item .sc_item_details .sc_item_bottom .q_selector_container .q_btn {
-    font-size: 18px;
-    color: #868686;
+    font-size: 24px;
+    color: var(--btn-color);
     font-weight: 400;
     font-family: 'Syne', sans-serif;
     width: 28px;
     height: 28px;
     border-radius: 4px;
     border: none;
-    background-color: #1e1e1e;
+    background-color: var(--btn-background);
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .shopping_cart_item .sc_item_details .sc_item_bottom .q_selector_container .q_input {
     font-size: 14px;
-    color: #fff;
-    font-weight: 400;
+    color: var(--text-primary-color);
+    font-weight: 500;
     width: 28px;
     height: 28px;
     display: flex;
@@ -188,29 +145,29 @@
     gap: 8px;
     background-color: transparent;
     padding: 8px;
-    border: 1px solid #3f3f3f;
+    border: 1px solid var(--btn-border-color);
     border-radius: 8px;
     cursor: pointer;
-    color: #fff;
 }
 
 .shopping_cart_item .sc_item_details .sc_item_bottom .sc_item_rm_btn svg path {
-    fill: #d4d4d4;
+    fill: var(--btn-outline-color);
 }
 
 .shopping_cart_item .sc_item_details .sc_item_bottom .quantity_selection {
     display: flex;
-    gap: 10px;
+    gap: 24px;
 }
 
 .shopping_cart_item .sc_item_details .sc_item_bottom .quantity_selection .save_quantity {
-    background-color: #fff;
+    background-color: var(--btn-background);
+    color: var(--btn-color);
     border: none;
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
-    padding: 8px 10px;
+    padding: 10px 18px;
     border-radius: 4px;
 }
 
@@ -220,7 +177,8 @@
 }
 
 .order_details_container .order_details_card {
-    background-color: #252526;
+    background-color: var(--body-background-color);
+    border: 1px solid #0000000f;
     border-radius: 8px;
     padding: 32px;
     width: 100%;
@@ -231,14 +189,14 @@
 }
 
 .order_details_container .order_details_title {
-    color: #fff;
+    color: var(--text-primary-color);
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 24px;
 }
 
 .order_details_container .order_sum {
-    color: #fff;
+    color: var(--text-primary-color);
     font-size: 14px;
     font-weight: 400;
     display: flex;
@@ -246,7 +204,7 @@
 }
 
 .order_details_container .convenience_fee_label {
-    color: #fff;
+    color: var(--text-primary-color);
     font-size: 14px;
     font-weight: 400;
 }
@@ -254,7 +212,7 @@
 .order_details_container .convenience_fee li {
     padding: 6px 0;
     padding-left: 12px;
-    color: #8C8C8C;
+    color: var(--text-secondary-color);
     font-size: 14px;
     font-weight: 400;
     display: flex;
@@ -262,7 +220,7 @@
 }
 
 .order_details_container .order_total {
-    color: #fff;
+    color: var(--text-primary-color);
     font-size: 16px;
     font-weight: 600;
     display: flex;
@@ -278,15 +236,15 @@
 
 .order_details_container .place_order_btn_container .amount {
     font-size: 18px;
-    color: #fff;
+    color: var(--text-primary-color);
     font-weight: 600;
 }
 
 .order_details_container .place_order_btn_container .btn_place_order {
     font-size: 16px;
-    color: #1E1E1E;
-    font-weight: 600;
-    background-color: #fff;
+    color: var(--btn-color);
+    font-weight: 500;
+    background-color: var(--btn-background);
     font-family: 'Inter', sans-serif;
     padding: 10px 24px;
     border: none;
@@ -300,13 +258,16 @@
 }
 
 .order_details_container .place_order_btn_container .btn_place_order.disabled_link {
-    color: #1E1E1E;
-    background-color: #8c8c8c;
+    background-color: var(--btn-disabled-background);
 }
 
 .order_details_container .place_order_btn_container .btn_place_order svg {
     width: 28px;
     height: 28px;
+}
+
+.order_details_container .place_order_btn_container .btn_place_order svg path {
+    fill: var(--btn-color);
 }
 
 /* Delivery Address Form */
@@ -317,6 +278,17 @@
     top: 0;
     right: 0;
     z-index: 9999;
+}
+
+.delivery_address_form_container .delivery_address_form {
+    background-color: var(--tab-background-color);
+    color: var(--text-primary-color);
+    padding: 24px;
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    max-width: 500px;
+    height: 100vh;
+    overflow-y: scroll;
 }
 
 .delivery_address_form_container .back_btn {
@@ -338,7 +310,7 @@
 }
 
 .delivery_address_form_container .back_btn svg path {
-    fill: #fff;
+    fill: var(--text-primary-color);
 }
 
 .delivery_address_form_container .overlay {
@@ -353,12 +325,14 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    color: var(--text-primary-color);
 }
 
 .delivery_address_form h2 p {
     font-size: 14px;
-    color: #8C8C8C;
+    color: var(--text-secondary-color);
     font-weight: 400;
+    padding-top: 6px;
 }
 
 .delivery_address_form h2 svg {
@@ -367,18 +341,7 @@
 }
 
 .delivery_address_form h2 svg path {
-    fill: #8C8C8C;
-}
-
-.delivery_address_form {
-    background-color: #252526;
-    color: #fff;
-    padding: 24px;
-    font-family: 'Inter', sans-serif;
-    width: 100%;
-    max-width: 500px;
-    height: 100vh;
-    overflow-y: scroll;
+    fill: var(--text-secondary-color);
 }
 
 .delivery_address_form :where(.contact_info, .address_info) {
@@ -389,7 +352,7 @@
 .delivery_address_form .address_info {
     margin-top: 32px;
 }
-
+/* 
 .delivery_address_form .address_type {
     margin-top: 40px;
 }
@@ -409,7 +372,7 @@
     font-size: 14px;
     margin-left: 10px;
     cursor: pointer;
-    color: #fff;
+    color: var(--text-primary-color);
     font-weight: 400;
 }
 
@@ -433,7 +396,7 @@
 
 .delivery_address_form .address_type .checkbox_container input {
     cursor: pointer;
-}
+} */
 
 .delivery_address_form .address_field_title {
     margin-top: 12px;
@@ -446,16 +409,20 @@
     font-weight: 500;
     margin-bottom: 6px;
     margin-top: 18px;
-    color: #8C8C8C;
+    color: var(--text-primary-color);
+}
+
+.delivery_address_form label .req {
+    color: red;
 }
 
 .delivery_address_form input {
     padding: 16px 12px;
     background-color: transparent;
-    border: 1px solid #8c8c8c47;
+    border: 1px solid var(--input-border-color);
     border-radius: 4px;
     outline: none;
-    color: #fff;
+    color: var(--text-primary-color);
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-size: 16px;
@@ -468,8 +435,7 @@
 }
 
 .delivery_address_form input:focus {
-    border: 1px solid #fff;
-    box-shadow: 0 0 2px #fff;
+    box-shadow: 0 0 2px 1px var(--btn-highlight-background);
 }
 
 .delivery_address_form .button_container {
@@ -492,16 +458,16 @@
 }
 
 .delivery_address_form .button_container .reset_btn {
-    border: 1px solid #8C8C8C;
+    border: 1px solid var(--btn-border-color);
     background-color: transparent;
-    color: #8C8C8C;
+    color: var(--btn-outline-color);
 }
 
 .delivery_address_form .button_container .save_btn {
     border: none;
-    background-color: #fff;
-    font-weight: 600;
-    color: #1E1E1E;
+    background-color: var(--btn-background);
+    font-weight: 400;
+    color: var(--btn-color);
 }
 
 /* Delivery Address */
@@ -511,8 +477,8 @@
 }
 
 .delivery_address_wrap {
-    background-color: #252526;
-    color: #fff;
+    background-color: var(--tab-background-color);
+    color: var(--text-primary-color);
     font-family: 'Inter', sans-serif;
     width: 500px;
     border-radius: 8px;
@@ -522,7 +488,8 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 20px;
+    padding: 36px;
+    padding-left: 30px;
 }
 
 .delivery_address_wrap .delivery_address_top svg {
@@ -531,7 +498,7 @@
 }
 
 .delivery_address_wrap .delivery_address_top svg path {
-    fill: #8C8C8C;
+    fill: var(--text-secondary-color);
 }
 
 .delivery_address_wrap .delivery_address_top .delivery_address_title {
@@ -545,11 +512,12 @@
 .delivery_address_wrap .delivery_address_top .delivery_address_title p {
     font-size: 14px;
     font-weight: 400;
-    color: #8C8C8C;
+    color: var(--text-secondary-color);
 }
 
 .delivery_address_wrap .delivery_address_content {
-    padding: 30px;
+    padding: 0 36px;
+    padding-bottom: 36px;
     font-family: 'Inter', sans-serif;
     height: 100%;
 }
@@ -560,7 +528,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #8C8C8C;
+    color: var(--text-primary-color);
     padding: 16px;
     font-size: 16px;
     font-weight: 500;
@@ -572,7 +540,7 @@
     justify-content: space-between;
     background-color: transparent;
     border: none;
-    color: #fff;
+    color: var(--text-highlight-color);
     gap: 10px;
     padding: 0;
     border-radius: 4px;
@@ -587,8 +555,8 @@
     align-items: center;
     justify-content: space-between;
     background-color: transparent;
-    border: 1px solid #3f3f3f;
-    color: #D4D4D4;
+    border: 1px solid var(--btn-border-color);
+    color: var(--btn-outline-color);
     gap: 10px;
     padding: 12px 16px;
     border-radius: 4px;
@@ -604,11 +572,11 @@
 }
 
 .delivery_address_wrap .delivery_address_content .toggle_address_btn svg path {
-    fill: #fff;
+    fill: var(--text-highlight-color);
 }
 
 .delivery_address_wrap .delivery_address_content .toggle_address_btn.add svg path {
-    fill: #8C8C8C;
+    fill: var(--btn-outline-color);
 }
 
 .delivery_address_wrap .delivery_address_content .username {
@@ -621,7 +589,7 @@
     font-size: 14px;
     margin: 10px 0;
     margin-bottom: 24px;
-    color: #8C8C8C;
+    color: var(--text-primary-color);
 }
 
 .back_btn {
@@ -633,7 +601,7 @@
 }
 
 .back_btn svg path {
-    fill: #fff;
+    fill: var(--text-primary-color);
 }
 
 @media only screen and (max-width: 1080px) {

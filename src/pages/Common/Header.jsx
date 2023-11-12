@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import SideNav from './SideNav';
 import { useLayoutContext } from './LayoutContext';
 import axios from '../../api/axios';
+import MaterialUISwitch from './MaterialUISwitch';
 
 function Header() {
     const [isHeaderVisible, setIsHeaderVisible] = useState(true);
@@ -18,6 +19,7 @@ function Header() {
     const authNavDropdownRef = useRef(null);
     const [searchResults, setSearchResults] = useState([]);
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
+    const {theme, setTheme} = useLayoutContext();
 
     const handleLogout = () => {
         localStorage.removeItem('token');
@@ -106,6 +108,19 @@ function Header() {
     const toggleAuthNavDropdown = () => {
         setAuthNavDropdown(!authNavDropdown);
     };
+
+    const toggleTheme = () => {
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme && currentTheme !== 'dark') {
+            localStorage.setItem('theme', 'dark');
+            setTheme('dark');
+        } else {
+            localStorage.setItem('theme', 'light');
+            setTheme('light');
+        }        
+        console.log(theme); // This will log the updated theme
+    };
+    
 
     return (
         <>
@@ -271,6 +286,12 @@ function Header() {
 
                         </a>
                     }
+                    <MaterialUISwitch
+                        checked={theme === 'dark'}
+                        onChange={toggleTheme}
+                        name="theme-switch"
+                        color="primary"
+                    />
                 </nav>
             </header>
             {

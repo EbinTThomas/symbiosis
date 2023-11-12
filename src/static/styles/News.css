@@ -25,7 +25,7 @@
 }
 
 .news_container .news_card .news_card_title {
-    color: #fff;
+    color: var(--text-primary-color);
     font-size: 16px;
     line-height: 24px;
     height: 50px;
@@ -38,7 +38,7 @@
 }
 
 .news_container .news_card .news_card_desc {
-    color: #8C8C8C;
+    color: var(--text-secondary-color);
     font-size: 12px;
     height: 46px;
     overflow: hidden;
@@ -50,18 +50,18 @@
 }
 
 .news_container .news_card .news_card_timestamp {
-    color: #d4d4d4;
+    color: var(--text-secondary-color);
     font-size: 10px;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .news_container .load_more_btn {
     background-color: transparent;
-    color: #8C8C8C;
+    color: var(--btn-outline-color);
     border-radius: 4px;
     width: 120px;
     padding: 12px 0;
-    border: 1px solid #8C8C8C;
+    border: 1px solid var(--btn-border-color);
     position: absolute;
     bottom: -100px;
     left: calc(50% - 60px);

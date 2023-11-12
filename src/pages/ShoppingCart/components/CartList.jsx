@@ -3,28 +3,12 @@ import ShoppingCartItem from './CartList/ShoppingCartItem';
 import OrderDetails from './OrderDetails';
 import axios from '../../../api/axios';
 import { Link } from 'react-router-dom';
+import { useLayoutContext } from '../../Common/LayoutContext';
 
-function CartList({ handleBack }) {
+function CartList({ handleBack, fetchCartList, cartList }) {
     const token = localStorage.getItem('token');
     const [isLoading, setIsLoading] = useState(true);
-
-    const [cartList, setCartList] = useState([]);
-
-    const fetchCartList = async () => {
-        try {
-            const response = await axios.get(`/api/shopping-carts/`, {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Token ${token}`,
-                },
-            });
-            setCartList(response.data);
-        }
-        catch (error) {
-            console.log(error);
-        }
-        setIsLoading(false);
-    }
+    const {setCartCount} = useLayoutContext();
 
     useEffect(() => {
         fetchCartList();

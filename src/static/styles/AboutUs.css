@@ -1,5 +1,5 @@
 .section_about_us p {
-    color: #8C8C8C;
+    color: var(--text-secondary-color);
     padding-bottom: 40px;
 }
 
@@ -9,11 +9,15 @@
 }
 
 .section_about_us :where(h1, h2, h3, h4, h5, h6) {
-    color: #fff;
+    color: var(--text-primary-color);
     font-weight: 600;
     padding-bottom: 32px;
 }
 
 .section_about_us a {
-    color: #F8EE3E;
+    color: var(--text-highlight-color);
+}
+
+.section_about_us {
+    color: var(--text-secondary-color);
 }

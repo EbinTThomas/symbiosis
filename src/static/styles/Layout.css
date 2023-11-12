@@ -72,7 +72,7 @@ body {
 #header .logo_container .logo_thumbnail {
     width: 150px;
     height: 60px;
-    background: url('../assets/img/logo.png');
+    background: url('/assets/img/logo.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -80,7 +80,7 @@ body {
 #side_nav .logo_container .logo_thumbnail {
     width: 60px;
     height: 60px;
-    background: url('../assets/img/logo_m.png');
+    background: url('/assets/img/logo_m.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -138,7 +138,7 @@ body {
     top: 36px;
     right: 0;
     background-color: var(--tab-background-color);
-    border: 1px solid var(--btn-border-color);
+    box-shadow: 2px 4px 4px #0000001e, -2px -1px 4px #0000001e;
     border-radius: 8px;
     padding: 20px 0;
     width: 240px;
@@ -147,13 +147,15 @@ body {
 #header nav>a.auth_cred .auth_nav_dropdown li .auth_nav_link {
     padding: 8px 16px;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 500;
     list-style-type: none;
     display: flex;
     justify-content: start;
     align-items: center;
     gap: 16px;
-    color: var(--text-secondary-color);
+    color: var(--text-primary-color);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
 }
 
 #header nav>a.auth_cred .auth_nav_dropdown li .auth_nav_link:hover {
@@ -161,7 +163,7 @@ body {
 }
 
 #header nav>a.auth_cred .auth_nav_dropdown li .auth_nav_link>svg path {
-    fill: var(--text-secondary-color);
+    fill: var(--text-primary-color);
 }
 
 .a_highlighted {
@@ -169,7 +171,7 @@ body {
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    color: var(--text-highlight-color);
+    color: var(--text-primary-color);
 }
 
 .a_highlighted span {
@@ -276,7 +278,7 @@ body {
 
 #header .right_nav .search_bar_container .search_suggestions {
     background-color: var(--tab-background-color);
-    border: 1px solid #2E2E2F;
+    box-shadow: 0 0 2px #0000006d;
     border-radius: 8px;
     padding: 10px 0;
     position: absolute;
@@ -342,7 +344,7 @@ body {
     background-color: var(--text-highlight-color);
     width: 16px;
     height: 16px;
-    color: #1E1E1E;
+    color: var(--btn-color);
     display: flex;
     justify-content: center;
     align-items: center;

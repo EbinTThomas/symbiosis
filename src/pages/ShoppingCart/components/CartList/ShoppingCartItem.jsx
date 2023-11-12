@@ -72,7 +72,7 @@ function ShoppingCartItem({ cartItem, removeCartItem, fetchCartList }) {
               </button>
             )}
           </div>
-          <button className="sc_item_rm_btn" onClick={() => removeCartItem(cartItem.product)}>
+          <button className="sc_item_rm_btn" style={{display: isQuantityChanged && 'none'}} onClick={() => removeCartItem(cartItem.product)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"

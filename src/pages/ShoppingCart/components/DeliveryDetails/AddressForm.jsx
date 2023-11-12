@@ -78,28 +78,28 @@ function AddressForm({ handleToggleForm }) {
                 </h2>
                 <div className="contact_info">
                     <div className="address_field_title">Contact Info</div>
-                    <label htmlFor="">Full Name *</label>
+                    <label htmlFor="">Full Name <span className="req">*</span></label>
                     <input type="text" name="fullName" id="" required value={formData.fullName}
                 onChange={handleInputChange} />
-                    <label htmlFor="">Phone Number *</label>
+                    <label htmlFor="">Phone Number <span className="req">*</span></label>
                     <input type="tel" name="phoneNumber" id="" required value={formData.phoneNumber}
                 onChange={handleInputChange} />
                 </div>
                 <div className="address_info">
                     <div className="address_field_title">Address Info</div>
-                    <label htmlFor="">Pincode *</label>
+                    <label htmlFor="">Pincode <span className="req">*</span></label>
                     <input type="number" inputMode="numeric" name="pincode" id="" required value={formData.pincode}
                 onChange={handleInputChange} />
-                    <label htmlFor="">City *</label>
+                    <label htmlFor="">City <span className="req">*</span></label>
                     <input type="text" name="city" required value={formData.city}
                 onChange={handleInputChange} />
-                    <label htmlFor="">State *</label>
+                    <label htmlFor="">State <span className="req">*</span></label>
                     <input type="text" name="state" required value={formData.state}
                 onChange={handleInputChange} />
-                    <label htmlFor="">Locality / Area / Street *</label>
+                    <label htmlFor="">Locality / Area / Street <span className="req">*</span></label>
                     <input type="text" name="locality" required value={formData.locality}
                 onChange={handleInputChange} />
-                    <label htmlFor="">Flat No. / Building Name *</label>
+                    <label htmlFor="">Flat No. / Building Name <span className="req">*</span></label>
                     <input type="text" name="flatOrBuilding" required value={formData.flatOrBuilding}
                 onChange={handleInputChange} />
                     <label htmlFor="">Landmark (Optional)</label>

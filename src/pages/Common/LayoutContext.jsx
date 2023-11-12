@@ -7,10 +7,11 @@ export function useLayoutContext() {
 }
 
 export function LayoutProvider({ children }) {
-  const [cartCount, setCartCount] = useState(0);
+  const [cartCount, setCartCount] = useState(localStorage.getItem('cart-count') || 0);
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
 
   return (
-    <LayoutContext.Provider value={{ cartCount, setCartCount }}>
+    <LayoutContext.Provider value={{ cartCount, setCartCount, theme, setTheme }}>
       {children}
     </LayoutContext.Provider>
   );

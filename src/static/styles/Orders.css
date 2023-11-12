@@ -5,13 +5,11 @@
 }
 
 .orders_page .order_container {
-    border: 1px solid #3c3c3c;
+    background-color: var(--btn-color);
     border-radius: 8px;
-    max-width: 500px;
 }
 
 .orders_page .order_container .order_product {
-    border-bottom: 1px solid #242424;
     width: 100%;
     display: flex;
     padding: 10px;

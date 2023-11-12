@@ -5,28 +5,12 @@ import axios from '../../../api/axios';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 
-function DeliveryDetails({ handleBack }) {
+function DeliveryDetails({ handleBack, fetchCartList, cartList }) {
     const [addressForm, setAddressForm] = useState(false);
     const [addressFilled, setAddressFilled] = useState(false);
     const [deliveryAddress, setDeliveryAddress] = useState({});
     const token = localStorage.getItem('token');
     const [sessionID, setSessionID] = useState('');
-
-    const [cartList, setCartList] = useState([]);
-
-    const fetchCartList = async () => {
-        try {
-            const response = await axios.get(`/api/shopping-carts/`, {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Token ${token}`,
-                },
-            });
-            setCartList(response.data);
-        } catch (error) {
-            console.log(error);
-        }
-    }
 
     const fetchDeliveryAddress = async () => {
         try {

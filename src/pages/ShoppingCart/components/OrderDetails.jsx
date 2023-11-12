@@ -14,9 +14,6 @@ function OrderDetails({ cartList, btn_label }) {
         });
     };
 
-
-    console.log(cartList)
-
     return (
         <div className="order_details_container">
             <div className="order_details_card">
