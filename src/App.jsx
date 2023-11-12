@@ -16,34 +16,37 @@ import RequireAuth from './pages/Common/RequireAuth'
 import Payment from './pages/Payment/Payment'
 import NotFound from './pages/Common/NotFound'
 import Orders from './pages/Orders/Orders'
+import './App.css'
 
 function App() {
   return (
-    <LayoutProvider>
-      <Routes>
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/password_reset/request" element={<PasswordReset step={1} />} />
-        <Route path="/password_reset/email" element={<PasswordReset step={2} />} />
-        <Route path="/password_reset/confirmation" element={<PasswordReset step={3} />} />
-        <Route path="/" element={<HomePage />} />
-        <Route path="/shop/" element={<ShopPage />} />
-        <Route path="/shop/:search_key" element={<SearchResults />} />
-        <Route path="/product_detail/:product_id" element={<ProductDetail />} />
-        <Route element={<RequireAuth />}>
-          <Route path="/shopping_cart" element={<ShoppingCart />} />
-          <Route path="/shopping_cart/delivery_details" element={<ShoppingCart />} />
-          <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="/payment/success" element={<Payment/>} />
-          <Route path="/payment/cancelled" element={<Payment/>} />
-          <Route path="/orders" element={<Orders />} />
-        </Route>
-        <Route path="/about" element={<About />} />
-        <Route path="/news" element={<News />} />
-        <Route path="/news/:id" element={<NewsDetail />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/*" element={<NotFound />} />
-      </Routes>
-    </LayoutProvider>
+    <div id="app" data-theme="dark">
+      <LayoutProvider>
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/password_reset/request" element={<PasswordReset step={1} />} />
+          <Route path="/password_reset/email" element={<PasswordReset step={2} />} />
+          <Route path="/password_reset/confirmation" element={<PasswordReset step={3} />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/shop/" element={<ShopPage />} />
+          <Route path="/shop/:search_key" element={<SearchResults />} />
+          <Route path="/product_detail/:product_id" element={<ProductDetail />} />
+          <Route element={<RequireAuth />}>
+            <Route path="/shopping_cart" element={<ShoppingCart />} />
+            <Route path="/shopping_cart/delivery_details" element={<ShoppingCart />} />
+            <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/payment/success" element={<Payment />} />
+            <Route path="/payment/cancelled" element={<Payment />} />
+            <Route path="/orders" element={<Orders />} />
+          </Route>
+          <Route path="/about" element={<About />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/news/:id" element={<NewsDetail />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/*" element={<NotFound />} />
+        </Routes>
+      </LayoutProvider>
+    </div>
   )
 }
 
