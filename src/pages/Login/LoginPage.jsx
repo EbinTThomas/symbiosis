@@ -40,6 +40,7 @@ function LoginPage() {
 
   const [loginErrMsg, setLoginErrMsg] = useState('');
   const [signupErrMsg, setSignupErrMsg] = useState('');
+  const [signupSuccessMsg, setSignupSuccessMsg] = useState('');
   const [pageName, setPageName] = useState('signup');
 
   const isAuthenticated = localStorage.getItem('isAuthenticated');
@@ -52,6 +53,8 @@ function LoginPage() {
 
   const handleSignUp = async (e) => {
     e.preventDefault();
+  
+  
     try {
       const response = await axios.post(SIGNUP_URL, {
         first_name: signupFirstName,
@@ -59,21 +62,21 @@ function LoginPage() {
         email: signupEmail,
         password: signupPassword,
       });
-      setSignupFirstName('');
-      setSignupLastName('');
-      setSignupEmail('');
-      setLoginPassword('');
-      navigate('/verify_email', { replace: true });
+  
+      setSignupSuccessMsg(response?.data?.message);
+      console.log(response.data);
+      localStorage.setItem('user', JSON.stringify(response?.data));
+      navigate('/verify_mail');
+      console.log("Sign-up successful!");
     } catch (err) {
-      if (!err?.response) {
-        setSignupErrMsg('No server response');
-      } else if (err?.response?.status === 400) {
-        setSignupErrMsg('Missing Username or Password');
-      } else if (err?.response?.status === 401) {
-        setSignupErrMsg('Invalid Username or Password');
-      } else {
-        setSignupErrMsg('Login Failed');
-      }
+      console.log("Sign-up error: ", err);
+      setSignupErrMsg(err?.response?.data?.error);
+    } finally {
+      // Clear form fields and reset loading state
+      setSigupFirstName('');
+      setSigupLastName('');
+      setSigupEmail('');
+      setSigupPassword('');
     }
   };
 
@@ -134,11 +137,8 @@ function LoginPage() {
           <form action="#">
             <h1>Create New Account</h1>
             <span>Enter your details to continue</span>
-            {signupErrMsg ? (
-              <div className="alert alert-danger">{signupErrMsg}</div>
-            ) : (
-              ''
-            )}
+            {signupErrMsg && <div className="alert alert-danger">{signupErrMsg}</div>}
+            {signupSuccessMsg && <div className="success">{signupSuccessMsg}</div>}
             <div className="form_fields">
               <CustomCssTextField label="First Name" variant="outlined" type="text" className="form_field" onChange={(e) => setSigupFirstName(e.target.value)} />
               <CustomCssTextField label="Last Name" variant="outlined" type="text" className="form_field" onChange={(e) => setSigupLastName(e.target.value)} />

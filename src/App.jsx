@@ -17,6 +17,7 @@ import Payment from './pages/Payment/Payment'
 import NotFound from './pages/Common/NotFound'
 import Orders from './pages/Orders/Orders'
 import './App.css'
+import EmailVerifyOtp from './pages/EmailVerification/EmailVerify'
 
 function App() {
   const { theme } = useLayoutContext();
@@ -24,6 +25,7 @@ function App() {
     <div id="app" data-theme={theme}>
       <Routes>
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/verify_mail" element={<EmailVerifyOtp />} />
         <Route path="/password_reset/request" element={<PasswordReset step={1} />} />
         <Route path="/password_reset/email" element={<PasswordReset step={2} />} />
         <Route path="/password_reset/confirmation" element={<PasswordReset step={3} />} />
