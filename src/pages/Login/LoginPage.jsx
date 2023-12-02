@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import axios from '../../api/axios';
-import '../../static/styles/LoginPage.css';
+// import '../../static/styles/LoginPage.css';
 import { Link, resolvePath, useLocation, useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 

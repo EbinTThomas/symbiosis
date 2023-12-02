@@ -18,13 +18,16 @@ import NotFound from './pages/Common/NotFound'
 import Orders from './pages/Orders/Orders'
 import './App.css'
 import EmailVerifyOtp from './pages/EmailVerification/EmailVerify'
+import Auth from './pages/Auth/Auth'
 
 function App() {
   const { theme } = useLayoutContext();
+
   return (
     <div id="app" data-theme={theme}>
       <Routes>
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/auth" element={<Auth />} />
         <Route path="/verify_mail" element={<EmailVerifyOtp />} />
         <Route path="/password_reset/request" element={<PasswordReset step={1} />} />
         <Route path="/password_reset/email" element={<PasswordReset step={2} />} />
