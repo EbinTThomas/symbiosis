@@ -233,7 +233,7 @@ function Header() {
                         <Link to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Link>
                         <Link to="/shop" className={location.pathname === '/shop' ? 'active' : ''}>Shop</Link>
                         <Link to="/about" className={location.pathname === '/about' ? 'active' : ''}>About</Link>
-                        <Link to="/news" className={location.pathname === '/news' ? 'active' : ''}>News</Link>
+                        {/* <Link to="/news" className={location.pathname === '/news' ? 'active' : ''}>News</Link> */}
                         <Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>Contact Us</Link>
                     </div>
                     <div className="nav_container_short">
@@ -242,7 +242,7 @@ function Header() {
                         </Link>
                         <Link to="/shop" className={location.pathname === '/shop' ? 'active' : ''}>Shop</Link>
                         <Link to="/about" className={location.pathname === '/about' ? 'active' : ''}>About</Link>
-                        <Link to="/news" className={location.pathname === '/news' ? 'active' : ''}>News</Link>
+                        {/* <Link to="/news" className={location.pathname === '/news' ? 'active' : ''}>News</Link> */}
                         <Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>Contact Us</Link>
                     </div>
                 </nav>
