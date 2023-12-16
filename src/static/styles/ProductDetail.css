@@ -61,6 +61,9 @@
     width: 100%;
     height: auto;
     object-fit: contain;
+    background: #ffff;
+    border: 1px solid #0000000f;
+    border-radius: 12px;
 }
 
 .product_details_container .product_details {
@@ -73,7 +76,7 @@
 }
 
 .product_details_container .product_details .product_name {
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-family);
     font-size: 40px;
     font-weight: 600;
     color: var(--text-primary-color);
@@ -109,7 +112,7 @@
 
 .product_details_container .product_details .flex_box .q_selector_container .q_tag {
     color: var(--text-primary-color);
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-family);
     font-weight: 500;
     font-size: 12px;
     text-align: center;
@@ -118,7 +121,7 @@
 
 .product_details_container .product_details .flex_box .q_selector .q_btn {
     color: var(--btn-color);
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-family);
     background-color: var(--btn-background);
     border: none;
     border-radius: 4px;
@@ -165,7 +168,7 @@
     text-wrap: nowrap;
     gap: 20px;
     text-transform: uppercase;
-    font-family: 'Syne', sans-serif;
+    font-family: Syne;
 }
 
 .product_details_container .product_details .action_btn_container .add_to_cart_btn {
@@ -184,7 +187,7 @@
     text-wrap: nowrap;
     gap: 20px;
     text-transform: uppercase;
-    font-family: 'Syne', sans-serif;
+    font-family: Syne;
 }
 
 .product_details_container .product_details .action_btn_container .buy_now_btn svg path {
@@ -208,7 +211,7 @@
     color: var(--text-primary-color);
     font-size: 24px;
     font-weight: 600;
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-family);
 }
 
 .section_related_products .rp_products_container {
@@ -249,7 +252,7 @@
     font-size: 18px;
     color: var(--text-primary-color);
     font-weight: 600;
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-family);
     max-height: 48px;
     margin-bottom: 10px;
     line-height: 24px;

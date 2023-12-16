@@ -20,7 +20,7 @@ function PasswordResetRequest() {
                     }
                 }
             );
-            navigate('/password_reset/email', {replace: true});
+            navigate('/auth/password_reset/email', {replace: true});
         } catch (error) {
             console.log(error)
         }

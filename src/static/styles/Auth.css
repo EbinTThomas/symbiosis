@@ -1,42 +1,325 @@
-#section_auth .flex_box {
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --font-family: 'Inter', sans-serif;   
+}
+
+#section_auth {
     width: 100%;
     min-height: 100vh;
+    font-family: var(--font-family);
+}
+
+#section_auth .flex_box {
     display: flex;
 }
 
-#section_auth .flex_box .flex_item {
+#section_auth  .flex_box .flex_item {
+    width: 50%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#section_auth  .flex_box .flex_item .ad_image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#section_auth  .flex_box .flex_item .auth_form_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     height: 100%;
     padding: 50px;
 }
 
-#section_auth .flex_box .flex_item .image_carousel {
-    width: 600px;
-    height: calc(100vh - 100px);
-    border-radius: 8px;
+#section_auth  .flex_box .flex_item .auth_form_container .auth_form_logo {
+    width: 200px;
 }
 
-#section_auth .flex_box .flex_item .image_carousel img {
-    width: 600px;
-    height: calc(100vh - 100px);
-    object-fit: cover;
-}
-
-#section_auth .flex_box .flex_item .image_carousel .css-1m9128y {
-    display: none;
-}
-
-.text_field_container {
-    border: 1px solid #D6D6D6;
-    border-radius: 12px;
+#section_auth  .flex_box .flex_item .auth_form_container .auth_form {
+    width: 100%;
+    max-width: 400px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 10px;
-    position: relative;
-    padding: 12px 0;
+    gap: 20px;
 }
 
-.text_field_container .text_field_ico {
-    border-right: 1px solid #D6D6D6;
-    padding: 0 12px;
-    box-sizing: content-box;
+#section_auth  .flex_box .flex_item .auth_form_container .auth_form h1 {
+    font-family: var(--font-family);
+    font-size: 32px;
+    font-weight: 600;
+    padding-bottom: 8px;
+}
+
+#section_auth  .flex_box .flex_item .auth_form_container .auth_form p {
+    color: #959595;
+    font-family: var(--font-family);
+    font-size: 14px;
+}
+
+#section_auth  .flex_box .flex_item .auth_form_container .auth_switch_container {
+    background-color: #F0F0F2;
+    border-radius: 12px;
+    padding: 4px;
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+#section_auth  .flex_box .flex_item .auth_form_container .auth_switch_container a {
+    width: 100%;
+    background-color: transparent;
+    border-radius: 10px;
+    border: none;
+    padding: 16px;
+    font-family: var(--font-family);
+    font-weight: 500;
+    cursor: pointer;
+    color: #000;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#section_auth  .flex_box .flex_item .auth_form_container .auth_switch_container a.active {
+    width: 100%;
+    background-color: #fff;
+    color: #2c2c2c;
+    font-weight: 600;
+}
+
+#section_auth  .flex_box .flex_item .auth_form_container .err_msg_alert {
+    background-color: #ffdcdc;
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: var(--font-family);
+    color: #e53e3e;
+    text-align: center;
+}
+
+#section_auth  .flex_box .flex_item .auth_form_container .input_fields {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+}
+
+#section_auth  .flex_box .flex_item .input_container {
+    width: 100%;
+    height: 60px;
+    border: 1px solid #d4d4d4;
+    border-radius: 12px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#section_auth  .flex_box .flex_item .input_container.focus {
+    border: 1px solid #0166ff;
+}
+
+#section_auth  .flex_box .flex_item .input_container .input_wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#section_auth  .flex_box .flex_item .input_container .input_wrapper input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    padding-left: 24px;
+    padding-top: 12px;
+}
+
+#section_auth  .flex_box .flex_item .input_container .input_wrapper label {
+    position: absolute;
+    left: 24px;
+    bottom: 20px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #696969;
+    font-family: var(--font-family);
+    pointer-events: none;
+    transition: all .2s ease;
+}
+
+#section_auth  .flex_box .flex_item .input_container .input_wrapper input:focus ~ label {
+    color: #0166ff;
+}
+
+#section_auth  .flex_box .flex_item .input_container .input_wrapper input:focus ~ label,
+#section_auth  .flex_box .flex_item .input_container .input_wrapper input:valid ~ label {
+    transform: translateY(-12px);
+    font-size: 12px;
+}
+
+#section_auth  .flex_box .flex_item .input_container .input_prefix,
+#section_auth  .flex_box .flex_item .input_container .input_suffix {
+    width: 100px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 6px;
+}
+
+#section_auth  .flex_box .flex_item .input_container .input_suffix {
+    border-right: 1px solid #d4d4d4;
+}
+
+#section_auth  .flex_box .flex_item .input_container .input_suffix svg path {
+    fill: #2c2c2c;
+}
+
+#section_auth  .flex_box .flex_item .input_container .input_prefix svg.valid path {
+    fill: #23bf8b;
+}
+
+#section_auth  .flex_box .flex_item .input_container .input_prefix svg.invalid path {
+    fill: red;
+}
+
+#section_auth  .flex_box .flex_item .forgot_password {
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+    font-family: var(--font-family);
+    text-align: center;
+}
+
+#section_auth  .flex_box .flex_item .btn_login {
+    width: 100%;
+    height: 60px;
+    background-color: #0166ff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-family: var(--font-family);
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.button {
+    background-color: #0166ff;
+    border: 2px solid #0166ff;
+	border-radius: 0;
+	box-shadow: none;
+	width: 8rem; /* adjust as required */
+	height: 4rem; /* adjust as required */
+	
+}
+
+#section_auth  .flex_box .flex_item .btn_login:disabled {
+    background-color: #6d7c93;
+    cursor: not-allowed;
+}
+
+#section_auth  .flex_box .flex_item .btn_login:hover,
+#section_auth  .flex_box .flex_item .btn_login:active,
+#section_auth  .flex_box .flex_item .btn_login:focus {
+    background-color: #0052cd;
+}
+
+#section_auth  .flex_box .flex_item .auth_form_container .caption {
+    font-family: var(--font-family);
+    color: #959595;
+    font-size: 14px;
+    text-align: center;
+    line-height: 20px;
+}
+
+#section_auth  .flex_box .flex_item .auth_form_container .otp_field_wrapper {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    gap: 18px;
+    padding: 24px 0;
+}
+
+#section_auth  .flex_box .flex_item .auth_form_container .otp_field {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 12px;
+    border: 1px solid #d4d4d4;
+}
+
+#section_auth  .flex_box .flex_item .auth_form_container .otp_field:hover,
+#section_auth  .flex_box .flex_item .auth_form_container .otp_field:active,
+#section_auth  .flex_box .flex_item .auth_form_container .otp_field:focus {
+    border: 1px solid #0166ff;
+    outline: none;
+}
+
+#section_auth  .flex_box .flex_item .auth_verified {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+#section_auth  .flex_box .flex_item .auth_verified h1 {
+    font-family: var(--font-family);
+    font-size: 32px;
+    font-weight: 600;
+    padding-bottom: 8px;
+    text-align: center;
+}
+
+#section_auth  .flex_box .flex_item .auth_verified p {
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 400;
+    color: #959595;
+}
+
+#section_auth  .flex_box .flex_item .auth_verified .btn_container {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    padding-top: 32px;
+}
+
+#section_auth  .flex_box .flex_item .auth_verified .btn_container a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 12px;
+}
+
+#section_auth  .flex_box .flex_item .auth_verified .btn_container a.btn_primary {
+    background-color: #0166ff;
+    color: #fff;
+}
+
+#section_auth  .flex_box .flex_item .auth_verified .btn_container a.btn_outline {
+    background-color: transparent;
+    color: #2c2c2c;
+    border: 1px solid #d4d4d4;
 }

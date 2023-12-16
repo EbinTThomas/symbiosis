@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState, useRef } from 'react';
 import SectionProductList from './components/SectionProductList';
 import '../../static/styles/ShopPage.css';

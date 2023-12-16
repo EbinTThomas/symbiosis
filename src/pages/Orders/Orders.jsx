@@ -61,7 +61,6 @@ function Orders() {
                                                     </div>
                                                 </div>
                                             </Link>
-
                                         ))
                                 }
                                 <div className="order_details_container">

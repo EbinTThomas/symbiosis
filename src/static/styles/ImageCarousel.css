@@ -1,0 +1,34 @@
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.section_carousel .swiper-slide {
+  width: 100%;
+  /* aspect-ratio: 16/4 !important; */
+}
+
+.section_carousel .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.section_carousel .swiper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Hide navigation buttons by default */
+.section_carousel .swiper-button-next,
+.section_carousel .swiper-button-prev {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Show navigation buttons on hover */
+.section_carousel .mySwiper:hover .swiper-button-next,
+.section_carousel .mySwiper:hover .swiper-button-prev {
+  opacity: 1;
+}

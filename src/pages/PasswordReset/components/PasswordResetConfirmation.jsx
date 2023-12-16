@@ -28,7 +28,7 @@ function PasswordResetConfirmation() {
                         }
                     }
                 )
-                navigate('/login', {replace: true})
+                navigate('/auth/login', {replace: true})
             } else {
                 console.log('passwords don\'t match');
             }

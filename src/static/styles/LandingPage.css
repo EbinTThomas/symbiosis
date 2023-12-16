@@ -1,0 +1,57 @@
+#section_landing {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    padding-top: 80px;
+}
+
+#section_landing .ad_title {
+    padding-bottom: 30px;
+}
+
+#section_landing .ad_banner {
+    width: 100%;
+}
+
+/* Base font size for the document */
+html {
+    font-size: 16px; /* Adjust this as needed */
+}
+
+/* Responsive font sizes for headings */
+h1 {
+    font-weight: 600;
+    font-size: 2rem; /* 2 times the base font size */
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 1.8rem; /* 1.8 times the base font size */
+}
+
+h3 {
+    font-weight: 600;
+    font-size: 1.6rem; /* 1.6 times the base font size */
+}
+
+h4 {
+    font-weight: 600;
+    font-size: 1.4rem; /* 1.4 times the base font size */
+}
+
+h5 {
+    font-weight: 600;
+    font-size: 1.2rem; /* 1.2 times the base font size */
+}
+
+h6 {
+    font-weight: 600;
+    font-size: 1rem; /* Same as the base font size */
+}
+
+/* Example of media query for larger screens */
+@media screen and (min-width: 768px) {
+    html {
+        font-size: 18px; /* Adjust for larger screens */
+    }
+}

@@ -114,12 +114,12 @@ function SectionProductDetail({ productDetail }) {
                     'Authorization': `Token ${token}`,
                 },
             });
-    
+
             console.log(response.data);
-    
+
             if (Array.isArray(response.data)) {
                 const productIdsInCart = response.data.map(cartItem => cartItem.product.id);
-    
+
                 if (productIdsInCart.includes(productDetail.id)) {
                     setIsInCart(true);
                 } else {
@@ -134,8 +134,13 @@ function SectionProductDetail({ productDetail }) {
         }
     };
     
-    
-    
+    const formatIndianRupee = (amount) => {
+        return new Intl.NumberFormat('en-IN', {
+            style: 'currency',
+            currency: 'INR',
+            maximumFractionDigits: 0,
+        }).format(amount);
+    };
 
     useEffect(() => {
         checkWishlist();
@@ -162,7 +167,7 @@ function SectionProductDetail({ productDetail }) {
                 <h3 className="product_name">{productDetail.name}</h3>
                 <p className="product_desc">{productDetail.description}</p>
                 <div className="flex_box">
-                    <h4 className="product_price">₹{productDetail.price} {productDetail.unit}</h4>
+                    <h4 className="product_price">{formatIndianRupee(productDetail.price)} {productDetail.unit}</h4>
                     <div className="q_selector_container">
                         <div className="q_tag">Quantity</div>
                         <div className="q_selector">

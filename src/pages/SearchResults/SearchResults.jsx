@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import SectionProductList from './components/SectionProductList'
 import "../../static/styles/ShopPage.css"
 import Header from '../Common/Header'
 import { useParams } from 'react-router-dom'
 import axios from '../../api/axios'
+import SectionProductList from '../Shop/components/SectionProductList'
 
 function SearchResults() {
     const { search_key } = useParams();

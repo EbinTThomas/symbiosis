@@ -1,0 +1,27 @@
+.section_grid {
+  padding: 0 10vw;
+  width: 100%;
+}
+
+.section_grid#section_product_list {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+
+.section_grid#section_product_list .product_card {
+  max-width: 300px;
+  min-width: 140px;
+}
+
+@media only screen and (max-width: 560px) {
+  .section_grid#section_product_list {
+    padding: 0 5vw;
+    gap: 12px;
+  }
+
+  #section_product_list .product_card {
+    width: 100%;
+  }
+}

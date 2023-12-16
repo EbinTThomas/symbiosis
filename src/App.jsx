@@ -17,8 +17,9 @@ import Payment from './pages/Payment/Payment'
 import NotFound from './pages/Common/NotFound'
 import Orders from './pages/Orders/Orders'
 import './App.css'
-import EmailVerifyOtp from './pages/EmailVerification/EmailVerify'
+// import EmailVerifyOtp from './pages/EmailVerification/EmailVerify'
 import Auth from './pages/Auth/Auth'
+import LandingPage from './pages/LandingPage/LandingPage'
 
 function App() {
   const { theme } = useLayoutContext();
@@ -26,13 +27,17 @@ function App() {
   return (
     <div id="app" data-theme={theme}>
       <Routes>
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/auth" element={<Auth />} />
-        <Route path="/verify_mail" element={<EmailVerifyOtp />} />
-        <Route path="/password_reset/request" element={<PasswordReset step={1} />} />
-        <Route path="/password_reset/email" element={<PasswordReset step={2} />} />
-        <Route path="/password_reset/confirmation" element={<PasswordReset step={3} />} />
-        <Route path="/" element={<HomePage />} />
+        {/* <Route path="/login" element={<LoginPage />} /> */}
+        <Route path="/auth/login" element={<Auth />} />
+        <Route path="/auth/signup" element={<Auth />} />
+        <Route path="/auth/verify_mail" element={<Auth />} />
+        <Route path="/auth/verified" element={<Auth />} />
+        <Route path="/auth/password_reset/request" element={<Auth />} />
+        <Route path="/auth/password_reset/email" element={<Auth />} />
+        <Route path="/auth/password_reset/confirmation" element={<Auth />} />
+        <Route path="/auth/password_reset/success" element={<Auth />} />
+        {/* <Route path="/" element={<HomePage />} /> */}
+        <Route path="/" element={<LandingPage />} />
         <Route path="/shop/" element={<ShopPage />} />
         <Route path="/shop/:search_key" element={<SearchResults />} />
         <Route path="/product_detail/:product_id" element={<ProductDetail />} />
