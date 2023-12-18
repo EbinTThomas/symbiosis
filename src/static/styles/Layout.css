@@ -119,6 +119,32 @@ body {
     display: flex;
     flex-direction: column;
     z-index: 999;
+    overflow-y: scroll;
+}
+
+#header #main_nav .search_bar_container .search_suggestions::-webkit-scrollbar {
+    width: 2px; /* Set the width of the scrollbar */
+}
+
+#header #main_nav .search_bar_container .search_suggestions::-webkit-scrollbar-thumb {
+    background-color: #f1f1f1; /* Set the color of the scrollbar thumb */
+    border-radius: 2.5px; /* Optional: Set border radius for a rounded look */
+}
+
+#header #main_nav .search_bar_container .search_suggestions::-webkit-scrollbar-track {
+    background-color: transparent; /* Set the background color of the scrollbar track */
+}
+
+#header #main_nav .search_bar_container .search_suggestions::-webkit-scrollbar-thumb:hover {
+    background-color: #888; /* Set the color of the scrollbar thumb on hover */
+}
+
+#header #main_nav .search_bar_container .search_suggestions::-webkit-scrollbar-thumb:active {
+    background-color: #888; /* Set the color of the scrollbar thumb on active state (click) */
+}
+
+#header #main_nav .search_bar_container .search_suggestions::-webkit-scrollbar-thumb:vertical {
+    min-height: 20px;
 }
 
 #header #main_nav .search_bar_container .search_suggestions .separator {
