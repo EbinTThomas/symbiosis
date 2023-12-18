@@ -3,6 +3,7 @@
     flex-direction: column;
     row-gap: 40px;
     padding-top: 80px;
+    padding-bottom: 60px;
 }
 
 #section_landing .ad_title {
