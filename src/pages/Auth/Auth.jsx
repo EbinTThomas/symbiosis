@@ -4,6 +4,7 @@ import '../../static/styles/Auth.css'
 import InputField from './components/InputField';
 import axios from '../../api/axios';
 import OTPField from './components/OTPField';
+import { Helmet } from 'react-helmet-async';
 
 const LOGIN_URL = '/api/account/login/';
 const SIGNUP_URL = '/api/account/register/';
@@ -183,7 +184,7 @@ function Auth() {
     return (
         <>
             <Helmet>
-            <title>Login</title>
+                <title>Login</title>
             </Helmet>
             <section id="section_auth">
                 <div className="flex_box">
