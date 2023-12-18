@@ -42,7 +42,7 @@ function LandingPage() {
                                         <ImageCarousel sliderImages={item.data.slides} />
                                     </section>
                                     : item.type === 'banner'
-                                        ? <Link to=""><img src={item.data.get_image} alt="" className="ad_banner" /></Link>
+                                        ? <Link to={`${item.product ? 'product_detail/'+item.product.id : 'brand/'+item.brand.id}`}><img src={item.data.get_image} alt="" className="ad_banner" /></Link>
                                         : item.type === 'grid'
                                             ?
                                             <section className="section_grid" id="section_product_list">
