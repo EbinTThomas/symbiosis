@@ -42,7 +42,7 @@ function ImageGrid({ items }) {
                                                     </svg>
                                                 )}
                                             </button> */}
-                        <Link to={`/product_detail/${item.product.id}`}>
+                        <Link to={item.brand ? `/brand/${item.brand}` : item.product && `/product_detail/${item.product.id}`}>
                             <img src={item.product.get_image ? item.product.get_image : '/assets/img/temp.jpg'} alt="" className="product_thumbnail" />
                             <div className="product_details">
                                 <h4 className="product_title">{item.product.name}</h4>
