@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import '../../static/styles/Auth.css'
 import InputField from './components/InputField';
 import axios from '../../api/axios';
-import OTPField from './components/OtpField';
+import OTPField from './components/OTPField';
 
 const LOGIN_URL = '/api/account/login/';
 const SIGNUP_URL = '/api/account/register/';
