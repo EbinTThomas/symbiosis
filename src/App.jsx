@@ -1,6 +1,4 @@
 import { Route, Routes } from 'react-router-dom'
-import LoginPage from './pages/Login/LoginPage'
-import HomePage from './pages/Home/HomePage'
 import ShopPage from './pages/Shop/ShopPage'
 import ProductDetail from './pages/ProductDetail/ProductDetail'
 import { useLayoutContext } from './pages/Common/LayoutContext'
@@ -11,7 +9,6 @@ import Contact from './pages/Contact/Contact'
 import NewsDetail from './pages/NewsDetail.jsx/NewsDetail'
 import Wishlist from './pages/Wishlist/Wishlist'
 import SearchResults from './pages/SearchResults/SearchResults'
-import PasswordReset from './pages/PasswordReset/PasswordReset'
 import RequireAuth from './pages/Common/RequireAuth'
 import Payment from './pages/Payment/Payment'
 import NotFound from './pages/Common/NotFound'
@@ -27,7 +24,6 @@ function App() {
   return (
     <div id="app" data-theme={theme}>
       <Routes>
-        {/* <Route path="/login" element={<LoginPage />} /> */}
         <Route path="/auth/login" element={<Auth />} />
         <Route path="/auth/signup" element={<Auth />} />
         <Route path="/auth/verify_mail" element={<Auth />} />
@@ -36,7 +32,6 @@ function App() {
         <Route path="/auth/password_reset/email" element={<Auth />} />
         <Route path="/auth/password_reset/confirmation" element={<Auth />} />
         <Route path="/auth/password_reset/success" element={<Auth />} />
-        {/* <Route path="/" element={<HomePage />} /> */}
         <Route path="/" element={<LandingPage />} />
         <Route path="/shop/" element={<ShopPage />} />
         <Route path="/shop/:search_key" element={<SearchResults />} />
