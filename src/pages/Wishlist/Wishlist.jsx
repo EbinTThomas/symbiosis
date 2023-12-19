@@ -5,6 +5,8 @@ import axios from '../../api/axios';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Link } from 'react-router-dom';
 import '../../static/styles/Wishlist.css';
+import BackButton from '../Common/BackButton';
+import PageTitle from '../Common/PageTitle';
 
 function Wishlist() {
   const token = localStorage.getItem('token');
@@ -52,6 +54,8 @@ function Wishlist() {
   return (
     <>
       <Header />
+      <BackButton />
+      <PageTitle title={'Wishlist'} />
       <section className={`section_content wishlist ${isLoading ? 'loading' : products.length === 0 && 'loading'}`}>
         {
           isLoading

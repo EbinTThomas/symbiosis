@@ -1,3 +1,7 @@
+.section_shopping_cart {
+    padding-top: 0;
+}
+
 /* Shopping Cart */
 .section_cart_container {
     display: flex;
@@ -353,6 +357,7 @@
 .delivery_address_form .address_info {
     margin-top: 32px;
 }
+
 /* 
 .delivery_address_form .address_type {
     margin-top: 40px;
@@ -608,18 +613,6 @@
     margin: 10px 0;
     margin-bottom: 24px;
     color: var(--text-primary-color);
-}
-
-.back_btn {
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    margin: 24px 0;
-}
-
-.back_btn svg path {
-    fill: var(--text-primary-color);
 }
 
 @media only screen and (max-width: 1080px) {

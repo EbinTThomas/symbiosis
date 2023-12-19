@@ -188,7 +188,7 @@ function Auth() {
             </Helmet>
             <section id="section_auth">
                 <div className="flex_box">
-                    <div className="flex_item">
+                    <div className="flex_item form">
                         <div className="auth_form_container">
                             <img src="/assets/img/logo.png" alt="" className="auth_form_logo" />
                             {
@@ -321,7 +321,7 @@ function Auth() {
                             </div>
                         </div>
                     </div>
-                    <div className="flex_item">
+                    <div className="flex_item ad">
                         <img src={slides[0].image} className="ad_image" alt="" />
                     </div>
                 </div>

@@ -4,6 +4,9 @@ import axios from '../../api/axios';
 import ReactMarkdown from 'react-markdown';
 import CircularProgress from '@mui/material/CircularProgress';
 import '../../static/styles/AboutUs.css'
+import Loading from '../Common/Loading';
+import BackButton from '../Common/BackButton';
+import PageTitle from '../Common/PageTitle';
 
 function About() {
     const [aboutUs, setAboutUs] = useState('');
@@ -30,10 +33,12 @@ function About() {
     return (
         <>
             <Header />
+            <BackButton/>
+            <PageTitle title={'About Us'}/>
             <section className={`section_content section_about_us ${isLoading && 'loading'}`}>
                 {
                     isLoading
-                        ? <CircularProgress color="warning" />
+                        ? <Loading />
                         : <ReactMarkdown>{aboutUs.content}</ReactMarkdown>
                 }
             </section>

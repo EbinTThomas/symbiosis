@@ -1,22 +1,33 @@
 .tag_flex_box {
     width: 100%;
+    padding: 42px 0;
+    max-height: 42px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 40px;
 }
 
 .tag_flex_box .back_btn {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
+    font-size: 14px;
     font-family: var(--font-family);
-    font-weight: 500;
+    font-weight: 600;
+    color: #475E75;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 .tag_flex_box .back_btn svg {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
+}
+
+.tag_flex_box .back_btn svg path {
+    fill: #475E75;
 }
 
 .tag_flex_box .filter_wrap {
@@ -24,12 +35,12 @@
 }
 
 .tag_flex_box .filter_wrap .product_filter_btn {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #040404;
+    color: #0070F2;
     font-family: var(--font-family);
 }
 
@@ -39,7 +50,7 @@
 }
 
 .tag_flex_box .filter_wrap .product_filter_btn svg path {
-    fill: #040404;
+    fill: #0070F2;
 }
 
 .tag_flex_box .filter_wrap .filter_dropdown_container {

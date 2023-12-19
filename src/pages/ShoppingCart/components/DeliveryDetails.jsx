@@ -5,7 +5,7 @@ import axios from '../../../api/axios';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 
-function DeliveryDetails({ handleBack, fetchCartList, cartList }) {
+function DeliveryDetails({ fetchCartList, cartList }) {
     const [addressForm, setAddressForm] = useState(false);
     const [addressFilled, setAddressFilled] = useState(false);
     const [deliveryAddress, setDeliveryAddress] = useState({});

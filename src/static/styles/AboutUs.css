@@ -1,3 +1,7 @@
+.section_about_us {
+    padding-top: 0;
+}
+
 .section_about_us p {
     color: var(--text-secondary-color);
     padding-bottom: 40px;
