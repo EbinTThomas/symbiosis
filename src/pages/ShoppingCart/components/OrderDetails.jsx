@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function OrderDetails({ cartList, btn_label }) {
     // Calculate the sum of prices and convenience fees
-    const totalCartPrice = cartList.reduce((total, item) => total + item.product.price * item.quantity, 0);
+    const totalCartPrice = cartList.reduce((total, item) => total + (item.product.price - (item.product.price * (item.product.discount / 100))) * item.quantity, 0);
     const convenienceFee = 27 + 19; // Example values, adjust as needed
     const totalAmount = totalCartPrice + convenienceFee;
 

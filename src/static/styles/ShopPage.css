@@ -410,11 +410,6 @@
     font-family: 'Inter', sans-serif;
 } */
 
-.shop_page .center_text {
-    height: calc(100vh - 400px);
-    color: var(--text-primary-color);
-}
-
 @media only screen and (max-width: 500px) {
     #section_product_list {
         width: 100%;

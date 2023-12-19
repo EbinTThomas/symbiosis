@@ -55,7 +55,7 @@
     display: none !important;
 }
 
-.css-v4u5dn-MuiInputBase-root-MuiInput-root:after {
+.css-v4u5dn-MuiInputBase-root-MuiInput-root::after {
     display: none !important;
 }
 

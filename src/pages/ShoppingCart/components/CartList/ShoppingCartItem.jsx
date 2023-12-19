@@ -41,6 +41,19 @@ function ShoppingCartItem({ cartItem, removeCartItem, fetchCartList }) {
       console.log(error);
     }
   };
+  const formatIndianRupee = (amount) => {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      maximumFractionDigits: 0,
+    }).format(amount);
+  };
+
+  const calculateDiscount = (price, discount) => {
+    const discountAmount = (discount / 100) * price;
+    const discountedValue = price - discountAmount;
+    return formatIndianRupee(discountedValue);
+  };
 
   return (
     <div className="shopping_cart_item">
@@ -54,7 +67,7 @@ function ShoppingCartItem({ cartItem, removeCartItem, fetchCartList }) {
           {cartItem.product.name}
         </Link>
         <div className="sc_item_desc">{cartItem.product.description}</div>
-        <div className="sc_item_price">₹{cartItem.product.price}</div>
+        <div className="sc_item_price">{calculateDiscount(cartItem.product.price, cartItem.product.discount)}</div>
         <div className="sc_item_bottom">
           <div className="quantity_selection">
             <div className="q_selector_container">
@@ -72,7 +85,7 @@ function ShoppingCartItem({ cartItem, removeCartItem, fetchCartList }) {
               </button>
             )}
           </div>
-          <button className="sc_item_rm_btn" style={{display: isQuantityChanged && 'none'}} onClick={() => removeCartItem(cartItem.product)}>
+          <button className="sc_item_rm_btn" style={{ display: isQuantityChanged && 'none' }} onClick={() => removeCartItem(cartItem.product)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"

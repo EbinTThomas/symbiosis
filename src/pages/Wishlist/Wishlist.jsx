@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import '../../static/styles/Wishlist.css';
 import BackButton from '../Common/BackButton';
 import PageTitle from '../Common/PageTitle';
+import Loading from '../Common/Loading';
+import Empty from '../Common/Empty';
 
 function Wishlist() {
   const token = localStorage.getItem('token');
@@ -56,20 +58,16 @@ function Wishlist() {
       <Header />
       <BackButton />
       <PageTitle title={'Wishlist'} />
-      <section className={`section_content wishlist ${isLoading ? 'loading' : products.length === 0 && 'loading'}`}>
-        {
-          isLoading
-            ? <CircularProgress color="warning" />
-            : products.length > 0
+      {
+        !isLoading
+          ? <section className={`section_content wishlist ${isLoading ? 'loading' : products.length === 0 && 'loading'}`}>
+            {products.length > 0
               ? <SectionProductList products={products} removeFromWishlist={removeFromWishlist} />
-              : <div className="center_text">
-                <span>Nothing in WishList</span>
-                <Link to="/shop" className="shop_more_btn">
-                  Grab Some Products
-                </Link>
-              </div>
-        }
-      </section>
+              : <Empty message={"Nothing in Wishlist!"}/>
+            }
+          </section>
+          : <Loading />
+      }
     </>
   )
 }

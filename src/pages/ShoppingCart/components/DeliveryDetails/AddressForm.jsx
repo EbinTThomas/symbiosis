@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from '../../../../api/axios';
+import { useNavigate } from 'react-router-dom';
 
 const ADD_ADDRESS_URL = '/api/address/'
 
@@ -56,7 +57,7 @@ function AddressForm({ handleToggleForm }) {
             landmark: '',
         });
     }
-    
+
     return (
         <div className="delivery_address_form_container">
             <div className="overlay" onClick={handleToggleForm}></div>
@@ -80,31 +81,31 @@ function AddressForm({ handleToggleForm }) {
                     <div className="address_field_title">Contact Info</div>
                     <label htmlFor="">Full Name <span className="req">*</span></label>
                     <input type="text" name="fullName" id="" required value={formData.fullName}
-                onChange={handleInputChange} />
+                        onChange={handleInputChange} />
                     <label htmlFor="">Phone Number <span className="req">*</span></label>
                     <input type="tel" name="phoneNumber" id="" required value={formData.phoneNumber}
-                onChange={handleInputChange} />
+                        onChange={handleInputChange} />
                 </div>
                 <div className="address_info">
                     <div className="address_field_title">Address Info</div>
                     <label htmlFor="">Pincode <span className="req">*</span></label>
                     <input type="number" inputMode="numeric" name="pincode" id="" required value={formData.pincode}
-                onChange={handleInputChange} />
+                        onChange={handleInputChange} />
                     <label htmlFor="">City <span className="req">*</span></label>
                     <input type="text" name="city" required value={formData.city}
-                onChange={handleInputChange} />
+                        onChange={handleInputChange} />
                     <label htmlFor="">State <span className="req">*</span></label>
                     <input type="text" name="state" required value={formData.state}
-                onChange={handleInputChange} />
+                        onChange={handleInputChange} />
                     <label htmlFor="">Locality / Area / Street <span className="req">*</span></label>
                     <input type="text" name="locality" required value={formData.locality}
-                onChange={handleInputChange} />
+                        onChange={handleInputChange} />
                     <label htmlFor="">Flat No. / Building Name <span className="req">*</span></label>
                     <input type="text" name="flatOrBuilding" required value={formData.flatOrBuilding}
-                onChange={handleInputChange} />
+                        onChange={handleInputChange} />
                     <label htmlFor="">Landmark (Optional)</label>
                     <input type="text" name="landmark" value={formData.landmark}
-                onChange={handleInputChange} />
+                        onChange={handleInputChange} />
                 </div>
                 {/* <div className="address_type">
                     <div className="address_field_title">Type Of Address</div>

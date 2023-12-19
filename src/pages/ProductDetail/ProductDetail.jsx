@@ -6,6 +6,7 @@ import SectionRelatedProducts from './components/SectionRelatedProducts'
 import Header from '../Common/Header'
 import axios from '../../api/axios'
 import { useParams } from 'react-router-dom'
+import BackButton from '../Common/BackButton'
 
 function ProductDetail() {
   const { product_id } = useParams();
@@ -32,8 +33,9 @@ function ProductDetail() {
 
   return (
     <>
-      <section className="section_content">
-        <Header />
+      <Header />
+      <BackButton />
+      <section className="section_content section_product_detail">
         {
           !isLoading &&
           <>

@@ -40,11 +40,11 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-family);
 }
 
 .section_content.wishlist #section_product_list .product_card .product_desc {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-family);
     font-weight: 400;
     color: var(--text-secondary-color);
     font-size: 12px;
@@ -86,7 +86,7 @@
     background-color: var(--btn-background);
     color: var(--btn-color);
     border: none;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-family);
     font-weight: 500;
     font-size: 14px;
     cursor: pointer;
@@ -94,4 +94,13 @@
 
 .section_content.wishlist #section_product_list .product_wrap .btn_class .add_to_cart_btn svg path {
     fill: var(--btn-color);
+}
+
+@media only screen and (max-width: 500px) {
+    .section_content.wishlist #section_product_list {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 12px;
+    }
 }

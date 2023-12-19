@@ -4,13 +4,15 @@
     --btn-outline-color: #3A3A3A;
     --btn-background: #1e1e1e;
     --btn-disabled-background: #1e1e1e54;
-    --btn-highlight-background: #336aea;
+    --btn-highlight-background: #0070F2;
     --text-primary-color: #1E1E1E;
     --text-secondary-color: #8C8C8C;
-    --text-highlight-color: #336aea;
+    --text-highlight-color: #0070F2;
     --body-background-color: #f5f5f5;
     --tab-background-color: #fff;
     --input-border-color: #d4d4d4;
+    --input-primary-background-color: #F2F4F6;
+    --input-secondary-background-color: #F2F4F6;
 }
 
 [data-theme="dark"] {
