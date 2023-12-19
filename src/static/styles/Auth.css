@@ -335,8 +335,13 @@
 @media only screen and (max-width: 600px) {
     #section_auth .flex_box .flex_item.form {
         width: 100%;
-        overflow-y: hidden;
         min-width: 100%;
+        display: block;
+        height: auto;
+    }
+    
+    #section_auth .flex_box .flex_item.form .auth_form_container {
+        padding: 32px 5vw;
     }
     
     #section_auth .flex_box.ad {
