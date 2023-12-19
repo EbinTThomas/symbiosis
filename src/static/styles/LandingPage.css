@@ -3,7 +3,6 @@
     flex-direction: column;
     row-gap: 40px;
     padding-top: 80px;
-    padding-bottom: 60px;
 }
 
 #section_landing .ad_title {
@@ -51,8 +50,15 @@ h6 {
 }
 
 /* Example of media query for larger screens */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 720px) {
     html {
         font-size: 18px; /* Adjust for larger screens */
+    }
+}
+
+/* Example of media query for larger screens */
+@media screen and (max-width: 1260px) {
+    #section_landing {
+        padding-bottom: 60px;
     }
 }
