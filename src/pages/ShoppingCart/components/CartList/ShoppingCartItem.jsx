@@ -49,12 +49,6 @@ function ShoppingCartItem({ cartItem, removeCartItem, fetchCartList }) {
     }).format(amount);
   };
 
-  const calculateDiscount = (price, discount) => {
-    const discountAmount = (discount / 100) * price;
-    const discountedValue = price - discountAmount;
-    return formatIndianRupee(discountedValue);
-  };
-
   return (
     <div className="shopping_cart_item">
       <img
@@ -67,7 +61,7 @@ function ShoppingCartItem({ cartItem, removeCartItem, fetchCartList }) {
           {cartItem.product.name}
         </Link>
         <div className="sc_item_desc">{cartItem.product.description}</div>
-        <div className="sc_item_price">{calculateDiscount(cartItem.product.price, cartItem.product.discount)}</div>
+        <div className="sc_item_price">{cartItem.product.price}</div>
         <div className="sc_item_bottom">
           <div className="quantity_selection">
             <div className="q_selector_container">

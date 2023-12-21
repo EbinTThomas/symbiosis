@@ -13,18 +13,6 @@ function CartList({ fetchCartList, isLoading, cartList, setCartList, setCartCoun
         fetchCartList();
     }, [])
 
-    // Calculate the sum of prices and convenience fees
-    const totalCartPrice = cartList.reduce((total, item) => total + item.product.price * item.quantity, 0);
-    const convenienceFee = 27 + 19; // Example values, adjust as needed
-    const totalAmount = totalCartPrice + convenienceFee;
-
-    const formatPrice = (price) => {
-        return price.toLocaleString('en-IN', {
-            style: 'currency',
-            currency: 'INR',
-        });
-    };
-
     const removeCartItem = async (product) => {
         try {
             const response = await axios.delete(`/api/cart-products/${product.id}/`, {

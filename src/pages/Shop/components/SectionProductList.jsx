@@ -75,12 +75,6 @@ function SectionProductList({ products }) {
       maximumFractionDigits: 0,
     }).format(amount);
   };
-  
-  const calculateDiscount = (price, discount) => {
-    const discountAmount = (discount / 100) * price;
-    const discountedValue = price - discountAmount;
-    return formatIndianRupee(discountedValue);
-  };
 
   return (
     <section id="section_product_list">
@@ -131,9 +125,9 @@ function SectionProductList({ products }) {
                   product.discount > 0
                   && <>
                     <span className="off_percent">-{product.discount}%</span>
-                    <span className="product_org_price">{formatIndianRupee(product.price)}</span>
+                    <span className="product_org_price">{formatIndianRupee(product.mrp)}</span>
                   </>
-                }{calculateDiscount(product.price, product.discount)}</div>
+                }{formatIndianRupee(product.price)}</div>
             </div>
           </Link>
         </div>
