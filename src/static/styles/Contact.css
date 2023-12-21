@@ -51,12 +51,12 @@
     font-weight: 500;
 }
 
-.section_contact form.contact_form .form_field .phone_field .css-v4u5dn-MuiInputBase-root-MuiInput-root::before {
+.section_contact form.contact_form .form_field .phone_field .css-zrqpq1::before {
     display: none !important;
     border: none !important;
 }
 
-.section_contact form.contact_form .form_field .phone_field .css-v4u5dn-MuiInputBase-root-MuiInput-root::after {
+.section_contact form.contact_form .form_field .phone_field .css-zrqpq1::after {
     display: none !important;
     border: none !important;
 }
