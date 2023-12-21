@@ -1,0 +1,90 @@
+.section_content.section_order_review {
+    padding-top: 0;   
+}
+
+.section_order_review .rating_title {
+    font-size: 18px;
+    font-weight: 600;
+    font-family: var(--font-family);
+    color: #040404;
+}
+
+.section_order_review .rating_container {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.section_order_review .rating_container svg {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.section_order_review .rating_container svg path {
+    fill: #d4d4d4;
+}
+
+.section_order_review .review_title {
+    font-size: 18px;
+    font-family: var(--font-family);
+    font-weight: 600;
+    color: #040404;
+    padding: 12px 0;
+}
+
+.section_order_review .review_input_container {
+    width: 100%;
+}
+
+.section_order_review .review_input_container .review_input_description {
+    width: 100%;
+    height: 120px;
+    border: 1px solid #d4d4d4;
+    border-radius: 12px;
+    padding: 16px;
+    resize: none;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 14px;
+    outline: none;
+    transition: .1s ease;
+}
+
+.section_order_review .review_input_container .review_input_description:focus,
+.section_order_review .review_input_container .review_input_title:focus {
+    border: 1px solid #0071f284;
+    box-shadow: 0 0 1px 2px #c8e2ff;
+}
+
+.section_order_review .review_input_container .review_input_title {
+    width: 100%;
+    height: 60px;
+    border: 1px solid #d4d4d4;
+    border-radius: 12px;
+    padding: 16px;
+    resize: none;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 14px;
+    outline: none;
+    transition: .1s ease;
+    margin-top: 12px;
+}
+
+.section_order_review .review_btn {
+    background-color: #0070F2;
+    border: none;
+    width: fit-content;
+    padding: 0 32px;
+    height: 60px;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 12px;
+}

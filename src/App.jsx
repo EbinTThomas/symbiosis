@@ -17,6 +17,7 @@ import './App.css'
 // import EmailVerifyOtp from './pages/EmailVerification/EmailVerify'
 import Auth from './pages/Auth/Auth'
 import LandingPage from './pages/LandingPage/LandingPage'
+import OrderReview from './pages/OrderReview/OrderReview'
 
 function App() {
   const { theme } = useLayoutContext();
@@ -43,6 +44,7 @@ function App() {
           <Route path="/payment/success" element={<Payment />} />
           <Route path="/payment/cancelled" element={<Payment />} />
           <Route path="/orders" element={<Orders />} />
+          <Route path="/order_review/:id" element={<OrderReview />} />
         </Route>
         <Route path="/about" element={<About />} />
         <Route path="/news" element={<News />} />

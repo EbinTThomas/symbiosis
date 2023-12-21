@@ -14,6 +14,7 @@ function ShoppingCart() {
     const [cartList, setCartList] = useState([]);
     const token = localStorage.getItem('token');
     const { cartCount, setCartCount } = useLayoutContext();
+    const [isLoading, setIsLoading] = useState(true);
 
     const fetchCartList = async () => {
         try {
@@ -27,6 +28,8 @@ function ShoppingCart() {
             setCartCount(response.data.length);
         } catch (error) {
             console.log(error);
+        } finally{
+            setIsLoading(false);
         }
     }
 
@@ -37,7 +40,7 @@ function ShoppingCart() {
             <PageTitle title={'Shopping Cart'} />
             <section className="section_content section_shopping_cart">
                 {location.pathname === '/shopping_cart'
-                    ? <CartList fetchCartList={fetchCartList} cartList={cartList} setCartList={setCartList} setCartCount={setCartCount} cartCount={cartCount} />
+                    ? <CartList fetchCartList={fetchCartList} isLoading={isLoading} cartList={cartList} setCartList={setCartList} setCartCount={setCartCount} cartCount={cartCount} />
                     : location.pathname === '/shopping_cart/delivery_details'
                         ? <DeliveryDetails fetchCartList={fetchCartList} cartList={cartList} />
                         : <></>
