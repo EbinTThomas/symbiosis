@@ -51,11 +51,11 @@
     font-weight: 500;
 }
 
-.css-v4u5dn-MuiInputBase-root-MuiInput-root::before {
+.section_contact form.contact_form .form_field .phone_field .css-v4u5dn-MuiInputBase-root-MuiInput-root::before {
     display: none !important;
 }
 
-.css-v4u5dn-MuiInputBase-root-MuiInput-root::after {
+.section_contact form.contact_form .form_field .phone_field .css-v4u5dn-MuiInputBase-root-MuiInput-root::after {
     display: none !important;
 }
 
@@ -78,7 +78,7 @@
 
 .section_contact form.contact_form .form_field .phone_field {
     position: relative;
-    height: 48px;
+    height: 60px;
     display: flex;
     justify-content: center;
 }
@@ -93,7 +93,7 @@
     position: absolute;
     border: 1px solid #e5e5e5;
     border-radius: 8px;
-    height: 48px;
+    height: 60px;
     padding: 0 16px;
     padding-left: 50px;
     font-size: 14px;
@@ -119,7 +119,7 @@
     background-color: #0070F2;
     border: none;
     width: 100%;
-    height: 48px;
+    height: 60px;
     font-family: var(--font-family);
     font-weight: 500;
     font-size: 14px;
