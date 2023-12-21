@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 function OrderDetails({ cartList, btn_label }) {
-    const totalCartPrice = cartList.reduce((total, item) => total + item.product.price);
+    const totalCartPrice = cartList.reduce((total, item) => total + item.product.price, 0);
     // const convenienceFee = 27 + 19;
     const totalAmount = totalCartPrice;
 
@@ -15,12 +15,13 @@ function OrderDetails({ cartList, btn_label }) {
 
     return (
         <div className="order_details_container">
+        {console.log(totalAmount)}
             <div className="order_details_card">
                 <div className="order_details_title">Order Details</div>
                 <div className="order_sum">Cart Total<span>{formatPrice(totalCartPrice)}</span></div>
                 <span className="convenience_fee_label">Convenience Fee</span>
                 <ul className="convenience_fee">
-                    <li><s>Delivery Fee<span>{formatPrice(0)}</span></s></li>
+                    <li>Delivery Fee<span>{formatPrice(0)}</span></li>
                     {/* <li>Fulfillment Fee<span>{formatPrice(19)}</span></li> */}
                 </ul>
                 <div className="order_total">Total Amount <span>{formatPrice(totalAmount)}</span></div>
