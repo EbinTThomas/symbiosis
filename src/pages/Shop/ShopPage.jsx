@@ -7,6 +7,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from '../../api/axios';
 import CircularProgress from '@mui/material/CircularProgress';
 import Loading from '../Common/Loading';
+import Empty from '../Common/Empty';
 
 function ShopPage() {
     const { search_key } = useParams();
@@ -183,7 +184,7 @@ function ShopPage() {
                     <SectionProductList products={products} />
                 )
             }
-            {!isLoading && products.length === 0 && <div className="center_text"><span>No Products Found!</span></div>}
+            {!isLoading && products.length === 0 && <Empty message={'No Products Found!'}/>}
         </section>
     );
 }
