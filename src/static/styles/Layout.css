@@ -541,10 +541,10 @@ body {
         text-align: left;
         padding: 32px 5vw;
     }
-    
+
     .footer .row .footer_logo {
-    width: 150px;
-}
+        width: 150px;
+    }
 
     .footer .row ul li {
         display: block;
