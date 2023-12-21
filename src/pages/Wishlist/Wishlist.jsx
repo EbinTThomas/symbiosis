@@ -9,6 +9,7 @@ import BackButton from '../Common/BackButton';
 import PageTitle from '../Common/PageTitle';
 import Loading from '../Common/Loading';
 import Empty from '../Common/Empty';
+import Footer from '../Common/Footer';
 
 function Wishlist() {
   const token = localStorage.getItem('token');
@@ -63,11 +64,12 @@ function Wishlist() {
           ? <section className={`section_content wishlist ${isLoading ? 'loading' : products.length === 0 && 'loading'}`}>
             {products.length > 0
               ? <SectionProductList products={products} removeFromWishlist={removeFromWishlist} />
-              : <Empty message={"Nothing in Wishlist!"}/>
+              : <Empty message={"Nothing in Wishlist!"} />
             }
           </section>
           : <Loading />
       }
+      <Footer />
     </>
   )
 }

@@ -6,11 +6,11 @@ import '../../static/styles/OrderReview.css'
 import { useParams } from 'react-router-dom'
 
 function OrderReview() {
-    const {id} = useParams();
+    const { id } = useParams();
     const [order, setOrder] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const ORDER_DETAIL_URL = `/api/order/orders/${id}`;
-    
+
     const fetchOrderDetail = async () => {
         try {
             const response = await axios.get(
@@ -34,7 +34,7 @@ function OrderReview() {
             setIsLoading(false)
         }
     }
-    
+
     return (
         <>
             <Header />
@@ -71,6 +71,7 @@ function OrderReview() {
                 </div>
                 <button type="submit" className="review_btn">Submit</button>
             </section>
+            <Footer />
         </>
     )
 }

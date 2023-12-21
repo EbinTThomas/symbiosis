@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Link } from 'react-router-dom';
 import '../../static/styles/News.css';
+import Footer from '../Common/Footer';
 
 function formatDatetime(datetimeStr) {
   // Create a new Date object from the input datetime string
@@ -24,7 +25,7 @@ function formatDatetime(datetimeStr) {
   // Convert hours to 12-hour format
   hours = hours % 12;
   hours = hours ? hours : 12; // "0" should be "12"
-  
+
   // Add leading zeros to minutes if needed
   minutes = minutes < 10 ? '0' + minutes : minutes;
 
@@ -100,6 +101,7 @@ function News() {
         }
         {!isLoading && newsList.length === 0 && <div className="center_text"><span>No News Yet!</span></div>}
       </section>
+      <Footer />
     </>
   );
 }

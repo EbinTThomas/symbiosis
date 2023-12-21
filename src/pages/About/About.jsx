@@ -7,6 +7,7 @@ import '../../static/styles/AboutUs.css'
 import Loading from '../Common/Loading';
 import BackButton from '../Common/BackButton';
 import PageTitle from '../Common/PageTitle';
+import Footer from '../Common/Footer';
 
 function About() {
     const [aboutUs, setAboutUs] = useState('');
@@ -33,8 +34,8 @@ function About() {
     return (
         <>
             <Header />
-            <BackButton/>
-            <PageTitle title={'About Us'}/>
+            <BackButton />
+            <PageTitle title={'About Us'} />
             <section className={`section_content section_about_us ${isLoading && 'loading'}`}>
                 {
                     isLoading
@@ -42,6 +43,7 @@ function About() {
                         : <ReactMarkdown>{aboutUs.content}</ReactMarkdown>
                 }
             </section>
+            <Footer />
         </>
     );
 }

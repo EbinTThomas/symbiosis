@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import ImageGrid from './components/ImageGrid';
 import axios from '../../api/axios';
 import Loading from '../Common/Loading';
+import Footer from '../Common/Footer';
 
 function LandingPage() {
     const [pageComponents, setPageComponents] = useState([]);
@@ -60,6 +61,7 @@ function LandingPage() {
                     </section>
                     : <Loading />
             }
+            <Footer />
         </>
     )
 }

@@ -7,6 +7,7 @@ import BackButton from '../Common/BackButton'
 import PageTitle from '../Common/PageTitle'
 import Loading from '../Common/Loading'
 import Empty from '../Common/Empty'
+import Footer from '../Common/Footer'
 
 const ORDERS_URL = '/api/order/orders/'
 
@@ -65,11 +66,11 @@ function Orders() {
                                                         <div className="order_status">
                                                             <span className="order_status_theme success"></span>
                                                             {
-                                                            order_product.status === 'ORDERED' ? 'Order placed'
-                                                             : order_product.status === 'DELIVERED' ? 'Delivered'
-                                                             : order_product.status === 'CANCELLED' ? 'Cancelled'
-                                                             : order_product.status === 'RETURN_REQUESTED' ? 'Return requested'
-                                                             : order_product.status === 'RETURNED' && 'Returned' } on Nov 08
+                                                                order_product.status === 'ORDERED' ? 'Order placed'
+                                                                    : order_product.status === 'DELIVERED' ? 'Delivered'
+                                                                        : order_product.status === 'CANCELLED' ? 'Cancelled'
+                                                                            : order_product.status === 'RETURN_REQUESTED' ? 'Return requested'
+                                                                                : order_product.status === 'RETURNED' && 'Returned'} on Nov 08
                                                         </div>
                                                         <div className="order_status_caption">Your item has been delivered</div>
                                                         <Link to={`/order_review/${order_product.id}`} className="order_rating_details">
@@ -124,6 +125,7 @@ function Orders() {
                     )
                     : <Loading />
             }
+            <Footer />
         </>
     )
 }

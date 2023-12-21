@@ -4,6 +4,7 @@ import MuiPhoneNumber from 'mui-phone-number'
 import '../../static/styles/Contact.css'
 import BackButton from '../Common/BackButton'
 import PageTitle from '../Common/PageTitle'
+import Footer from '../Common/Footer'
 
 function Contact() {
   return (
@@ -39,6 +40,7 @@ function Contact() {
           <button className="btn_submit">Send message</button>
         </form>
       </section>
+      <Footer />
     </>
   )
 }

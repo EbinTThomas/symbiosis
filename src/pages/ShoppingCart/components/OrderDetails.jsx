@@ -15,7 +15,6 @@ function OrderDetails({ cartList, btn_label }) {
 
     return (
         <div className="order_details_container">
-        {console.log(totalAmount)}
             <div className="order_details_card">
                 <div className="order_details_title">Order Details</div>
                 <div className="order_sum">Cart Total<span>{formatPrice(totalCartPrice)}</span></div>

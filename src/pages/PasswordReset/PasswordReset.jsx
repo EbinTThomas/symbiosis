@@ -18,6 +18,7 @@ function PasswordReset({ step }) {
                             ? <PasswordResetConfirmation />
                             : null
             }
+            <
         </>
     )
 }

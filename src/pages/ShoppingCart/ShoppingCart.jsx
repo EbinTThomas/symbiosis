@@ -28,7 +28,7 @@ function ShoppingCart() {
             setCartCount(response.data.length);
         } catch (error) {
             console.log(error);
-        } finally{
+        } finally {
             setIsLoading(false);
         }
     }
@@ -46,6 +46,7 @@ function ShoppingCart() {
                         : <></>
                 }
             </section>
+            <Footer />
         </>
     )
 }

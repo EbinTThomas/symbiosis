@@ -5,6 +5,8 @@ import InputField from './components/InputField';
 import axios from '../../api/axios';
 import OTPField from './components/OTPField';
 import { Helmet } from 'react-helmet-async';
+import Header from '../Common/Header';
+import Footer from '../Common/Footer';
 
 const LOGIN_URL = '/api/account/login/';
 const SIGNUP_URL = '/api/account/register/';
@@ -190,6 +192,7 @@ function Auth() {
             <Helmet>
                 <title>Login</title>
             </Helmet>
+            <Header />
             <section id="section_auth">
                 <button className="auth_back_btn" onClick={handleBack}>
 
@@ -337,6 +340,7 @@ function Auth() {
                     </div>
                 </div>
             </section>
+            <Footer />
         </>
     )
 }

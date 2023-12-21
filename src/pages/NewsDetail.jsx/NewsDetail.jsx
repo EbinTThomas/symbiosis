@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useParams } from 'react-router-dom';
 import '../../static/styles/NewsDetail.css';
+import Footer from '../Common/Footer';
 
 function formatDatetime(datetimeStr) {
     // Create a new Date object from the input datetime string
@@ -71,6 +72,7 @@ function NewsDetail() {
                         </>
                 }
             </section>
+            <Footer />
         </>
     )
 }
