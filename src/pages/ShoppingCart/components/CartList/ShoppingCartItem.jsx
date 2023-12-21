@@ -61,7 +61,7 @@ function ShoppingCartItem({ cartItem, removeCartItem, fetchCartList }) {
           {cartItem.product.name}
         </Link>
         <div className="sc_item_desc">{cartItem.product.description}</div>
-        <div className="sc_item_price">{cartItem.product.price}</div>
+        <div className="sc_item_price">{formatIndianRupee(cartItem.product.price)}</div>
         <div className="sc_item_bottom">
           <div className="quantity_selection">
             <div className="q_selector_container">

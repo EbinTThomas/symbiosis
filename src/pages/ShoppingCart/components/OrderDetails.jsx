@@ -2,10 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 function OrderDetails({ cartList, btn_label }) {
-    // Calculate the sum of prices and convenience fees
-    const totalCartPrice = cartList.reduce((total, item) => total + (item.product.price - (item.product.price * (item.product.discount / 100))) * item.quantity, 0);
-    const convenienceFee = 27 + 19; // Example values, adjust as needed
-    const totalAmount = totalCartPrice + convenienceFee;
+    const totalCartPrice = cartList.reduce((total, item) => total + item.product.price);
+    // const convenienceFee = 27 + 19;
+    const totalAmount = totalCartPrice;
 
     const formatPrice = (price) => {
         return price.toLocaleString('en-IN', {
@@ -21,8 +20,8 @@ function OrderDetails({ cartList, btn_label }) {
                 <div className="order_sum">Cart Total<span>{formatPrice(totalCartPrice)}</span></div>
                 <span className="convenience_fee_label">Convenience Fee</span>
                 <ul className="convenience_fee">
-                    <li>Delivery Fee<span>{formatPrice(27)}</span></li>
-                    <li>Fulfillment Fee<span>{formatPrice(19)}</span></li>
+                    <li><s>Delivery Fee<span>{formatPrice(0)}</span></s></li>
+                    {/* <li>Fulfillment Fee<span>{formatPrice(19)}</span></li> */}
                 </ul>
                 <div className="order_total">Total Amount <span>{formatPrice(totalAmount)}</span></div>
                 <div className="place_order_btn_container">
