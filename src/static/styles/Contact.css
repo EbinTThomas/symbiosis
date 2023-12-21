@@ -53,17 +53,19 @@
 
 .section_contact form.contact_form .form_field .phone_field .css-v4u5dn-MuiInputBase-root-MuiInput-root::before {
     display: none !important;
+    border: none;
 }
 
 .section_contact form.contact_form .form_field .phone_field .css-v4u5dn-MuiInputBase-root-MuiInput-root::after {
     display: none !important;
+    border: none;
 }
 
 .section_contact form.contact_form .form_field .contact_field {
     background-color: #fff;
     border: 1px solid #e5e5e5;
-    border-radius: 8px;
-    height: 48px;
+    border-radius: 12px;
+    height: 60px;
     outline: none;
     padding: 0 16px;
     font-size: 14px;
@@ -92,7 +94,7 @@
 .section_contact form.contact_form .form_field .phone_field input {
     position: absolute;
     border: 1px solid #e5e5e5;
-    border-radius: 8px;
+    border-radius: 12px;
     height: 60px;
     padding: 0 16px;
     padding-left: 50px;
@@ -124,7 +126,7 @@
     font-weight: 500;
     font-size: 14px;
     color: #fff;
-    border-radius: 8px;
+    border-radius: 12px;
     cursor: pointer;
 }
 
