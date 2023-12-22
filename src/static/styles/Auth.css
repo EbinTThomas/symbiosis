@@ -8,23 +8,7 @@
     width: 100%;
     min-height: 100vh;
     font-family: var(--font-family);
-}
-
-#section_auth .auth_back_btn {
-    position: fixed;
-    top: 5vw;
-    left: 5vw;
-    width: 50px;
-    height: 50px;
-    border-radius: 25px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-}
-
-#section_auth .auth_back_btn svg {
-    width: 32px;
-    height: 32px;
+    padding-top: 80px;
 }
 
 #section_auth .flex_box {
@@ -51,8 +35,8 @@
 #section_auth .flex_box .flex_item .auth_form_container {
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    justify-content: space-between;
+    gap: 32px;
+    justify-content: center;
     min-height: 100vh;
     align-items: center;
     padding: 50px;
@@ -60,6 +44,7 @@
 
 #section_auth .flex_box .flex_item .auth_form_container .auth_form_logo {
     width: 200px;
+    display: none;
 }
 
 #section_auth .flex_box .flex_item .auth_form_container .auth_form {
