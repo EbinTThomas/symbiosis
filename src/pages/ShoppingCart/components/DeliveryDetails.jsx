@@ -169,7 +169,7 @@ function DeliveryDetails({ fetchCartList, cartList }) {
                     </div>
                 </div>
 
-                {addressForm && <AddressForm handleToggleForm={handleToggleForm} />}
+                {addressForm && <AddressForm handleToggleForm={handleToggleForm} deliveryAddress={deliveryAddress} addressFilled={addressFilled} />}
             </section >
         </>
     )

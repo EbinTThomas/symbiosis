@@ -4,22 +4,42 @@ import { useNavigate } from 'react-router-dom';
 
 const ADD_ADDRESS_URL = '/api/address/'
 
-function AddressForm({ handleToggleForm }) {
+function AddressForm({ handleToggleForm, deliveryAddress, addressFilled }) {
     const token = localStorage.getItem('token');
     const [formData, setFormData] = useState({
-        fullName: '',
-        phoneNumber: '',
-        pincode: '',
-        city: '',
-        state: '',
-        locality: '',
-        flatOrBuilding: '',
-        landmark: '',
+        fullName: deliveryAddress.full_name || '',
+        phoneNumber: deliveryAddress.phone || '',
+        pincode: deliveryAddress.pincode || '',
+        city: deliveryAddress.city || '',
+        state: deliveryAddress.state || '',
+        locality: deliveryAddress.locality || '',
+        flatOrBuilding: deliveryAddress.building || '',
+        landmark: deliveryAddress.landmark || '',
     });
 
     const addAddress = async () => {
         try {
             const response = await axios.post(
+                ADD_ADDRESS_URL,
+                formData,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Token ${token}`
+                    }
+                }
+            );
+            // Reset the form after successful submission
+            resetForm();
+            handleToggleForm();
+        } catch (error) {
+            // Handle errors here
+        }
+    }
+
+    const editAddress = async () => {
+        try {
+            const response = await axios.put(
                 ADD_ADDRESS_URL,
                 formData,
                 {
@@ -125,7 +145,11 @@ function AddressForm({ handleToggleForm }) {
                 </div> */}
                 <div className="button_container">
                     <button className="reset_btn" onClick={resetForm}>Reset</button>
-                    <button className="save_btn" onClick={addAddress}>Save Address</button>
+                    {
+                        addressFilled
+                            ? <button className="save_btn" onClick={editAddress}>Save Changes</button>
+                            : <button className="save_btn" onClick={addAddress}>Save Address</button>
+                    }
                 </div>
             </div>
         </div>

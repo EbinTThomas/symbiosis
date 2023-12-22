@@ -423,16 +423,20 @@
 }
 
 .delivery_address_form input {
-    padding: 0 24px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 16px;
     height: 60px;
-    background-color: transparent;
-    border: 1px solid #d4d4d4;
-    border-radius: 12px;
     outline: none;
-    color: var(--text-primary-color);
-    font-family: 'Inter', sans-serif;
+    padding: 0 16px;
+    font-size: 14px;
     font-weight: 500;
-    font-size: 16px;
+    font-family: var(--font-family);
+}
+
+.delivery_address_form input:focus {
+    border: 1px solid #0071f284;
+    box-shadow: 0 0 1px 2px #c8e2ff;
 }
 
 /* .delivery_address_form input {
@@ -470,7 +474,7 @@
 .delivery_address_form .button_container button {
     flex: 1;
     min-height: 60px;
-    border-radius: 12px;
+    border-radius: 16px;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     font-weight: 500;
@@ -478,18 +482,15 @@
 }
 
 .delivery_address_form .button_container .reset_btn {
-    /* border: 1px solid var(--btn-border-color); */
     border: 1px solid #d4d4d4;
-    background-color: transparent;
-    /* color: var(--btn-outline-color); */
+    background-color: #f1f1f1;
     color: #2c2c2c;
 }
 
 .delivery_address_form .button_container .save_btn {
     border: none;
     /* background-color: var(--btn-background); */
-    background-color: #0166ff;
-    font-weight: 400;
+    background-color: #0070F2;
     color: var(--btn-color);
 }
 
