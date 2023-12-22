@@ -4,6 +4,7 @@ import BackButton from '../Common/BackButton'
 import PageTitle from '../Common/PageTitle'
 import '../../static/styles/OrderReview.css'
 import { useParams } from 'react-router-dom'
+import Footer from '../Common/Footer'
 
 function OrderReview() {
     const { id } = useParams();
@@ -40,7 +41,7 @@ function OrderReview() {
             <Header />
             <BackButton />
             <PageTitle title={"Ratings & Reviews"} />
-            <section className="section_content section_order_review">
+            <section className="section_order_review">
                 <div className="review_product_container">
                     <img src="" alt="" className="review_product_thumb" />
                 </div>

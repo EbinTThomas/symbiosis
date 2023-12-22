@@ -7,7 +7,7 @@
 
 .section_contact img {
     width: calc(100% - 501px);
-    object-fit: cover;
+    object-fit: contain;
     background-position: center;
     border-radius: 32px;
 }

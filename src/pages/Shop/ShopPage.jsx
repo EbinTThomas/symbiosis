@@ -57,7 +57,7 @@ function ShopPage() {
         const selectedBrands = brandList.filter(brand => brand.selected).map(brand => brand.name);
 
         try {
-            const response = await axios.get(`/api/product/search/?brand_name=${selectedBrands.join(',')}`, {
+            const response = await axios.get(`/api/product/search/item/?brand_name=${selectedBrands.join(',')}`, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -134,47 +134,50 @@ function ShopPage() {
                                 </svg>
                             </a>
                             {isFilterOpen && (
-                                <div className="filter_dropdown_container" ref={filterContainerRef}>
-                                    <div className="filter_dropdown_head">
-                                        <button className="cancel_btn" onClick={handleFilterButtonClick}>Cancel</button>
-                                        <div className="filter_dropdown_title">
-                                            Filter
-                                            <p>Orders 10 of 22</p>
+                                <>
+                                    <div className="filter_overlay" onClick={handleFilterButtonClick}></div>
+                                    <div className="filter_dropdown_container" ref={filterContainerRef}>
+                                        <div className="filter_dropdown_head">
+                                            <button className="cancel_btn" onClick={handleFilterButtonClick}>Cancel</button>
+                                            <div className="filter_dropdown_title">
+                                                Filter
+                                                {/* <p>Orders 10 of 22</p> */}
+                                            </div>
+                                            <button className="reset_btn" onClick={handleReset}>Reset</button>
                                         </div>
-                                        <button className="reset_btn" onClick={handleReset}>Reset</button>
-                                    </div>
-                                    {/* Filter options */}
-                                    <div className="filter_item">
-                                        <div className="filter_item_title">Brands</div>
-                                        <div className="filter_brand_search_container">
-                                            <input
-                                                type="text"
-                                                className="search_bar"
-                                                placeholder="Search for brands"
-                                                onChange={handleBrandSearchChange}
-                                                value={brandSearch}
-                                            />
+                                        {/* Filter options */}
+                                        <div className="filter_item">
+                                            <div className="filter_item_title">Brands</div>
+                                            <div className="filter_brand_search_container">
+                                                <input
+                                                    type="text"
+                                                    className="search_bar"
+                                                    placeholder="Search for brands"
+                                                    onChange={handleBrandSearchChange}
+                                                    value={brandSearch}
+                                                />
+                                            </div>
+                                            <ul className="filter_item_list">
+                                                {filteredBrandList.map((brand) => (
+                                                    <li key={brand.name}>
+                                                        <label htmlFor={brand.name}>
+                                                            <input
+                                                                type="checkbox"
+                                                                id={brand.name}
+                                                                onChange={() => toggleBrandSelection(brand.name)}
+                                                                checked={brand.selected}
+                                                            />
+                                                            {brand.name}
+                                                        </label>
+                                                    </li>
+                                                ))}
+                                            </ul>
                                         </div>
-                                        <ul className="filter_item_list">
-                                            {filteredBrandList.map((brand) => (
-                                                <li key={brand.name}>
-                                                    <label htmlFor={brand.name}>
-                                                        <input
-                                                            type="checkbox"
-                                                            id={brand.name}
-                                                            onChange={() => toggleBrandSelection(brand.name)}
-                                                            checked={brand.selected}
-                                                        />
-                                                        {brand.name}
-                                                    </label>
-                                                </li>
-                                            ))}
-                                        </ul>
+                                        <div className="filter_dropdown_bottom">
+                                            <button className="filter_apply_btn" onClick={handleFilter}>Apply</button>
+                                        </div>
                                     </div>
-                                    <div className="filter_dropdown_bottom">
-                                        <button className="filter_apply_btn" onClick={handleFilter}>Apply</button>
-                                    </div>
-                                </div>
+                                </>
                             )}
                         </div>
                     }

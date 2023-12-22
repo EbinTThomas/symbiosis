@@ -8,6 +8,7 @@ import axios from '../../api/axios';
 import { useLayoutContext } from '../Common/LayoutContext';
 import BackButton from '../Common/BackButton';
 import PageTitle from '../Common/PageTitle';
+import Footer from '../Common/Footer';
 
 function ShoppingCart() {
     const location = useLocation();

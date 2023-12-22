@@ -9,12 +9,14 @@ import Footer from '../Common/Footer'
 function SearchResults() {
     const { search_key } = useParams();
     const [products, setProducts] = useState([]);
+    const token = localStorage.getItem('token');
 
     const fetchProducts = async () => {
         try {
             const response = await axios.get(`/api/product/search/?query=${search_key}`, {
                 headers: {
                     'Content-Type': 'application/json',
+                    Authorization: `Token ${token}`,
                 },
             });
             setProducts(response.data);
