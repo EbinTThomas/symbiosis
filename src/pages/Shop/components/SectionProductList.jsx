@@ -127,7 +127,8 @@ function SectionProductList({ products }) {
                     <span className="off_percent">-{product.discount}%</span>
                     <span className="product_org_price">{formatIndianRupee(product.mrp)}</span>
                   </>
-                }{formatIndianRupee(product.price)}</div>
+                }{formatIndianRupee(product.price)}
+              </div>
             </div>
           </Link>
         </div>

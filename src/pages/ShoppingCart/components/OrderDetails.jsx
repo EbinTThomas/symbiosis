@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function OrderDetails({ cartList, btn_label }) {
-    const totalCartPrice = cartList.reduce((total, item) => total + item.product.price, 0);
-    // const convenienceFee = 27 + 19;
-    const totalAmount = totalCartPrice;
+    const [totalCartPrice, setTotalCartPrice] = useState(0);
+    const [totalAmount, setTotalAmount] = useState(0);
 
     const formatPrice = (price) => {
         return price.toLocaleString('en-IN', {
@@ -12,6 +11,12 @@ function OrderDetails({ cartList, btn_label }) {
             currency: 'INR',
         });
     };
+    
+    useEffect(() => {
+        let total_price = cartList.reduce((total, item) => total + item.product.price * item.quantity, 0);
+        setTotalCartPrice(total_price);
+        setTotalAmount(total_price);
+    }, [cartList]);
 
     return (
         <div className="order_details_container">
@@ -21,7 +26,6 @@ function OrderDetails({ cartList, btn_label }) {
                 <span className="convenience_fee_label">Convenience Fee</span>
                 <ul className="convenience_fee">
                     <li>Delivery Fee<span>{formatPrice(0)}</span></li>
-                    {/* <li>Fulfillment Fee<span>{formatPrice(19)}</span></li> */}
                 </ul>
                 <div className="order_total">Total Amount <span>{formatPrice(totalAmount)}</span></div>
                 <div className="place_order_btn_container">
@@ -42,7 +46,7 @@ function OrderDetails({ cartList, btn_label }) {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default OrderDetails
+export default OrderDetails;

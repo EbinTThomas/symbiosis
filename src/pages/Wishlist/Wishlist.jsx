@@ -19,7 +19,6 @@ function Wishlist() {
 
   const fetchProducts = async () => {
     try {
-      console.log(token)
       const response = await axios.get(`/api/wishlist/`, {
         headers: {
           'Content-Type': 'application/json',
@@ -33,18 +32,17 @@ function Wishlist() {
     setIsLoading(false);
   }
 
-  const removeFromWishlist = async (product) => {
+  const removeFromWishlist = async (product_id) => {
     try {
-      const response = await axios.delete(`/api/wishlist-edit/${product.id}/`, {
+      const response = await axios.delete(`/api/wishlist-edit/${product_id}/`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Token ${token}`,
         }
       });
       // Remove the product from the wishList and update wishListProductIds
-      setProducts(products.filter((item) => item.id !== product.id));
-      setProductIds(productIds.filter((id) => id !== product.id));
-      console.log(response.data);
+      setProducts(products.filter((item) => item.id !== product_id));
+      setProductIds(productIds.filter((id) => id !== product_id));
     } catch (error) {
       console.log(error);
     }

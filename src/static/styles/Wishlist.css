@@ -15,7 +15,9 @@
     overflow: hidden;
     cursor: pointer;
     position: relative;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
     background-color: transparent;
 }
 
@@ -27,36 +29,62 @@
 }
 
 .section_content.wishlist #section_product_list .product_card .product_details {
-    padding: 12px 8px;
+    padding: 0 8px;
+    padding-bottom: 12px;
 }
 
 .section_content.wishlist #section_product_list .product_card .product_title {
     color: var(--text-primary-color);
     font-size: 16px;
     font-weight: 600;
-    height: 18px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    font-family: var(--font-family);
-}
-
-.section_content.wishlist #section_product_list .product_card .product_desc {
-    font-family: var(--font-family);
-    font-weight: 400;
-    color: var(--text-secondary-color);
-    font-size: 12px;
-    line-height: 18px;
+    height: 36px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
-    height: 40px;
-    padding: 0;
-    margin-top: 10px;
+    font-family: var(--font-family);
+}
+
+.section_content.wishlist #section_product_list .product_card .product_title {
+    color: var(--text-primary-color);
+    font-size: 16px;
+    font-weight: 600;
+    height: 36px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-family: var(--font-family);
+    margin: 12px 0;
+}
+
+.section_content.wishlist #section_product_list .product_card .product_details .product_rating {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1px;
+}
+
+.section_content.wishlist #section_product_list .product_card .product_details .product_rating svg {
+    width: 18px;
+    height: 18px;
+}
+
+.section_content.wishlist #section_product_list .product_card .product_details .product_rating svg path {
+    fill: #d4d4d4;
+}
+
+.section_content.wishlist #section_product_list .product_card .product_details .product_rating svg.success path {
+    fill: #388e3c;
+}
+
+.section_content.wishlist #section_product_list .product_card .product_details .product_rating span {
+    font-size: 14px;
+    margin-left: 4px;
+    color: #868686;
+    font-weight: 500;
 }
 
 .section_content.wishlist #section_product_list .product_wrap .btn_class {
@@ -67,13 +95,13 @@
 .section_content.wishlist #section_product_list .product_wrap .btn_class .rm_wishlist_btn {
     padding: 4px 6px;
     border-radius: 8px;
-    border: 1px solid var(--btn-border-color);
+    border: 1px solid #d4d4d4;
     background-color: transparent;
     cursor: pointer;
 }
 
 .section_content.wishlist #section_product_list .product_wrap .btn_class .rm_wishlist_btn svg path {
-    fill: var(--btn-outline-color);
+    fill: #475E75;
 }
 
 .section_content.wishlist #section_product_list .product_wrap .btn_class .add_to_cart_btn {
@@ -83,8 +111,8 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
-    background-color: var(--btn-background);
-    color: var(--btn-color);
+    background-color: #040404;
+    color: #fff;
     border: none;
     font-family: var(--font-family);
     font-weight: 500;
@@ -93,7 +121,7 @@
 }
 
 .section_content.wishlist #section_product_list .product_wrap .btn_class .add_to_cart_btn svg path {
-    fill: var(--btn-color);
+    fill: #fff;
 }
 
 @media only screen and (max-width: 500px) {
