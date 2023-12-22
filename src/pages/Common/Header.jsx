@@ -5,9 +5,9 @@ import axios from '../../api/axios';
 import MaterialUISwitch from './MaterialUISwitch';
 
 function Header() {
-    const [isHeaderVisible, setIsHeaderVisible] = useState(true);
-    const [prevScrollPos, setPrevScrollPos] = useState(0);
-    const [scrolled, setScrolled] = useState(false);
+    // const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+    // const [prevScrollPos, setPrevScrollPos] = useState(0);
+    // const [scrolled, setScrolled] = useState(false);
     const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem('isAuthenticated') ? true : false);
     const [authNavDropdown, setAuthNavDropdown] = useState(false);
     const [searchInput, setSearchInput] = useState('');
@@ -26,41 +26,41 @@ function Header() {
         setIsAuthenticated(false);
     };
 
-    useEffect(() => {
-        const handleScroll = () => {
+    // useEffect(() => {
+    //     const handleScroll = () => {
 
-            const currentScrollPos = window.pageYOffset;
-            setPrevScrollPos(currentScrollPos);
+    //         const currentScrollPos = window.pageYOffset;
+    //         setPrevScrollPos(currentScrollPos);
 
-            // Check if the user has scrolled 100px from the top
-            if (currentScrollPos > 100) {
-                setScrolled(true);
-            } else {
-                setScrolled(false);
-            }
+    //         // Check if the user has scrolled 100px from the top
+    //         if (currentScrollPos > 100) {
+    //             setScrolled(true);
+    //         } else {
+    //             setScrolled(false);
+    //         }
 
-            // Check if the user is scrolling up or down
-            const isScrollingDown = currentScrollPos > prevScrollPos;
+    //         // Check if the user is scrolling up or down
+    //         const isScrollingDown = currentScrollPos > prevScrollPos;
 
-            // Update the scroll direction
-            if (isScrollingDown && isHeaderVisible) {
-                setIsHeaderVisible(false);
-            } else if (!isScrollingDown && !isHeaderVisible) {
-                setIsHeaderVisible(true);
-            }
+    //         // Update the scroll direction
+    //         if (isScrollingDown && isHeaderVisible) {
+    //             setIsHeaderVisible(false);
+    //         } else if (!isScrollingDown && !isHeaderVisible) {
+    //             setIsHeaderVisible(true);
+    //         }
 
-            // Update the previous scroll position
-            setPrevScrollPos(currentScrollPos);
-        };
+    //         // Update the previous scroll position
+    //         setPrevScrollPos(currentScrollPos);
+    //     };
 
-        // Add a scroll event listener
-        window.addEventListener('scroll', handleScroll);
+    //     // Add a scroll event listener
+    //     window.addEventListener('scroll', handleScroll);
 
-        // Clean up the event listener on unmount
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, [isHeaderVisible, prevScrollPos]);
+    //     // Clean up the event listener on unmount
+    //     return () => {
+    //         window.removeEventListener('scroll', handleScroll);
+    //     };
+    // }, [isHeaderVisible, prevScrollPos]);
 
     // Function to handle live search
     const handleLiveSearch = async () => {
@@ -127,8 +127,8 @@ function Header() {
         <>
             <header
                 id="header"
-                className={`${location.pathname === "/" ? 'home' : ''} ${scrolled ? 'scrolled' : ''} ${!isHeaderVisible ? 'hide' : ''}`}
-                style={{ top: isHeaderVisible ? '0px' : '-80px' }}
+                // className={`${location.pathname === "/" ? 'home' : ''} ${scrolled ? 'scrolled' : ''} ${!isHeaderVisible ? 'hide' : ''}`}
+                // style={{ top: isHeaderVisible ? '0px' : '-80px' }}
             >
                 <div className="logo_container">
                     <div className="logo_thumbnail"></div>

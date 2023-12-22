@@ -60,7 +60,6 @@ function ShoppingCartItem({ cartItem, removeCartItem, fetchCartList }) {
         <Link to={`/product_detail/${cartItem.product.id}`} className="sc_item_title">
           {cartItem.product.name}
         </Link>
-        <div className="sc_item_desc">{cartItem.product.description}</div>
         <div className="sc_item_price">{formatIndianRupee(cartItem.product.price)}</div>
         <div className="sc_item_bottom">
           <div className="quantity_selection">
@@ -100,8 +99,8 @@ function ShoppingCartItem({ cartItem, removeCartItem, fetchCartList }) {
                 fill="black"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M5.99142 7.91718C6.03363 7.53735 6.35468 7.25 6.73684 7.25H17.2632C17.6453 7.25 17.9664 7.53735 18.0086 7.91718L18.2087 9.71852C18.5715 12.9838 18.5715 16.2793 18.2087 19.5446L18.189 19.722C18.045 21.0181 17.0404 22.0517 15.7489 22.2325C13.2618 22.5807 10.7382 22.5807 8.25108 22.2325C6.95954 22.0517 5.955 21.0181 5.81098 19.722L5.79128 19.5446C5.42846 16.2793 5.42846 12.9838 5.79128 9.71852L5.99142 7.91718ZM7.40812 8.75L7.2821 9.88417C6.93152 13.0394 6.93152 16.2238 7.28210 19.379L7.30180 19.5563C7.37011 20.1710 7.84652 20.6612 8.45905 20.7470C10.8082 21.0758 13.1918 21.0758 15.5409 20.7470C16.1535 20.6612 16.6299 20.1710 16.6982 19.5563L16.71790 19.379C17.0685 16.2238 17.0685 13.0394 16.7179 9.88417L16.5919 8.75H7.40812Z"
                 fill="black"
               />
