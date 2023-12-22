@@ -25,7 +25,6 @@ function CartList({ fetchCartList, isLoading, cartList, setCartList, setCartCoun
             setCartList(cartList.filter((item) => item.product.id !== product.id));
             setCartCount(cartCount - 1);
         } catch (error) {
-            console.log(error);
         }
     }
 

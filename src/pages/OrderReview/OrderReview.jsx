@@ -25,11 +25,8 @@ function OrderReview() {
             )
             setOrders(response.data.orders);
             setOrderProducts(response.data.order_products);
-            console.log(response.data.orders)
-            console.log(response.data.order_products)
         }
         catch (error) {
-            console.log(error)
         }
         finally {
             setIsLoading(false)

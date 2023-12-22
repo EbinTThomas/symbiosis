@@ -28,7 +28,6 @@ function ShoppingCart() {
             setCartList(response.data);
             setCartCount(response.data.length);
         } catch (error) {
-            console.log(error);
         } finally {
             setIsLoading(false);
         }

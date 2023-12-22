@@ -48,7 +48,6 @@ function NewsDetail() {
             });
             setNewsDetail(response.data);
         } catch (error) {
-            console.log(error);
         }
         setIsLoading(false);
     };

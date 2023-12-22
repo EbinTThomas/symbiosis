@@ -21,7 +21,6 @@ function SearchResults() {
             });
             setProducts(response.data);
         } catch (error) {
-            console.log(error);
         }
     }
 

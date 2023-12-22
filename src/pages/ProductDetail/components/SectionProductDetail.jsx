@@ -28,11 +28,9 @@ function SectionProductDetail({ productDetail }) {
                 }
 
             )
-            console.log(response.data)
             setIsInCart(true);
             setCartCount(cartCount + 1);
         } catch (error) {
-            console.log(error);
         }
     }
 
@@ -52,7 +50,6 @@ function SectionProductDetail({ productDetail }) {
                     setWishListed(false);
                 }
             } catch (error) {
-                console.log(error);
             }
         }
     }
@@ -83,7 +80,6 @@ function SectionProductDetail({ productDetail }) {
                 // Remove the product from the wishList and update wishListProductIds
                 setWishListed(false);
             } catch (error) {
-                console.log(error);
             }
         } else {
             // Add the product to the wishlist
@@ -101,7 +97,6 @@ function SectionProductDetail({ productDetail }) {
                 // Add the product to the wishList and update wishListProductIds
                 setWishListed(true);
             } catch (error) {
-                console.log(error);
             }
         }
     }
@@ -114,8 +109,6 @@ function SectionProductDetail({ productDetail }) {
                     'Authorization': `Token ${token}`,
                 },
             });
-
-            console.log(response.data);
 
             if (Array.isArray(response.data)) {
                 const productIdsInCart = response.data.map(cartItem => cartItem.product.id);
@@ -130,7 +123,6 @@ function SectionProductDetail({ productDetail }) {
                 setIsInCart(false);
             }
         } catch (error) {
-            console.log(error);
         }
     };
 

@@ -112,7 +112,6 @@ function Auth() {
         e.preventDefault();
         const auth_token = JSON.parse(localStorage.getItem('user')).auth_token;
         const otpString = otp.join('');
-        console.log(auth_token);
 
         axios.post(
             VERIFY_EMAIL,
@@ -121,7 +120,6 @@ function Auth() {
                 auth_token: auth_token,
             }
         ).then((res) => {
-            console.log(res.data);
             navigate('/auth/verified');
         }).catch((err) => {
             setErrMsg(err.message);

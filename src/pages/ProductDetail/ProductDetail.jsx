@@ -22,7 +22,6 @@ function ProductDetail() {
       });
       setProductDetail(response.data);
     } catch (error) {
-      console.log(error);
     }
     setIsLoading(false);
   }

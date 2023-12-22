@@ -48,7 +48,6 @@ function News() {
           'Content-Type': 'application/json'
         },
       });
-      console.log(response.data)
       if (response.data.length === 0) {
         setLastNews(true);
       } else {
@@ -56,7 +55,6 @@ function News() {
         setLastNewsId(response.data[response.data.length - 1].id);
       }
     } catch (error) {
-      console.log(error);
     }
     setIsLoading(false);
   };

@@ -74,7 +74,6 @@ function Header() {
                 setSearchBrands(response.data.brands);
                 setSearchProducts(response.data.products);
             } catch (error) {
-                console.log(error);
             }
         } else {
             // Clear search results if the search input is empty
@@ -119,7 +118,6 @@ function Header() {
             localStorage.setItem('theme', 'light');
             setTheme('light');
         }
-        console.log(theme); // This will log the updated theme
     };
 
 

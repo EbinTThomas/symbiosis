@@ -27,7 +27,6 @@ function Wishlist() {
       });
       setProducts(response.data.products);
     } catch (error) {
-      console.log(error);
     }
     setIsLoading(false);
   }
@@ -44,7 +43,6 @@ function Wishlist() {
       setProducts(products.filter((item) => item.id !== product_id));
       setProductIds(productIds.filter((id) => id !== product_id));
     } catch (error) {
-      console.log(error);
     }
   }
 

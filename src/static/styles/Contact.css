@@ -94,7 +94,7 @@
 .section_contact form.contact_form .form_field .phone_field input {
     position: absolute;
     border: 1px solid #e5e5e5;
-    border-radius: 12px;
+    border-radius: 16px;
     height: 60px;
     padding: 0 16px;
     padding-left: 50px;

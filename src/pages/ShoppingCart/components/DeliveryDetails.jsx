@@ -26,7 +26,6 @@ function DeliveryDetails({ fetchCartList, cartList }) {
                 setAddressFilled(true);
             }
         } catch (error) {
-            console.log(error);
         }
     }
 

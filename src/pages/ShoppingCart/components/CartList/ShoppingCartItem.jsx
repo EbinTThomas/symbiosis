@@ -38,7 +38,6 @@ function ShoppingCartItem({ cartItem, removeCartItem, fetchCartList }) {
       setIsQuantityChanged(false);
       fetchCartList();
     } catch (error) {
-      console.log(error);
     }
   };
   const formatIndianRupee = (amount) => {

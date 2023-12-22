@@ -9,14 +9,14 @@ function SectionRelatedProducts({ product }) {
 
   const fetchRelatedProducts = async () => {
     try {
-      const response = await axios.get(`/api/product/search/item/?query=${product.brand.name}`, {
+      const response = await axios.get(`/api/product/search/item/?brand_name=${product.brand.name}`, {
         headers: {
           'Content-Type': 'application/json'
         },
       });
       setRelatedProducts(response.data);
     } catch (error) {
-      console.log(error);
+      // Error handling
     } finally {
       setIsLoading(false)
     }
