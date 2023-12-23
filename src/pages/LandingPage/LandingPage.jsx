@@ -13,7 +13,7 @@ function LandingPage() {
     const [isLoading, setIsLoading] = useState(true);
     const fetchComponents = async () => {
         try {
-            const response = await axios.get(`/api/ad_page/?id=${1}`, {
+            const response = await axios.get(`/api/ad_page/?type=home`, {
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -47,7 +47,7 @@ function LandingPage() {
                                                 <ImageCarousel sliderImages={item.data.slides} />
                                             </section>
                                             : item.type === 'banner'
-                                                ? <Link to={item.data.brand ? `brand/${item.data.brand}` : item.data.product && `product_detail/${item.data.product}`}><img src={item.data.get_image} alt="" className="ad_banner" /></Link>
+                                                ? <Link to={item.data.brand ? `/brand/${item.data.brand}` : item.data.product && `/product_detail/${item.data.product}`}><img src={item.data.get_image} alt="" className="ad_banner" /></Link>
                                                 : item.type === 'grid'
                                                     ?
                                                     <section className="section_grid" id="section_product_list">

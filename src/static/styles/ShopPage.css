@@ -56,21 +56,20 @@
 .tag_flex_box .filter_wrap .filter_dropdown_container {
     position: absolute;
     background-color: var(--tab-background-color);
-    z-index: 999;
     border-radius: 8px;
     top: 32px;
     right: 0;
     border: 1px solid #f1f1f1;
     box-shadow: 0 0 6px #0000000f;
     width: 280px;
+    z-index: 999;
 }
 
 .tag_flex_box .filter_wrap .filter_dropdown_container .filter_dropdown_head {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #f1f1f1;
-    padding: 4px 16px;
-    padding-bottom: 6px;
+    padding: 16px;
 }
 
 .tag_flex_box .filter_wrap .filter_dropdown_container .filter_dropdown_head button {
@@ -136,7 +135,7 @@
     padding: 10px 0;
     overflow-y: scroll;
     min-height: 100px;
-    max-height: 200px;
+    max-height: 280px;
 }
 
 
@@ -195,7 +194,10 @@
 
 .tag_flex_box .filter_wrap .filter_dropdown_container .filter_dropdown_bottom {
     width: 100%;
+    position: absolute;
+    bottom: 0;
     border-top: 1px solid #f1f1f1;
+    background-color: #fff;
     padding: 16px;
     padding-top: 6px;
 }
@@ -331,6 +333,10 @@
 }
 
 #section_product_list .product_card .product_rating_container svg path {
+    fill: #d4d4d4;
+}
+
+#section_product_list .product_card .product_rating_container svg.success path {
     fill: #388e3c;
 }
 

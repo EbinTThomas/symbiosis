@@ -8,7 +8,6 @@ import News from './pages/News/News'
 import Contact from './pages/Contact/Contact'
 import NewsDetail from './pages/NewsDetail.jsx/NewsDetail'
 import Wishlist from './pages/Wishlist/Wishlist'
-import SearchResults from './pages/SearchResults/SearchResults'
 import RequireAuth from './pages/Common/RequireAuth'
 import Payment from './pages/Payment/Payment'
 import NotFound from './pages/Common/NotFound'
@@ -18,6 +17,8 @@ import './App.css'
 import Auth from './pages/Auth/Auth'
 import LandingPage from './pages/LandingPage/LandingPage'
 import OrderReview from './pages/OrderReview/OrderReview'
+import BrandPage from './pages/BrandPage/BrandPage'
+import OrderDetail from './pages/OrderDetail/OrderDetail'
 
 function App() {
   const { theme } = useLayoutContext();
@@ -35,7 +36,7 @@ function App() {
         <Route path="/auth/password_reset/success" element={<Auth />} />
         <Route path="/" element={<LandingPage />} />
         <Route path="/shop/" element={<ShopPage />} />
-        <Route path="/shop/:search_key" element={<SearchResults />} />
+        <Route path="/brand/:brand_name" element={<BrandPage />} />
         <Route path="/product_detail/:product_id" element={<ProductDetail />} />
         <Route element={<RequireAuth />}>
           <Route path="/shopping_cart" element={<ShoppingCart />} />
@@ -43,8 +44,10 @@ function App() {
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/payment/success" element={<Payment />} />
           <Route path="/payment/cancelled" element={<Payment />} />
+          
           <Route path="/orders" element={<Orders />} />
-          <Route path="/order_review/:id" element={<OrderReview />} />
+          <Route path="/order_detail/:order_id" element={<OrderDetail />} />
+          <Route path="/order_review/:order_id" element={<OrderReview />} />
         </Route>
         <Route path="/about" element={<About />} />
         <Route path="/news" element={<News />} />

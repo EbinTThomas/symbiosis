@@ -35,6 +35,10 @@
     fill: #d4d4d4;
 }
 
+.section_order_review .rating_container svg.success path {
+    fill: #388e3c;
+}
+
 .section_order_review .review_title {
     font-size: 18px;
     font-family: var(--font-family);

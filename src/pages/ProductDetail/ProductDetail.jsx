@@ -7,6 +7,7 @@ import Header from '../Common/Header'
 import axios from '../../api/axios'
 import { useParams } from 'react-router-dom'
 import BackButton from '../Common/BackButton'
+import Footer from '../Common/Footer'
 
 function ProductDetail() {
   const { product_id } = useParams();
@@ -43,6 +44,7 @@ function ProductDetail() {
           </>
         }
       </section>
+      <Footer />
     </>
   )
 }

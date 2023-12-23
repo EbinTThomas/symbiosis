@@ -26,6 +26,7 @@
     min-width: 100px;
     height: 100px;
     object-fit: contain;
+    border-radius: 8px;
 }
 
 .section_orders_page .order_container .desktop_order_product .order_product_details .order_product_name {
@@ -62,6 +63,10 @@
 
 .section_orders_page .order_container .desktop_order_product .order_status_details .order_status .order_status_theme.danger {
     background-color: tomato;
+}
+
+.section_orders_page .order_container .desktop_order_product .order_status_details .order_status .order_status_theme.warning {
+    background-color: #ffc107;
 }
 
 .section_orders_page .order_container .desktop_order_product .order_status_details .order_status {
@@ -106,6 +111,19 @@
     fill: #0070F2;
 }
 
+.section_orders_page .order_container .desktop_order_product .order_status_details .order_rating_details.rated svg {
+    width: 24px;
+    height: 24px;
+}
+
+.section_orders_page .order_container .desktop_order_product .order_status_details .order_rating_details.rated svg path {
+    fill: #d4d4d4;
+}
+
+.section_orders_page .order_container .desktop_order_product .order_status_details .order_rating_details.rated svg.success path {
+    fill: #388e3c;
+}
+
 .section_orders_page .order_container .mobile_order_product {
     display: none;
 }
@@ -141,6 +159,7 @@
         min-width: 80px;
         height: 80px;
         object-fit: contain;
+        border-radius: 8px;
     }
 
     .section_orders_page .order_container .mobile_order_product .order_details {

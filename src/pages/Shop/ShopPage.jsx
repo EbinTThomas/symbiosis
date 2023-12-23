@@ -60,6 +60,7 @@ function ShopPage() {
                     'Content-Type': 'application/json',
                 },
             });
+            
             setProducts(response.data);
         } catch (error) {
         }
