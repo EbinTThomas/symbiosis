@@ -29,7 +29,7 @@ function ImageCarousel({sliderImages}) {
         >
             {sliderImages.map((sliderImage, i) => (
                 <SwiperSlide key={i}>
-                    <Link to={sliderImage.brand ? `/brand/${sliderImage.brand}` : sliderImage.product && `/product/${sliderImage.product}`}>
+                    <Link to={sliderImage.brand ? `/brand/${sliderImage.brand}` : sliderImage.product && `/product_detail/${sliderImage.product}`}>
                         <img src={sliderImage.get_image} alt="" className="slider_image" />
                     </Link>
                 </SwiperSlide>
