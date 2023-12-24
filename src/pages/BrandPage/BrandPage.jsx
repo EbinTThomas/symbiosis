@@ -10,7 +10,7 @@ import ImageCarousel from '../LandingPage/components/ImageCarousel';
 import ImageGrid from '../LandingPage/components/ImageGrid';
 
 function BrandPage() {
-    const { brand_name } = useParams();
+    const { brand_id } = useParams();
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -31,7 +31,7 @@ function BrandPage() {
 
     const fetchBrandProducts = async () => {
         try {
-            const response = await axios.get(`/api/product/search/item/?brand_name=${brand_name}`, {
+            const response = await axios.get(`/api/product/search/item/?brand_ids=${brand_id}`, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -46,7 +46,7 @@ function BrandPage() {
     useEffect(() => {
         fetchComponents()
         fetchBrandProducts()
-    }, [brand_name])
+    }, [brand_id])
 
     return (
         <>

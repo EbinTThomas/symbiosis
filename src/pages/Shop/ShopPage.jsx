@@ -42,7 +42,8 @@ function ShopPage() {
                     'Content-Type': 'application/json',
                 },
             });
-            setBrandList(response.data);
+            const brandListWithSelection = response.data.map(brand => ({ ...brand, selected: false }));
+            setBrandList(brandListWithSelection);
         } catch (error) {
         }
     };
@@ -52,17 +53,18 @@ function ShopPage() {
     };
 
     const handleFilter = async () => {
-        const selectedBrands = brandList.filter(brand => brand.selected).map(brand => brand.name);
+        const selectedBrandIds = brandList.filter(brand => brand.selected).map(brand => brand.id);
 
         try {
-            const response = await axios.get(`/api/product/search/item/?brand_name=${selectedBrands.join(',')}`, {
+            const response = await axios.get(`/api/product/search/item/?brand_ids=${selectedBrandIds.join(',')}`, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
             });
-            
+
             setProducts(response.data);
         } catch (error) {
+            // Handle error
         }
         setIsFilterOpen(false);
     }
@@ -72,10 +74,10 @@ function ShopPage() {
         fetchBrandList();
     }, []);
 
-    const toggleBrandSelection = (brandName) => {
+    const toggleBrandSelection = (brandId) => {
         setBrandList(prevBrandList => {
             const updatedBrandList = prevBrandList.map(brand => {
-                if (brand.name === brandName) {
+                if (brand.id === brandId) {
                     return {
                         ...brand,
                         selected: !brand.selected,
@@ -162,7 +164,7 @@ function ShopPage() {
                                                             <input
                                                                 type="checkbox"
                                                                 id={brand.name}
-                                                                onChange={() => toggleBrandSelection(brand.name)}
+                                                                onChange={() => toggleBrandSelection(brand.id)}
                                                                 checked={brand.selected}
                                                             />
                                                             {brand.name}

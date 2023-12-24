@@ -183,7 +183,7 @@ function Header() {
                                             {searchBrands.map((searchResult) => (
                                                 <li key={searchResult.id}>
                                                     <Link
-                                                        to={`/brand/${searchResult.name}`}
+                                                        to={`/brand/${searchResult.id}`}
                                                         className="search_suggestion"
                                                         onClick={() => setSearchInput('')}
                                                     >

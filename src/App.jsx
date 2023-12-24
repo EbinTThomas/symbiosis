@@ -36,7 +36,7 @@ function App() {
         <Route path="/auth/password_reset/success" element={<Auth />} />
         <Route path="/" element={<LandingPage />} />
         <Route path="/shop/" element={<ShopPage />} />
-        <Route path="/brand/:brand_name" element={<BrandPage />} />
+        <Route path="/brand/:brand_id" element={<BrandPage />} />
         <Route path="/product_detail/:product_id" element={<ProductDetail />} />
         <Route element={<RequireAuth />}>
           <Route path="/shopping_cart" element={<ShoppingCart />} />
