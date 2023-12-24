@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+    margin-bottom: 32px;
 }
 
 .section_orders_page .order_container .desktop_order_product {
@@ -11,10 +12,10 @@
     grid-template-columns: 50% 120px 1fr;
     width: 100%;
     gap: 24px;
-    background-color: #fff;
+    background-color: #fbfbfb;
     border-radius: 8px;
     padding: 12px;
-    border: 1px solid #e5e5e5;
+    border: 1px solid #d4d4d4;
 }
 
 .section_orders_page .order_container .desktop_order_product .order_product_details {
@@ -146,18 +147,18 @@
 
     .section_orders_page .order_container .mobile_order_product {
         display: grid;
-        grid-template-columns: 50px 1fr 40px;
+        grid-template-columns: 60px 1fr 32px;
         width: 100%;
-        gap: 40px;
-        background-color: #fff;
+        gap: 10px;
+        background-color: #fbfbfb;
         border-radius: 8px;
         padding: 12px;
-        border: 1px solid #e5e5e5;
+        border: 1px solid #d4d4d4;
     }
 
     .section_orders_page .order_container .mobile_order_product .order_product_thumb {
-        min-width: 80px;
-        height: 80px;
+        min-width: 60px;
+        height: 60px;
         object-fit: contain;
         border-radius: 8px;
     }
@@ -169,9 +170,9 @@
     }
 
     .section_orders_page .order_container .mobile_order_product .order_details .order_status {
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 600;
-        text-wrap: nowrap;
+        text-wrap: wrap;
         color: #040404;
         display: flex;
         align-items: center;
@@ -194,15 +195,21 @@
         background-color: tomato;
     }
 
+    .section_orders_page .order_container .mobile_order_product .order_details .order_status .order_status_theme.warning {
+        background-color: #ffc107;
+    }
+
     .section_orders_page .order_container .mobile_order_product .order_details .order_product_name {
         font-size: 14px;
         font-weight: 400;
         text-wrap: wrap;
         color: #040404;
-        display: flex;
-        align-items: center;
         text-overflow: ellipsis;
-        gap: 4px;
+        height: 36px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
         font-family: var(--font-family);
     }
 
@@ -226,7 +233,7 @@
         font-weight: 400;
         padding-top: 6px;
     }
-    
+
     .section_orders_page .order_container .mobile_order_product .order_nav_arrow {
         display: flex;
         justify-content: center;

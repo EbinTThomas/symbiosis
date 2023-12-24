@@ -42,7 +42,7 @@ function OrderReview() {
 
     useEffect(() => {
         fetchOrderDetail();
-    }, [id])
+    }, [order_id])
 
     const handleStarClick = (quantity) => {
         setStarRating(quantity);
@@ -55,7 +55,7 @@ function OrderReview() {
                     "rating": starRating,
                     "review_description": reviewDescription,
                     "review_title": reviewTitle,
-                    "order_id": id,
+                    "order_id": order_id,
                 },
                 {
                     headers: {
