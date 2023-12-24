@@ -92,7 +92,6 @@ function SectionProductList({ products }) {
             <div className="product_details">
               <h4 className="product_title">{product.name}</h4>
               <div className="product_brand_name">{product.brand.name}</div>
-              {/* <p className="product_desc">{product.description}</p> */}
               <div className="product_rating_flexbox">
                 <div className="product_rating_container">
                   <div className="star_ratings">
