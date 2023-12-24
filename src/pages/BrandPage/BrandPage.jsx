@@ -53,6 +53,7 @@ function BrandPage() {
             <Header />
             <section id="section_landing">
                 {
+                    pageComponents.length > 0 &&
                     pageComponents.map((item) => (
                         <div className="section_landing_item">
                             {
