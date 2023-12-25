@@ -16,30 +16,6 @@ const CONFIRM_EMAIL_URL = '/api/account/password-reset-request/';
 const RESET_PASSWORD_URL = '/api/account/password-reset/';
 
 function Auth() {
-    const slides = [
-        {
-            "id": 1,
-            "image": "https://cdn.dribbble.com/userupload/7837926/file/original-bf485f50c18158099dfd2acb3bee7f96.png?resize=1200x800",
-            "product": {
-                "id": 2
-            }
-        },
-        {
-            "id": 2,
-            "image": "./assets/img/square.jpg",
-            "product": {
-                "id": 1
-            }
-        },
-        {
-            "id": 3,
-            "image": "./assets/img/square.jpg",
-            "product": {
-                "id": 3
-            }
-        }
-    ]
-
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [confirmPassword, setConfirmPassword] = useState();
@@ -185,7 +161,14 @@ function Auth() {
     const handleBack = () => {
         navigate(-1, { replace: true })
     }
-
+    
+    useEffect(() => {
+        const isAuthenticated = localStorage.getItem('isAuthenticated');
+        if (isAuthenticated) {
+            navigate(from, { replace: true });
+        }
+    }, [from, navigate]);
+    
     return (
         <>
             <Helmet>
@@ -328,7 +311,7 @@ function Auth() {
                         </div>
                     </div>
                     <div className="flex_item ad">
-                        <img src={slides[0].image} className="ad_image" alt="" />
+                        <img src="https://cdn.dribbble.com/userupload/7837926/file/original-bf485f50c18158099dfd2acb3bee7f96.png?resize=1200x800" className="ad_image" alt="" />
                     </div>
                 </div>
             </section>

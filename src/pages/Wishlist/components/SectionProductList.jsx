@@ -37,7 +37,7 @@ function SectionProductList({ products, removeFromWishlist }) {
     return (
         <section id="section_product_list">
             {products.map(product => (
-                <div className="product_wrap">
+                <div className="product_wrap" key={product.id}>
                     <Link to={`/product_detail/${product.id}`} className="product_card" key={product.id}>
                         <img src={product.get_image ? product.get_image : '/assets/img/temp.jpg'} alt="" className="product_thumbnail" />
                         <div className="product_details">

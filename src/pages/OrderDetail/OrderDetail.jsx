@@ -26,11 +26,9 @@ function OrderDetail() {
                     }
                 }
             )
-            console.log(response.data)
             setOrder(response.data);
         }
         catch (error) {
-            console.log(error)
         }
         finally {
             setIsLoading(false)

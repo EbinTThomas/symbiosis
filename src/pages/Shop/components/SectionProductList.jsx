@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from '../../../api/axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import StarRating from './StarRating';
 
 function SectionProductList({ products }) {
+  const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem('isAuthenticated') ? true : false);
   const token = localStorage.getItem('token');
+  const navigate = useNavigate();
   const [wishList, setWishList] = useState([]);
   const [wishListProductIds, setWishListProductIds] = useState([]);
 
@@ -76,7 +78,7 @@ function SectionProductList({ products }) {
     <section id="section_product_list">
       {products.map(product => (
         <div to={`/product_detail/${product.id}`} className="product_card" key={product.id}>
-          <button className="add_to_wishlist_btn" onClick={() => toggleWishlist(product)}>
+          <button className="add_to_wishlist_btn" onClick={() => isAuthenticated ? toggleWishlist(product) : navigate('/auth/login')}>
             {wishListProductIds.includes(product.id) ? (
               <svg className="active" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8.4 5.25C5.61914 5.25 3.25 7.3293 3.25 10.0298C3.25 11.8927 4.12235 13.4612 5.27849 14.7604C6.43066 16.0552 7.91714 17.142 9.26097 18.0516L11.5796 19.6211C11.8335 19.793 12.1665 19.793 12.4204 19.6211L14.739 18.0516C16.0829 17.142 17.5693 16.0552 18.7215 14.7604C19.8777 13.4612 20.75 11.8927 20.75 10.0298C20.75 7.3293 18.3809 5.25 15.6 5.25C14.1665 5.25 12.9052 5.92214 12 6.79183C11.0948 5.92214 9.83347 5.25 8.4 5.25Z" fill="black" />

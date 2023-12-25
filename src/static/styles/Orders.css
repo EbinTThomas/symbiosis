@@ -101,6 +101,9 @@
     font-size: 14px;
     font-weight: 500;
     text-wrap: nowrap;
+    background-color: transparent;
+    border: none;
+    outline: none;
 }
 
 .section_orders_page .order_container .desktop_order_product .order_status_details .order_rating_details svg {
@@ -211,6 +214,13 @@
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
         font-family: var(--font-family);
+    }
+    
+    .section_orders_page .order_container .mobile_order_product .order_details .order_rating_details .rate_now_btn {
+        background-color: transparent;
+        border: none;
+        text-align: start;
+        outline: none;
     }
 
     .section_orders_page .order_container .mobile_order_product .order_details .order_rating_details svg {

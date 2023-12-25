@@ -352,6 +352,10 @@
 }
 
 .section_related_products .rp_products_container .product_card .product_rating_container svg path {
+    fill: #d4d4d4;
+}
+
+.section_related_products .rp_products_container .product_card .product_rating_container svg.success path {
     fill: #388e3c;
 }
 
@@ -525,10 +529,6 @@
 
     .section_related_products .rp_products_container .product_card .product_rating_container svg {
         width: 14px;
-    }
-
-    .section_related_products .rp_products_container .product_card .product_rating_container svg path {
-        fill: #388e3c;
     }
 
     .section_related_products .rp_products_container .product_card .product_rating_container .total_ratings {
