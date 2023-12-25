@@ -1,6 +1,6 @@
 https://shop.symbiosistrading.com
 https://shop.symbiosistrading.com/auth/login
-https://shop.symbiosistrading.com//auth/signup
+https://shop.symbiosistrading.com/auth/signup
 https://shop.symbiosistrading.com/shop
 https://shop.symbiosistrading.com/brand/:brand_id
 https://shop.symbiosistrading.com/product_detail/:product_id
