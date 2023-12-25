@@ -1,0 +1,16 @@
+User-agent: *
+
+Allow: /
+
+Disallow: /auth/verify_mail
+Disallow: /auth/verified
+Disallow: /auth/password_reset/request
+Disallow: /auth/password_reset/email
+Disallow: /auth/password_reset/confirmation
+Disallow: /auth/password_reset/success
+Disallow: /auth/password_reset/shopping_cart
+Disallow: /auth/password_reset/shopping_cart/delivery_details
+Disallow: /auth/password_reset/shopping_cart/wishlist
+Disallow: /auth/password_reset/shopping_cart/payment/success
+Disallow: /auth/password_reset/shopping_cart/payment/cancelled
+Disallow: /auth/password_reset/shopping_cart/payment/orders
