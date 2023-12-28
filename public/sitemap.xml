@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://shop.symbiosistrading.com</loc>
+    <loc>https://main--resonant-cranachan-876f44.netlify.app</loc>
   </url>
   <url>
-    <loc>https://shop.symbiosistrading.com/auth/login</loc>
+    <loc>https://main--resonant-cranachan-876f44.netlify.app/auth/login</loc>
   </url>
   <url>
-    <loc>https://shop.symbiosistrading.com/auth/signup</loc>
+    <loc>https://main--resonant-cranachan-876f44.netlify.app/auth/signup</loc>
   </url>
   <url>
-    <loc>https://shop.symbiosistrading.com/shop</loc>
+    <loc>https://main--resonant-cranachan-876f44.netlify.app/shop</loc>
   </url>
   <url>
-    <loc>https://shop.symbiosistrading.com/about</loc>
+    <loc>https://main--resonant-cranachan-876f44.netlify.app/about</loc>
   </url>
   <url>
-    <loc>https://shop.symbiosistrading.com/contact</loc>
+    <loc>https://main--resonant-cranachan-876f44.netlify.app/contact</loc>
   </url>
 </urlset>
