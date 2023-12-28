@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://shop.symbiosistrading.com</loc>
+  </url>
+  <url>
+    <loc>https://shop.symbiosistrading.com/auth/login</loc>
+  </url>
+  <url>
+    <loc>https://shop.symbiosistrading.com/auth/signup</loc>
+  </url>
+  <url>
+    <loc>https://shop.symbiosistrading.com/shop</loc>
+  </url>
+  <url>
+    <loc>https://shop.symbiosistrading.com/about</loc>
+  </url>
+  <url>
+    <loc>https://shop.symbiosistrading.com/contact</loc>
+  </url>
+</urlset>
